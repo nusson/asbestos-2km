@@ -83,7 +83,7 @@ export default {
 <template>
   <header class="TheHeader">
     <template v-if="isDesktop">
-      <nav class="navbar -main">
+      <nav class="navbar">
         <ul class="list routes">
           <li
             v-for="{slug, label} in menu.left"
@@ -97,9 +97,8 @@ export default {
           <li class="item route -logo">
             <router-link
               :to="{name: `home.${locale}`}"
-              class="logo">
-              <LogoSvg />
-            </router-link>
+              class="logo"
+              v-text="'Asbestos 2.0'"/>
           </li>
           <li
             v-for="{slug, label} in menu.right"
@@ -118,7 +117,7 @@ export default {
     </template>
 
     <template v-else>
-      <div class="navbar -main">
+      <div class="navbar">
         <button
           :data-active="mobileMenuIsOpen"
           class="link burger _no-btn"
@@ -126,10 +125,9 @@ export default {
           v-html="svg.burger"/>
         <router-link
           :to="{name: `home.${locale}`}"
-          class="logo">
-          <LogoSvg />
-        </router-link>
-        <span class="nothing"/>
+          class="logo"
+          v-text="'Asbestos 2.0'" />
+        <span class="nothing-for-flex"/>
       </div>
       <nav
         :data-shown="mobileMenuIsOpen"
@@ -175,9 +173,7 @@ export default {
     z-index $z-navbar
 
   .logo
-    display inline-block
-    size 170px 63px
-    margin-left 17px
+    //
 
   .link
     cursor pointer
@@ -200,6 +196,7 @@ export default {
     z-index $z-navbar
     background-color $c-white
     box-shadow: 0px 0px 10px $c-dark;
+    responsive-prop(height, $h-header)
     .list.routes
       size 100%
       padding-left 10px
@@ -208,31 +205,12 @@ export default {
       center-margin()
       flexbox(row, $align:center)
 
-    &.-main
-      background-color $c-blue
-      responsive-prop(height, $h-header)
-
-  .main-links-wrapper
-    width 60%
-    height 100%
-    margin 0 1%
-    position relative
-    >.list
-      height 100%
-      flexbox(row, $align:center)
-    .marker
-      absolute top left
-      width 100px
-      height 4px
-      background-color $c-accent
-
   /* ===MOBILE=== */
   +mobile()
     .logo
-      size 120px 45px
+      //
     .navbar
       flexbox(row)
-      height 100%
       x-padding(20px)
     .burger
       size 20px
@@ -260,6 +238,7 @@ export default {
     display flex
     justify-content center
     align-items flex-start
+    // @todo use transition vue
     &:not([data-shown])
       transform translateX(-100%)
       transition-timing-function easing('in-quad')
