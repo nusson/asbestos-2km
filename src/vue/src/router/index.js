@@ -18,16 +18,16 @@ import defaultLocale from 'utils/defaultLocale';
 import settings from 'src/settings';
 import routesMap from 'routes';
 
-const Home = () => import(/* webpackChunkName: "pages-home" */ 'components/pages/Home');
-const Contact = () => import(/* webpackChunkName: "pages-contact" */ 'components/pages/Contact');
-const FourOFour = () => import(/* webpackChunkName: "pages-404" */ 'components/pages/FourOFour');
-const News = {
-  collection: () => import(/* webpackChunkName: "pages-works" */ 'components/pages/News/Collection'),
-  single: () => import(/* webpackChunkName: "pages-works" */ 'components/pages/News/Single'),
-};
-const Tests = {
-  demo: () => import(/* webpackChunkName: "pages-tests" */ 'components/pages/Tests/Demo'),
-};
+const Home = () => import(/* webpackChunkName: "pages-home" */ 'components/TheHomepage');
+// const Contact = () => import(/* webpackChunkName: "pages-contact" */ 'components/pages/Contact');
+// const FourOFour = () => import(/* webpackChunkName: "pages-404" */ 'components/pages/FourOFour');
+// const News = {
+//   collection: () => import(/* webpackChunkName: "pages-works" */ 'components/pages/News/Collection'),
+//   single: () => import(/* webpackChunkName: "pages-works" */ 'components/pages/News/Single'),
+// };
+// const Tests = {
+//   demo: () => import(/* webpackChunkName: "pages-tests" */ 'components/pages/Tests/Demo'),
+// };
 
 Vue.use(VueRouter);
 
@@ -36,25 +36,26 @@ Vue.use(VueRouter);
  * @param {String} id - route handle
  * @returns {VueComponent}
  */
-function getComponentById(id) {
-  switch (id) {
-    case 'home':
-      return Home;
-    case 'contact':
-      return Contact;
-    // News
-    case 'news':
-      return News.collection;
-    case 'article':
-      return News.single;
+function getComponentById(/* id */) {
+  return Home;
+  // switch (id) {
+  //   case 'home':
+  //     return Home;
+  //   case 'contact':
+  //     return Contact;
+  //   // News
+  //   case 'news':
+  //     return News.collection;
+  //   case 'article':
+  //     return News.single;
 
-    case 'demo':
-      return Tests.demo;
+  //   case 'demo':
+  //     return Tests.demo;
 
-    case '404':
-    default:
-      return FourOFour;
-  }
+  //   case '404':
+  //   default:
+  //     return FourOFour;
+  // }
 }
 
 /**
@@ -82,23 +83,23 @@ const defaultRoutes = [
     path: '/',
     redirect: { name: `home.${ defaultLocale }` },
   },
-  {
-    path: '/:locale/*',
-    redirect: (to) => {
-      const { params } = to;
-      let { locale } = params;
-      if (indexOf(settings.locales, locale) < 0) {
-        locale = defaultLocale;
-      }
-      return {
-        name: `404.${ locale }`,
-      };
-    },
-  },
-  {
-    path: '*',
-    redirect: { name: `404.${ defaultLocale }` },
-  },
+  // {
+  //   path: '/:locale/*',
+  //   redirect: (to) => {
+  //     const { params } = to;
+  //     let { locale } = params;
+  //     if (indexOf(settings.locales, locale) < 0) {
+  //       locale = defaultLocale;
+  //     }
+  //     return {
+  //       name: `404.${ locale }`,
+  //     };
+  //   },
+  // },
+  // {
+  //   path: '*',
+  //   redirect: { name: `404.${ defaultLocale }` },
+  // },
 ];
 
 /**

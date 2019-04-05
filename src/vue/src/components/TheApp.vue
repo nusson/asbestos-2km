@@ -113,7 +113,7 @@ export default {
     position relative
     width 100%
     responsive-prop(height, 100% auto)
-    // responsive-prop(padding-top, $h-header)
+    responsive-prop(padding-top, $h-header)
     .app_content
       flexbox(column)
       size 100%
