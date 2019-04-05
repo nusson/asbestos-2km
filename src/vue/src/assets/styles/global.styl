@@ -1,0 +1,47 @@
+/**
+ *	#Global
+ *  > generic style, like a reset ++
+ *
+ *	@author	KFFEIN	<dev@kffein.com>
+ */
+ 
+html
+  height 100%
+  font-size $kff-fz-base
+
+body
+  height 100%;
+  font-size 100%
+  background $c-white
+  color $c-black
+  responsive-prop(overflow, hidden auto)
+  f-style('default')
+  &[data-scrollable="false"]
+    overflow hidden
+    height var(--viewport-height)
+
+
+// Smoother font
+*
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+a
+  color inherit
+  text-decoration none
+
+img
+  display inline-block
+  max-width 100%
+  outline none
+
+svg
+  display block
+  size 100%
+
+.btn
+  button()
+
+.icon
+  display inline-block
+
