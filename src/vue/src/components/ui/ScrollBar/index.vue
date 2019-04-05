@@ -13,6 +13,12 @@
 
   export default {
     name: 'SmoothScrollBar',
+    props: {
+      tag: {
+        type: String,
+        default: 'div',
+      },
+    },
     data() {
       return {
         scrollbar: null,
@@ -59,11 +65,12 @@
 </script>
 
 <template>
-  <div
+  <component
     ref="scrollArea"
+    :is="tag"
     class="smooth-scrollbar">
     <slot/>
-  </div>
+  </component>
 </template>
 
 <style lang="stylus" scoped>

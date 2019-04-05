@@ -10,21 +10,17 @@ import { mapGetters } from 'vuex';
 import Transitions from 'src/mixins/Transitions';
 import PageTransition from 'components/ui/PageTransition';
 import TheHeader from 'components/layout/TheHeader';
-import TheFooter from 'components/layout/TheFooter';
+// import TheFooter from 'components/layout/TheFooter';
 import TheLoader from 'components/TheLoader';
 import SmoothScrollBar from 'components/ui/ScrollBar';
-import BurgerMenu from 'components/layout/BurgerMenu';
 import Overlay from 'components/ui/Overlay';
-import TheNav from 'components/layout/TheNav';
 
 export default {
   name: 'TheApp',
   components: {
     TheHeader,
-    TheFooter,
+    // TheFooter,
     TheLoader,
-    TheNav,
-    BurgerMenu,
     Overlay,
     SmoothScrollBar,
     PageTransition,
@@ -59,7 +55,7 @@ export default {
         ._fullViewportH {
           height: ${this.viewport.height}px;
         }
-        :root {
+        :root { 
           --viewport-width: ${this.viewport.width}px;
           --viewport-height: ${this.viewport.height}px;
         }
@@ -78,27 +74,22 @@ export default {
     id="App"
     :data-debug-mode="$root.debug"
     :data-scrollable="scrollable.toString()">
-    <TheNav v-if="loaded"/>
-    <BurgerMenu />
-    <SmoothScrollBar :data-scrollable="scrollable.toString()">
-      <main class="app_content">
-        <TheHeader v-if="loaded"/>
-        <transition
-          :css="false"
-          :mode="mode"
-          appear
-          @enter="enter"
-          @after-enter="afterEnter"
-          @leave="leave"
-          @after-leave="afterLeave"
-          @before-enter="beforeEnter"
-          @before-leave="beforeLeave">
-          <router-view
-            ref="Page"
-            class="page"/>
-        </transition>
-        <TheFooter v-if="loaded"/>
-      </main>
+
+    <TheHeader v-if="loaded"/>
+
+    <SmoothScrollBar
+      :data-scrollable="scrollable.toString()"
+      tag="main"
+      class="app_content">
+      <transition
+        :css="false"
+        mode="in-out"
+        appear>
+        <router-view
+          ref="Page"
+          class="page"/>
+      </transition>
+      <!-- <TheFooter v-if="loaded"/> -->
     </SmoothScrollBar>
 
     <Overlay />
@@ -119,8 +110,10 @@ export default {
 
   /* ===LAYOUT=== */
   #App
+    position relative
     width 100%
     responsive-prop(height, 100% auto)
+    responsive-prop(padding-top, $h-header)
     .app_content
       flexbox(column)
       size 100%

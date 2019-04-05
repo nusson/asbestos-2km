@@ -9,26 +9,61 @@
 import { isBoolean } from 'lodash';
 
 export default {
-    namespaced: true,
-    state: {
-      open: false,
+  namespaced: true,
+  state() {
+    return {
+      mobileMenuIsOpen: false,
+      collectionMenuIsOpen: false,
+      thematicPannelIsOpen: false,
+      navigation: [],
+    };
+  },
+  mutations: {
+    TOGGLE_MOBILE_MENU(state, open) {
+      state.mobileMenuIsOpen = isBoolean(open) ? open : !state.mobileMenuIsOpen;
     },
-    mutations: {
-      TOGGLE_MENU(state, isOpen) {
-          state.open = isBoolean(isOpen) ? isOpen : !state.open;
-      },
+    TOGGLE_COLLECTIONS(state, open) {
+      state.collectionMenuIsOpen = isBoolean(open) ? open : !state.collectionMenuIsOpen;
     },
-    actions: {
-      OPEN_MENU({ commit }) {
-          commit('TOGGLE_MENU', true);
-      },
-      CLOSE_MENU({ commit }) {
-          commit('TOGGLE_MENU', false);
-      },
+    TOGGLE_THEMATIC_PANNEL(state, open) {
+      state.thematicPannelIsOpen = isBoolean(open) ? open : !state.thematicPannelIsOpen;
     },
-    getters: {
-        // we must return a function to watch it with this.$store.watch
-        // watch(fn: Function, callback: Function, options?: Object): Function
-        open: state => state.open,
+    STORE_NAVIGATION(state, navigation) {
+      state.navigation = navigation;
     },
+  },
+  actions: {
+    /* Mobile menu */
+    OPEN_MOBILE_MENU({ commit }) {
+      commit('TOGGLE_MOBILE_MENU', true);
+    },
+    CLOSE_MOBILE_MENU({ commit }) {
+      commit('TOGGLE_MOBILE_MENU', false);
+    },
+    TOGGLE_MOBILE_MENU({ commit }) {
+      commit('TOGGLE_MOBILE_MENU');
+    },
+    /* Collection sub menu */
+    OPEN_COLLECTIONS_MENU({ commit }) {
+      commit('TOGGLE_COLLECTIONS', true);
+    },
+    CLOSE_COLLECTIONS_MENU({ commit }) {
+      commit('TOGGLE_COLLECTIONS', false);
+    },
+    TOGGLE_COLLECTIONS_MENU({ commit }) {
+      commit('TOGGLE_COLLECTIONS');
+    },
+    /* Thematic pannel */
+    OPEN_THEMATIC_PANNEL({ commit }) {
+      commit('TOGGLE_THEMATIC_PANNEL', true);
+    },
+    CLOSE_THEMATIC_PANNEL({ commit }) {
+      commit('TOGGLE_THEMATIC_PANNEL', false);
+    },
+    TOGGLE_THEMATIC_PANNEL({ commit }) {
+      commit('TOGGLE_THEMATIC_PANNEL');
+    },
+  },
+  getters: {
+  },
 };

@@ -8,6 +8,16 @@
 $kff-w-max = 1280px // use to determine container max width
 $kff-w-basis = 1440px // photoshop size, use to calc ratio
 
+// Hack... because i don't know why is that important to have that much values and their implications
+// basicaly <900 = mobile, >=900 = desktop
+$kff-mq-phone = 900px
+$kff-mq-tablet-portrait = 900px
+$kff-mq-tablet = 900px
+$kff-mq-desktop = 901px
+$kff-mq-show-burger = $kff-mq-tablet
+rupture.desktop-cutoff = $kff-mq-desktop
+rupture.mobile-cutoff = $kff-mq-phone
+
 /*
   ===MARGIN===
 */
@@ -21,6 +31,14 @@ $kff-w-safe-margin-mobile = 15 // minimum horizontal margin for container on mob
 $z-index-navbar = 1000 
 $z-transition = 10000
 
-/*
-  ===PADDING===
-*/
+
+// Add your custom vars here
+$z-menu-mobile = 100
+$z-navbar = 200
+$z-search-pannel = 500
+$z-thematic-pannel = 50
+$z-sidebar = 20
+$z-footer = 30
+
+$h-header = 50px 30px
+$w-sidebar = 455px

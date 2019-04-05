@@ -16,13 +16,13 @@ export default {
       api: {
         url: 'globals',
         moc: debug,
-        getMoc(locale) {
-          return import(`assets/moc/globals/${locale}`);
+        getMoc(/* locale */) {
+          // return import(`assets/moc/globals/${locale}`);
+          return import('assets/moc/globals');
         },
       },
       data: {
         seo: null,
-        navigation: null,
         contact: {},
         socials: {},
         marquee: {
@@ -41,7 +41,7 @@ export default {
     };
   },
   mutations: {
-    SET_DATA(state, data) {
+    STORE_DATA(state, data) {
       state.data = data;
     },
   },
@@ -55,8 +55,13 @@ export default {
     LOAD({ commit, state }, locale) {
       if (!locale) return null;
       const request = ApiHelper.request(state.api)
+      // store navigation in Menu store and return the rest of the response
+      .then(({ navigation, ...response }) => {
+        this.commit('Menu/STORE_NAVIGATION', navigation);
+        return response;
+      })
       .then((response) => {
-        commit('SET_DATA', response);
+        commit('STORE_DATA', response);
         return response;
       });
 

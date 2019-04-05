@@ -31,6 +31,17 @@ export default {
               removeTags: true,
               removingTags: ['title', 'desc'],
               warnTags: ['defs', 'style'],
+              classPrefix: false,
+              idPrefix: false,
+            },
+          },
+          {
+            resourceQuery: /inline-optim/, // foo.svg?inline-optim
+            loader: 'svg-inline-loader',
+            options: {
+              removeTags: true,
+              removingTags: ['title', 'desc'],
+              warnTags: ['defs', 'style'],
               classPrefix: true,
               idPrefix: true,
             },

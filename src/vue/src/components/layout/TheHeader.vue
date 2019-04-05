@@ -1,13 +1,15 @@
 <docs>
 # TheHeader
->  The Header
+> The Header - NavBar + Menu
 
 @author KFFEIN <dev@kffein.com>
 </docs>
 
 <script>
+import { chunk } from 'lodash';
 import { mapGetters, mapState } from 'vuex';
 import LogoSvg from 'assets/svg/logo.svg?vue';
+import BurgerSvg from 'assets/svg/burger.svg?inline'; // inline to by-pass svg optimisation
 import LangSwitcher from 'components/misc/LangSwitcher';
 
 export default {
@@ -22,42 +24,132 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      svg: {
+        burger: BurgerSvg,
+      },
+    };
+  },
   computed: {
     ...mapGetters({
-      open: 'Menu/open',
-      menu: 'Global/menu',
+      isDesktop: 'Interface/isDesktop',
+    }),
+    ...mapState('Menu', {
+      mobileMenuIsOpen: ({ mobileMenuIsOpen }) => mobileMenuIsOpen,
+      collectionMenuIsOpen: ({ collectionMenuIsOpen }) => collectionMenuIsOpen,
+      navigation: ({ navigation }) => navigation,
     }),
     ...mapState('I18n', {
       locale: ({ locale }) => locale,
     }),
+    menu() {
+      if (this.isDesktop) {
+        const chunks = chunk(this.navigation, this.navigation.length / 2);
+        return {
+          left: chunks[0],
+          right: chunks[1],
+        };
+      }
+      return this.navigation;
+    },
+  },
+  mounted() {
+    this.autoClose();
+  },
+  methods: {
+    toggleMobileMenu() {
+      if (this.mobileMenuIsOpen) {
+        this.$store.dispatch('Menu/CLOSE_COLLECTIONS_MENU');
+      }
+      this.$store.dispatch('Menu/TOGGLE_MOBILE_MENU');
+    },
+    /**
+     * will close all menus (mobile, collections etc)
+     * when route change, when change layout mode (mobile/desktop)
+     */
+    autoClose() {
+      const close = () => {
+        this.$store.dispatch('Menu/CLOSE_COLLECTIONS_MENU');
+        this.$store.dispatch('Menu/CLOSE_MOBILE_MENU');
+      };
+      this.$router.afterEach(close);
+      this.$watch('isDesktop', close);
+    },
   },
 };
 </script>
 
 <template>
   <header class="TheHeader">
-    <div class="_container">
-      <div class="header-block">
-        <router-link :to="{name: `home.${locale}`}">
-          <LogoSvg class="logo" />
+    <template v-if="isDesktop">
+      <nav class="navbar -main">
+        <ul class="list routes">
+          <li
+            v-for="{slug, label} in menu.left"
+            :key="`route-${slug}`"
+            class="item route">
+            <a
+              :href="`#${slug}`"
+              class="link"
+              v-text="label"/>
+          </li>
+          <li class="item route -logo">
+            <router-link
+              :to="{name: `home.${locale}`}"
+              class="logo">
+              <LogoSvg />
+            </router-link>
+          </li>
+          <li
+            v-for="{slug, label} in menu.right"
+            :key="`route-${slug}`"
+            class="item route">
+            <a
+              :href="`#${slug}`"
+              class="link"
+              v-text="label"/>
+          </li>
+          <li class="item route -langSwitcher">
+            <LangSwitcher class="lang" />
+          </li>
+        </ul>
+      </nav>
+    </template>
+
+    <template v-else>
+      <div class="navbar -main">
+        <button
+          :data-active="mobileMenuIsOpen"
+          class="link burger _no-btn"
+          @click.prevent="toggleMobileMenu"
+          v-html="svg.burger"/>
+        <router-link
+          :to="{name: `home.${locale}`}"
+          class="logo">
+          <LogoSvg />
         </router-link>
-        <nav>
-          <ul>
-            <li
-              v-for="item in menu.primary"
-              :key="item.slug"
-            >
-              <router-link
-                :to="item.url"
-                class="link"
-                v-html="item.name"
-              />
-            </li>
-          </ul>
-        </nav>
-        <LangSwitcher />
+        <span class="nothing"/>
       </div>
-    </div>
+      <nav
+        :data-shown="mobileMenuIsOpen"
+        class="menu-mobile">
+        <ul class="list routes">
+          <li
+            v-for="{slug, label} in menu"
+            :key="`route-${slug}`"
+            class="item route">
+            <a
+              :href="`#${slug}`"
+              class="link"
+              v-text="label"/>
+          </li>
+          <li class="item route -langSwitcher">
+            <LangSwitcher class="lang" />
+          </li>
+        </ul>
+      </nav>
+    </template>
   </header>
 </template>
 
@@ -66,30 +158,146 @@ export default {
    * TABLE OF CONTENT
    * --------
    *  - LAYOUT
+   * =NAVBAR
+   * =MOBILE
    *  - DEBUG
    *  - NO_SCOPE
    */
 
   //  ===LAYOUT===
-  .TheHeader
-    vertical-padding(10)
+  .list.routes
+    position relative
+    z-index 100
 
-  .header-block
-    flexbox($align: center, $justify: space-between)
+  .TheHeader
+    fixed 0 0 false 0
+    color $c-dark
+    z-index $z-navbar
 
   .logo
-    width 50px
-    stroke $c-white
-    stroke-width 10px
-
-  ul
-    flexbox()
+    display inline-block
+    size 170px 63px
+    margin-left 17px
 
   .link
-    padding 8px
-    margin-left 8px
+    cursor pointer
+    f-style(menu)
+    color $c-dark
+    kff-transition color
+    .icon
+      fill $c-dark
+      kff-transition fill
+    .no-touchevents &:hover
+    &.active
+      color $c-accent
+      .icon
+        fill $c-accent
+
+  /* ===NAVBAR=== */
+  .navbar
+    position relative
+    width 100%
+    z-index $z-navbar
+    background-color $c-white
+    box-shadow: 0px 0px 10px $c-dark;
+    .list.routes
+      size 100%
+      padding-left 10px
+      padding-right 10px
+      max-width 1080px + 20px
+      center-margin()
+      flexbox(row, $align:center)
+
+    &.-main
+      background-color $c-blue
+      responsive-prop(height, $h-header)
+
+  .main-links-wrapper
+    width 60%
+    height 100%
+    margin 0 1%
+    position relative
+    >.list
+      height 100%
+      flexbox(row, $align:center)
+    .marker
+      absolute top left
+      width 100px
+      height 4px
+      background-color $c-accent
+
+  /* ===MOBILE=== */
+  +mobile()
+    .logo
+      size 120px 45px
+    .navbar
+      flexbox(row)
+      height 100%
+      x-padding(20px)
+    .burger
+      size 20px
+      >>> svg
+        stroke $c-dark
+        .close
+          display none
+      &[data-active] >>> svg
+        .open
+          display none
+        .close
+          display block
+
+  .menu-mobile
+    fixed 0
+    right 10vmin
+    scrollable()
+    padding-top 20px + $h-header[1]
+    padding-bottom 20px
+    text-align center
+    background-color $c-white
+    color $c-dark
+    z-index $z-menu-mobile
+    transition transform 0.6s easing('out-expo')
+    display flex
+    justify-content center
+    align-items flex-start
+    &:not([data-shown])
+      transform translateX(-100%)
+      transition-timing-function easing('in-quad')
+      transition-duration 0.4s
+
+    .list
+      width 100%
+      >.item
+        y-padding 1.2em
+    .collections
+      margin-top 20px
+      // max-width 375px
+      // x-margin auto
+
+
+    // .list.routes
+      // height 100%
 
   //  ===DEBUG===
-  [data-debug-mode="true"] .TheHeader
-    //
+  // [data-debug-mode="true"] .TheHeader
+    // background url('/DEBUG/menu-desktop.jpg') center top no-repeat
+    // height 320px
+    // width 1366px
+    // +mobile()
+    //   background url('/DEBUG/menu-mobile-closed.jpg') center top no-repeat
+    //   height 60px
+  [data-debug-mode="true"] .menu-mobile
+    // &:before
+    //   content ''
+    //   absolute 0
+    // background url('/DEBUG/menu-mobile.jpg') center top no-repeat !important
+    // background url('/DEBUG/menu-mobile-collections.jpg') center top no-repeat !important
+    // padding-top 77px
+    // align-items flex-start
 </style>
+
+<story
+  group="COMPONENTS|Navigation"
+  name="Header">
+  <TheHeader />
+</story>
