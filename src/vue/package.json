@@ -104,7 +104,7 @@
     "@koddein/stylus": "^0.2.2",
     "@vimeo/player": "^2.7.0",
     "axios": "^0.18.0",
-    "core-js": "^2.5.7",
+    "core-js": "2",
     "element-closest": "^2.0.2",
     "faker": "^4.1.0",
     "gsap": "^2.0.2",
