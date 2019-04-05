@@ -12,8 +12,8 @@
   ===VARS===
 */
 $ff-safe = Arial, Helvetica, sans-serif
-$ff-title = 'FontTitle', Helvetica, Arial, sans-serif
-$ff-text = 'FontText', Arial, Helvetica, sans-serif
+$ff-title = 'Bowlby One SC', cursive
+$ff-text = 'Roboto Slab', serif
 
 /** font weight */
 $fw-black    = 800
@@ -65,7 +65,12 @@ f-style($type='default', // default | title | subtitle | fbQuote | legend
   // _TITLE_ : titles, use level for h1, h2...
   if $type is 'title'
     font-family $ff-title
-    if $level is 'h1'
+    if $level is 'hero'
+      f-size(10rem 6rem)
+      text-transform uppercase
+      color $c-white
+      text-align center
+    else if $level is 'h1'
       f-size($fz-h1, $responsive: true)
       text-transform uppercase
     else

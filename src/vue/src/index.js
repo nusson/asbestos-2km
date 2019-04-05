@@ -16,6 +16,7 @@
 // import '@babel/polyfill';
 
 import Vue from 'vue';
+import AsyncComputed from 'vue-async-computed';
 import { mapGetters } from 'vuex';
 import { get, each } from 'lodash';
 import router from 'router';
@@ -27,6 +28,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import i18n from 'plugins/i18n';
 import App from 'components/TheApp';
 
+
 // Enable HRM
 if (module.hot) {
   module.hot.accept();
@@ -36,6 +38,8 @@ if (module.hot) {
 Vue.use(Meta, {
   keyName: 'head',
 });
+
+Vue.use(AsyncComputed);
 
 // Font Awesome
 FontAwesome.init();
