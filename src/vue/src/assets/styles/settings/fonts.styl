@@ -71,7 +71,10 @@ f-style($type='default', // default | title | subtitle | fbQuote | legend
       color $c-white
       text-align center
     else if $level is 'h1'
-      f-size($fz-h1, $responsive: true)
+      f-size(3rem 2.4rem)
+      text-transform uppercase
+    else if $level is 'h3'
+      f-size(1.6rem)
       text-transform uppercase
     else
       f-size($fz-title, $responsive: true)

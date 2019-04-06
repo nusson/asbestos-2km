@@ -13,9 +13,10 @@ const jsConfig = generateJsConfig({
 const cssConfig = generateCssConfig({
   stylus: true,
   includeCSSPaths: [
-    `${WebpackHelper.DIRS.NODE_MODULES}swiper/dist/css/`,
+    `${WebpackHelper.DIRS.NODE_MODULES}swiper\\dist\\css`,
   ],
 });
+
 
 /* build our filan config */
 const finalConfig = WebpackMerge(

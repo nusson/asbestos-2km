@@ -22,6 +22,10 @@ export default {
         },
       },
       data: {
+        activities: {
+          title: '',
+          items: [],
+        },
         seo: null,
         contact: {},
         socials: {},
@@ -105,7 +109,7 @@ export default {
   getters: {
     data: ({ data }) => data,
     metadata: ({ data }) => data.seo,
-    contact: ({ data }) => get(data, 'contact'),
+    activities: ({ data }) => get(data, 'activities'),
     socials: ({ data }) => get(data, 'socials'),
     menu: ({ data }) => get(data, 'navigation'),
     jobs: ({ data }) => get(data, 'jobs'),

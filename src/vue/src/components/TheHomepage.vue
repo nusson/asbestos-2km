@@ -6,7 +6,7 @@
 </docs>
 
 <script>
-import { /* mapGetters, */ mapState } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 import SectionHero from 'components/sections/Hero';
 import SectionPartners from 'components/sections/Partners';
 import SectionAbout from 'components/sections/About';
@@ -29,9 +29,9 @@ export default {
     SectionContact,
   },
   computed: {
-    // ...mapGetters({
-    //   hero: 'Globals/hero',
-    // }),
+    ...mapGetters({
+      activities: 'Global/activities',
+    }),
     ...mapState('I18n', {
       locale: ({ locale }) => locale,
     }),
@@ -50,7 +50,7 @@ export default {
     <SectionPartners />
     <SectionAbout />
     <SectionEvent />
-    <SectionActivities />
+    <SectionActivities v-bind="activities" />
     <SectionCrew />
     <SectionGuests />
     <SectionContact />
