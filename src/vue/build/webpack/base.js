@@ -116,7 +116,7 @@ const config = {
     }),
     new ManifestPlugin(),
     /**
-     * copy static into assets
+     * copy static into public
      * @todo clarify :
      * - [] copy to src/assets, so you can always point to assets/ even for static files
      * - [] or to public/assets because we arent supposed to import those stuff anyway

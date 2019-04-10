@@ -31,6 +31,7 @@ export default {
   computed: {
     ...mapGetters({
       activities: 'Global/activities',
+      partners: 'Global/partners',
     }),
     ...mapState('I18n', {
       locale: ({ locale }) => locale,
@@ -47,7 +48,7 @@ export default {
 <template>
   <div class="PageHome">
     <SectionHero />
-    <SectionPartners />
+    <SectionPartners v-bind="partners" />
     <SectionAbout />
     <SectionEvent />
     <SectionActivities v-bind="activities" />

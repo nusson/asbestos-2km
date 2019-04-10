@@ -26,6 +26,10 @@ export default {
           title: '',
           items: [],
         },
+        partners: {
+          title: '',
+          items: [],
+        },
         seo: null,
         contact: {},
         socials: {},
@@ -110,6 +114,9 @@ export default {
     data: ({ data }) => data,
     metadata: ({ data }) => data.seo,
     activities: ({ data }) => get(data, 'activities'),
+    partners: ({ data }) => get(data, 'partners'),
+
+
     socials: ({ data }) => get(data, 'socials'),
     menu: ({ data }) => get(data, 'navigation'),
     jobs: ({ data }) => get(data, 'jobs'),

@@ -409,8 +409,16 @@ export default {
         triggerElement: this.$el,
         duration,
         triggerHook: 1,
-      })
-      .on('leave', this.stop.bind(this));
+      });
+
+      // if autoplay, pause then resume; else stop entierly
+      if (this.autoplay) {
+        scene
+        .on('leave', this.pause.bind(this))
+        .on('enter', this.play.bind(this));
+      } else {
+        scene.on('leave', this.stop.bind(this));
+      }
       this.$store.dispatch('ScrollMagic/ADD_SCENE', { scene, indicators: true });
 
       this.$watch('viewport', (viewport) => {

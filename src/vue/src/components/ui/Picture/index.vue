@@ -78,6 +78,10 @@ export default {
       type: Boolean,
       default: process.env.NODE_ENV === 'development' && false,
     },
+    styles: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -183,6 +187,7 @@ export default {
     :data-lazy="lazy"
     :data-loaded="loaded"
     :data-transition="transition"
+    :style="styles"
     class="ui-picture ui-media">
     <template v-if="lazy">
       <source
