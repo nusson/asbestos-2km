@@ -50,6 +50,7 @@
         } else if (!this.scrollbar) {
           this.scrollbar = SmoothScrollbar.init(this.$refs.scrollArea, this.defaultOptions);
           this.$store.commit('Interface/SET_SCROLLBAR', this.scrollbar);
+          this.$store.dispatch('ScrollMagic/SET_SMOOTH_SCROLLBAR', this.scrollbar);
           this.$store.dispatch('Interface/SCROLL_TOP', 0);
         }
       }, { immediate: true });

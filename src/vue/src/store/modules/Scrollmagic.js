@@ -23,6 +23,7 @@ export default {
   namespaced: true,
   state: {
     controller: null,
+    scrollbar: null,
     scenes: [],
     transitioning: false,
   },
@@ -41,6 +42,11 @@ export default {
       state.scenes.push(scene);
 
       return scene;
+    },
+    REGISTER_SCOLLBAR(state, scrollbar) {
+      state.scrollbar = scrollbar;
+
+      return scrollbar;
     },
     /**
     * destroy a scene from our controller
@@ -74,12 +80,25 @@ export default {
     * @param {Object} store
     * @param {ScrollMagic.Controller} controller - optional
     */
-    CREATE({ commit }, controller = null) {
+    CREATE({ commit, state }, options = {}, controller = null) {
       let ctrl = controller;
+      const { scrollbar } = state;
+
       if (!(ctrl instanceof Controller)) {
-        ctrl = new Controller({
+        const opts = {
+          ...options,
           // container: '#App',
-        });
+        };
+        if (scrollbar) {
+          opts.refreshInterval = 0;
+        }
+        ctrl = new Controller(opts);
+
+        if (scrollbar) {
+          scrollbar.addListener(() => {
+            each(state.scenes, scene => scene.refresh());
+          });
+        }
       }
       commit('REGISTER_CONTROLLER', ctrl);
     },
@@ -109,6 +128,7 @@ export default {
 
       // if no created yet, create it now (yep, its instantanious :) )
       if (!controller) {
+        console.log('create via ADD_SCENE');
         dispatch('CREATE');
         controller = getters.controller; // eslint-disable-line prefer-destructuring
       }
@@ -137,6 +157,22 @@ export default {
     DESTROY_TEMP_SCENES({ state, commit }) {
       const scenes = filter(state.scenes, scene => !scene.persist);
       each(scenes, scene => commit('DESTROY_SCENE', scene));
+    },
+    SET_SMOOTH_SCROLLBAR({
+      state, getters, dispatch, commit,
+    }, scrollbar) {
+      console.log('SET_SMOOTH_SCROLLBAR', scrollbar);
+
+      let { controller } = getters;
+      if (!controller) {
+        dispatch('CREATE', { refreshInterval: 0, container: scrollbar.containerEl });
+        controller = getters.controller; // eslint-disable-line prefer-destructuring
+      }
+
+      scrollbar.addListener(() => {
+        each(state.scenes, scene => scene.refresh());
+      });
+      return commit('REGISTER_SCOLLBAR', scrollbar);
     },
   },
   getters: {

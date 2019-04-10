@@ -14,7 +14,11 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'Traverser la mine Jeffrey —',
+      default: null,
+    },
+    content: {
+      type: String,
+      default: null,
     },
   },
   data() {
@@ -26,13 +30,16 @@ export default {
 </script>
 
 <template>
-  <div class="SectionAbout _fullViewport">
+  <div class="SectionAbout">
     <div class="container">
       <header class="header">
         <h2
           class="title"
           v-text="title"/>
       </header>
+      <div
+        class="content _wysiwyg"
+        v-html="content" />
     </div>
   </div>
 </template>
@@ -49,15 +56,28 @@ export default {
   //  ===LAYOUT===
   .title
     f-style(title, $color: $c-white)
+    margin-bottom 1em
+
+  .content
+    color $c-white
+    responsive-prop(max-width, 800px 500px)
+    +desktop()
+      column-count 2
 
   .SectionAbout
     background black url('~assets/images/section-hero.jpg') center center no-repeat
     background-size cover
-    flexbox(center)
-    >.container
-      width 80vw
-      min-height 80vh
-      max-width 1024px
+    +mobile()
+      >.container
+        padding 60px 20px
+        // .content
+        //   x-padding(10px)
+    +desktop()
+      flexbox(center)
+      >.container
+        width 80vw
+        min-height 80vh
+        max-width 1024px
   //  ===DEBUG===
 </style>
 

@@ -18,10 +18,10 @@ export default {
       },
     },
     {
-      name: 'Patagonia',
-      url: 'https://www.patagonia.ca',
+      name: 'Moulin 7',
+      url: 'http://moulin7.com',
       image: {
-        src: '/uploads/partners/patagonia.png',
+        src: '/uploads/partners/moulin7.jpg',
       },
     },
   ],

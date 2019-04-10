@@ -31,6 +31,11 @@ export default {
           title: '',
           items: [],
         },
+        about: {
+          title: '',
+          content: '',
+        },
+
         seo: null,
         contact: {},
         socials: {},
@@ -118,6 +123,7 @@ export default {
     metadata: ({ data }) => data.seo,
     activities: ({ data }) => get(data, 'activities'),
     partners: ({ data }) => get(data, 'partners'),
+    about: ({ data }) => get(data, 'about'),
 
 
     socials: ({ data }) => get(data, 'socials'),

@@ -35,7 +35,9 @@ export default {
     ...mapGetters({
       activities: 'Global/activities',
       partners: 'Global/partners',
+      about: 'Global/about',
       ready: 'Global/loaded',
+      isDesktop: 'Interface/isDesktop',
     }),
     ...mapState('I18n', {
       locale: ({ locale }) => locale,
@@ -57,22 +59,27 @@ export default {
   },
   methods: {
     initParallax() {
-      each([
-        {
+      const sections = (() => {
+        const list = [];
+        list.push({
           triggerElement: this.$refs.SectionHero,
           triggerHook: 0,
-        },
-        {
-          triggerElement: this.$refs.SectionAbout,
-        },
-      ], (options) => {
+        });
+        if (this.isDesktop) {
+          list.push({
+            triggerElement: this.$refs.SectionAbout,
+          });
+        }
+        return list;
+      })();
+      each(sections, (options) => {
         const slide = options.triggerElement.querySelector('.slide-effect');
         const scenee = new Scene({
           duration: '200%',
           triggerHook: 'onEnter',
           ...options,
         })
-          .setTween(slide, { y: '20%', ease: Linear.easeNone });
+          .setTween(slide, { y: '50%', ease: Linear.easeNone });
         this.$store.dispatch('ScrollMagic/ADD_SCENE', {
           scene: scenee,
           indicators: false,
@@ -93,14 +100,19 @@ export default {
       class="section -hero parallax">
       <SectionHero class="hero slide-effect"/>
     </section>
+
     <SectionPartners
       v-bind="partners"
       class="section -partners" />
+
     <section
       ref="SectionAbout"
       class="section -about parallax">
-      <SectionAbout class="slide-effect"/>
+      <SectionAbout
+        v-bind="about"
+        class="about slide-effect"/>
     </section>
+
     <SectionEvent />
     <SectionActivities v-bind="activities" />
     <SectionCrew />
@@ -110,26 +122,27 @@ export default {
 </template>
 
 <style lang="stylus" scoped>
-.preHero{
-  size 100vw 100vh
-  background-color rgba(black, 0.8)
-}
-.parallax {
-  height: 100vh;
-  overflow: hidden;
-}
-.parallax > .slide-effect {
-  height: 130%;
-  position: relative;
-  top: -15%;
-}
-.parallax >.hero{
-  height: 100%;
-  top: 0%;
-}
+.parallax
+  height 100vh
+  overflow hidden
+  .about
+    min-height 150%
+    position relative
+    top -50%
+  .hero
+    height 100%
+    top 0%
+
+.-about
+  +mobile()
+    height auto
+    overflow visible
 
 .section
   position relative
+
+  // .-about
+
   // &.-partners
 
 </style>
