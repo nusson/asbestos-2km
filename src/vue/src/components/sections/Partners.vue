@@ -8,6 +8,8 @@
 <!-- eslint-enable -->
 
 <script>
+import { TimelineMax, TweenMax, Power4 } from 'gsap';
+import { Scene } from 'scrollmagic';
 import UiPicture from 'components/ui/Picture';
 
 export default {
@@ -28,8 +30,34 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
-  methods: {},
+  mounted() {
+    this.initScrollMagic();
+  },
+  methods: {
+    initScrollMagic() {
+      const from = { autoAlpha: 0, y: 15, scale: 0.9 };
+      const to = {
+        scale: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: Power4.easeOut,
+      };
+      const tl = new TimelineMax()
+        .fromTo(this.$refs.Title, 0.4, from, to, 0.2)
+        .staggerFromTo(this.$refs.Partner, 0.4, from, to, 0.05, 0.3);
+
+      const scene = new Scene({
+        triggerElement: this.$el,
+        triggerHook: 0.8,
+      })
+      .setTween(tl);
+
+      this.$store.dispatch('ScrollMagic/ADD_SCENE', {
+        scene,
+        indicators: true,
+      });
+    },
+  },
 };
 </script>
 
@@ -39,6 +67,7 @@ export default {
     class="SectionPartners">
     <header class="header">
       <h1
+        ref="Title"
         class="title"
         v-text="title"/>
     </header>
@@ -47,7 +76,9 @@ export default {
         v-for="(partner, index) in items"
         :key="`partner-${index}`"
         class="item">
-        <figure class="partner">
+        <figure
+          ref="Partner"
+          class="partner">
           <a
             :href="partner.url"
             target="_blank"

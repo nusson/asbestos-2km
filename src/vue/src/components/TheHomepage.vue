@@ -74,14 +74,14 @@ export default {
       })();
       each(sections, (options) => {
         const slide = options.triggerElement.querySelector('.slide-effect');
-        const scenee = new Scene({
+        const scene = new Scene({
           duration: '200%',
           triggerHook: 'onEnter',
           ...options,
         })
           .setTween(slide, { y: '50%', ease: Linear.easeNone });
         this.$store.dispatch('ScrollMagic/ADD_SCENE', {
-          scene: scenee,
+          scene,
           indicators: false,
         });
       });
