@@ -160,7 +160,7 @@ export default {
      * @return {Object} Swiper instance
      */
     createSwiper() {
-      console.log('[Swiper] createSwiper', { ...this._options });
+      // console.log('[Swiper] createSwiper', { ...this._options });
 
       // ensure `swiper-slide` class to slides
       each(this.$refs.Wrapper.children, (node) => {

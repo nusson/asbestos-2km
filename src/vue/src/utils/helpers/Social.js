@@ -6,7 +6,9 @@
  * @author nicolas husson <nicolas@kffein.com>
  */
 
-import { get, assign, without, map } from 'lodash';
+import {
+ get, assign, without, map,
+} from 'lodash';
 
 export default class SocialHelper {
   /**
@@ -15,7 +17,6 @@ export default class SocialHelper {
    * @param {String} appid - facebook APP_ID
    */
   static initFacebookSDK(appid = '') {
-    console.log('init fb', appid);
     window.fbAsyncInit = function () { // eslint-disable-line func-names
       window.FB.init({
         appId: appid,
@@ -46,10 +47,10 @@ export default class SocialHelper {
   static shareFacebook(opts = {}) {
     const options = assign({
       success(response) {
-        console.log('shareFacebook success', response);
+        console.debug('shareFacebook success', response); // eslint-disable-line no-console
       },
       error(error) {
-        console.log('shareFacebook error', error);
+        console.debug('shareFacebook error', error); // eslint-disable-line no-console
       },
     }, opts);
 

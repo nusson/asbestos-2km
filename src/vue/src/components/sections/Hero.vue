@@ -46,17 +46,12 @@ export default {
   asyncComputed: {
     backgroundVideo() {
       if (this.isDesktop) {
-        console.log('this.video.desktop', this.video.desktop);
-
         return this.video.desktop.demo();
       }
-        console.log('this.video.desktop', this.video.mobile.demo());
       return this.video.mobile.demo();
     },
   },
   mounted() {
-    console.log(this.isDesktop, this.backgroundVideo, this);
-
     this.$nextTick(() => {
       if (!this.$refs.Title) return;
       FitText.fit(this.$refs.Title);

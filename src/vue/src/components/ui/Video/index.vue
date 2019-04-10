@@ -207,7 +207,9 @@ export default {
     } else {
       this.addPlaybackListeners();
       if (this.autoplay) {
-        this.play();
+        this.$nextTick(() => {
+          this.play();
+        });
       }
     }
     this.applyCoverPolyfill();
@@ -223,25 +225,50 @@ export default {
      * @returns Promise
      */
     play() {
+      let resolver = null;
+      let rejecter = null;
+      const promise = new Promise((resolve, reject) => {
+        resolver = resolve;
+        rejecter = reject;
+      })
+      .catch((error) => {
+        console.debug(error);
+      });
+
+      if (this.state.playing) {
+        rejecter(new Error('already play'));
+        return promise;
+      }
+
       if (this.type === VIDEO_TYPES.INTERNAL) {
-        return this.$refs.Video.play();
+        resolver(this.$refs.Video.play());
+        return promise;
       }
 
       switch (this.format) {
         case VIDEO_PLATFOMS.YOUTUBE:
-          return this.player.playVideo();
+          resolver(this.player.playVideo());
+          break;
         case VIDEO_PLATFOMS.VIMEO:
-          return this.player.play();
+          resolver(this.player.play());
+          break;
         default:
-          return new Promise((resolve, reject) => {
-            reject(new Error('incorrect video url'));
-          });
+          rejecter(new Error('incorrect video url'));
+          break;
       }
+
+      return promise;
     },
     /** pause video
      * @returns Promise
      */
     pause() {
+      if (!this.state.playing) {
+        return new Promise((resolve, reject) => {
+            reject(new Error('do not play already'));
+          });
+      }
+
       if (this.type === VIDEO_TYPES.INTERNAL) {
         return this.$refs.Video.pause();
       }
@@ -261,6 +288,12 @@ export default {
      * @returns Promise
      */
     stop() {
+      if (!this.state.playing) {
+        return new Promise((resolve, reject) => {
+            reject(new Error('do not play already'));
+          });
+      }
+
       if (this.type === VIDEO_TYPES.INTERNAL) {
         this.$refs.Video.pause();
         const { duration } = this.$refs.Video;
@@ -419,7 +452,7 @@ export default {
       } else {
         scene.on('leave', this.stop.bind(this));
       }
-      this.$store.dispatch('ScrollMagic/ADD_SCENE', { scene, indicators: true });
+      this.$store.dispatch('ScrollMagic/ADD_SCENE', { scene, indicators: false });
 
       this.$watch('viewport', (viewport) => {
         scene.duration(viewport.height + this.$el.offsetHeight);

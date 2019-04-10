@@ -69,7 +69,6 @@ export default class FitText {
       ),
       parseFloat(min),
     );
-    console.log('setFontsize', { element, options, size });
     element.style.fontSize = `${ size }px`;
   }
 

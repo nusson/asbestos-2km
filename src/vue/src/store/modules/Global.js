@@ -21,6 +21,7 @@ export default {
           return import('assets/moc/globals');
         },
       },
+      loaded: false,
       data: {
         activities: {
           title: '',
@@ -51,6 +52,7 @@ export default {
   mutations: {
     STORE_DATA(state, data) {
       state.data = data;
+      state.loaded = true;
     },
   },
   actions: {
@@ -111,6 +113,7 @@ export default {
     },
   },
   getters: {
+    loaded: ({ loaded }) => loaded,
     data: ({ data }) => data,
     metadata: ({ data }) => data.seo,
     activities: ({ data }) => get(data, 'activities'),

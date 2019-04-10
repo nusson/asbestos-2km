@@ -38,10 +38,10 @@ req.keys().forEach((filename) => {
 
     const addOptions = {};
 
-    if (componentStory.name === 'moc data') {
-      console.log({ componentStory, component });
-      console.log(eval(componentStory.props)); // eslint-disable-line no-eval
-    }
+    // if (componentStory.name === 'moc data') {
+    //   console.log({ componentStory, component });
+    //   console.log(eval(componentStory.props)); // eslint-disable-line no-eval
+    // }
 
 
     // Add `withInfo` addon

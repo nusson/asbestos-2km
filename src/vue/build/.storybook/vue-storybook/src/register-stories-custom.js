@@ -38,7 +38,7 @@ export default function registerStories(req, fileName, sbInstance, plugins, exte
   // addDecorator(withInfo)
 
   stories.forEach(story => {
-    console.log({story});
+    // console.log({story});
     
 
     let storiesOf = sbInstance(story.group, module);
