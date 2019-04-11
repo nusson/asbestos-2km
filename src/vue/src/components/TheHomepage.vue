@@ -105,6 +105,7 @@ export default {
       v-bind="partners"
       class="section -partners" />
 
+    <div class="trigger-sm-about"/>
     <section
       ref="SectionAbout"
       class="section -about parallax">

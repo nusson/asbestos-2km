@@ -8,6 +8,9 @@
 <!-- eslint-enable -->
 
 <script>
+import { TimelineMax, Power2 } from 'gsap';
+import { Scene } from 'scrollmagic';
+
 export default {
   name: 'SectionAbout',
   components: {},
@@ -24,8 +27,40 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
-  methods: {},
+  mounted() {
+    this.initScrollMagic();
+  },
+  methods: {
+    initScrollMagic() {
+      const targets = [
+        this.$refs.Title,
+        this.$refs.Content,
+        ...this.$refs.Content.querySelectorAll('p'),
+      ];
+      console.log('targets', targets, this);
+
+      const from = { autoAlpha: 0, y: 15 };
+      const to = {
+        autoAlpha: 1,
+        y: 0,
+        ease: Power2.easeOut,
+      };
+      const tl = new TimelineMax()
+        .staggerFromTo(targets, 0.8, from, to, 0.05, 0);
+
+      const triggerElement = '.trigger-sm-about';
+      const scene = new Scene({
+        triggerElement,
+        triggerHook: 0.4,
+      })
+      .setTween(tl);
+
+      this.$store.dispatch('ScrollMagic/ADD_SCENE', {
+        scene,
+        indicators: true,
+      });
+    },
+  },
 };
 </script>
 
@@ -34,10 +69,12 @@ export default {
     <div class="container">
       <header class="header">
         <h2
+          ref="Title"
           class="title"
           v-text="title"/>
       </header>
       <div
+        ref="Content"
         class="content _wysiwyg"
         v-html="content" />
     </div>

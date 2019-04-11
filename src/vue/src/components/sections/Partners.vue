@@ -8,7 +8,7 @@
 <!-- eslint-enable -->
 
 <script>
-import { TimelineMax, TweenMax, Power4 } from 'gsap';
+import { TimelineMax, Power4 } from 'gsap';
 import { Scene } from 'scrollmagic';
 import UiPicture from 'components/ui/Picture';
 
@@ -35,16 +35,22 @@ export default {
   },
   methods: {
     initScrollMagic() {
-      const from = { autoAlpha: 0, y: 15, scale: 0.9 };
+      const from = { opacity: 0, y: 15, scale: 0.9 };
       const to = {
         scale: 1,
-        autoAlpha: 1,
+        opacity: 1,
         y: 0,
         ease: Power4.easeOut,
+
       };
       const tl = new TimelineMax()
         .fromTo(this.$refs.Title, 0.4, from, to, 0.2)
-        .staggerFromTo(this.$refs.Partner, 0.4, from, to, 0.05, 0.3);
+        .staggerFromTo(this.$refs.Partner, 0.4, from, {
+          ...to,
+          cycle: {
+            delay: i => Math.abs(Math.floor(this.$refs.Partner.length / 2) - i) * 0.05,
+          },
+        }, 0, 0.3);
 
       const scene = new Scene({
         triggerElement: this.$el,
