@@ -48,7 +48,7 @@ export default {
   .SectionEvent
     size var(--viewport-width) var(--viewport-height)
     flexbox(center)
-    background-color rgba(tomato, 0.2)
+    background-color rgba(white, 1)
 </style>
 
 

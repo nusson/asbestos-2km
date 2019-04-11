@@ -10,6 +10,7 @@
 <script>
 import { TimelineMax, Power2 } from 'gsap';
 import { Scene } from 'scrollmagic';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'SectionAbout',
@@ -27,6 +28,11 @@ export default {
   data() {
     return {};
   },
+  computed: {
+    ...mapGetters({
+      isDesktop: 'Interface/isDesktop',
+    }),
+  },
   mounted() {
     this.initScrollMagic();
   },
@@ -37,7 +43,6 @@ export default {
         this.$refs.Content,
         ...this.$refs.Content.querySelectorAll('p'),
       ];
-      console.log('targets', targets, this);
 
       const from = { autoAlpha: 0, y: 15 };
       const to = {
@@ -51,7 +56,7 @@ export default {
       const triggerElement = '.trigger-sm-about';
       const scene = new Scene({
         triggerElement,
-        triggerHook: 0.4,
+        triggerHook: this.isDesktop ? 0.4 : 0.8,
       })
       .setTween(tl);
 
@@ -91,6 +96,9 @@ export default {
   */
 
   //  ===LAYOUT===
+  .container
+    position relative
+    z-index 5
   .title
     f-style(title, $color: $c-white)
     margin-bottom 1em
@@ -102,8 +110,14 @@ export default {
       column-count 2
 
   .SectionAbout
+    position relative
     background black url('~assets/images/section-hero.jpg') center center no-repeat
     background-size cover
+    &:after
+      content ''
+      absolute 0
+      background-color rgba(black, 0.3)
+      z-index 2
     +mobile()
       >.container
         padding 60px 20px
