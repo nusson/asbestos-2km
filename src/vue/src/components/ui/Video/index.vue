@@ -199,6 +199,9 @@ export default {
   },
 
   mounted() {
+    if (this.$el.classList.contains('UiVideoFigure')) {
+      return;
+    }
     // sync state with props
     this.state.muted = this.muted || this.autoplay;
 
@@ -467,14 +470,14 @@ export default {
 
     <!-- @slot default big button play - can be overrided -->
     <slot name="actions">
-      <div
-        v-if="state.ended"
-        class="actions">
-        <button
-          class="btn play"
-          @click.prevent="play"
+      <button
+        v-if="!state.playing"
+        class="actions btn play _no-btn"
+        @click.prevent="play">
+        <span
+          class="text"
           v-text="$t('play')"/>
-      </div>
+      </button>
     </slot>
 
     <Picture
@@ -544,28 +547,39 @@ export default {
     object-fit contain
     font-family 'object-fit:contain;'
 
-
   .poster
     z-index 20
 
-  .actions
+  .btn.play
     z-index 30
     flexbox(center)
-    &:before
-      content ''
-      absolute 0
-      background-color rgba($c-black, 0.8)
-    .btn
-      position relative
-
-  .btn.play
-    border-radius 50%
-    fontstyle(title, $lh:0, $size:2rem)
-    size 120px
-    background-color var(--textColor)
-    color var(--backgroundColor)
+    absolute 0
+    background-color rgba($c-black, 0.4)
+    cursor pointer
+    kff-transition(background-color)
+    >.text
+      f-style(title, $lh:0, $size:2.4rem, $uppercase:true)
+      background-color transparent
+      color $c-white
+      kff-transition(color)
+      &:before
+        absolute top 50% left 50%
+        content ''
+        border-radius 50%
+        size 120px
+        border 1px solid
+        transform scale(1) translate(-50%, -50%)
+        kff-transition()
+        transform-origin top left
     .no-touchevents &:hover
-      background-color var(--highlightColor)
+      background-color rgba($c-black, 0)
+      >.text
+        color $c-accent
+        &:before
+          color $c-accent
+          border-color $c-accent
+          border-width 2px
+          transform scale(1.2) translate(-50%, -50%)
 
 
   .sm

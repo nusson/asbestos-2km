@@ -99,6 +99,7 @@ export default {
   .container
     position relative
     z-index 5
+    
   .title
     f-style(title, $color: $c-white)
     margin-bottom 1em

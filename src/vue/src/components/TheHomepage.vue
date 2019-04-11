@@ -36,6 +36,7 @@ export default {
       activities: 'Global/activities',
       partners: 'Global/partners',
       about: 'Global/about',
+      event: 'Global/event',
       ready: 'Global/loaded',
       isDesktop: 'Interface/isDesktop',
     }),
@@ -114,7 +115,10 @@ export default {
         class="about slide-effect"/>
     </section>
 
-    <SectionEvent />
+    <SectionEvent
+      v-bind="event"
+      class="event" />
+
     <SectionActivities v-bind="activities" />
     <SectionCrew />
     <SectionGuests />

@@ -35,6 +35,14 @@ export default {
           title: '',
           content: '',
         },
+        event: {
+          title: '',
+          date: '',
+          place: {
+            city: '',
+            state: '',
+          },
+        },
 
         seo: null,
         contact: {},
@@ -124,6 +132,7 @@ export default {
     activities: ({ data }) => get(data, 'activities'),
     partners: ({ data }) => get(data, 'partners'),
     about: ({ data }) => get(data, 'about'),
+    event: ({ data }) => get(data, 'event'),
 
 
     socials: ({ data }) => get(data, 'socials'),
