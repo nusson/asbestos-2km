@@ -37,6 +37,8 @@ export default {
       partners: 'Global/partners',
       about: 'Global/about',
       event: 'Global/event',
+      crew: 'Global/crew',
+      athletes: 'Global/athletes',
       ready: 'Global/loaded',
       isDesktop: 'Interface/isDesktop',
     }),
@@ -120,8 +122,8 @@ export default {
       class="event" />
 
     <SectionActivities v-bind="activities" />
-    <SectionCrew />
-    <SectionGuests />
+    <SectionCrew v-bind="crew" />
+    <SectionGuests v-bind="athletes" />
     <SectionContact />
   </div>
 </template>

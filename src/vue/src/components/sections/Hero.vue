@@ -101,7 +101,9 @@ export default {
     z-index 5
 
   .title
-    f-style(title, hero)
+    f-style(title, hero,
+      $color:$c-white,
+      $align:center)
     width 85vw
     max-width 1920px
 

@@ -23,6 +23,14 @@ export default {
       },
       loaded: false,
       data: {
+        crew: {
+          title: '',
+          items: [],
+        },
+        athletes: {
+          title: '',
+          items: [],
+        },
         activities: {
           title: '',
           items: [],
@@ -133,6 +141,8 @@ export default {
     partners: ({ data }) => get(data, 'partners'),
     about: ({ data }) => get(data, 'about'),
     event: ({ data }) => get(data, 'event'),
+    crew: ({ data }) => get(data, 'crew'),
+    athletes: ({ data }) => get(data, 'athletes'),
 
 
     socials: ({ data }) => get(data, 'socials'),

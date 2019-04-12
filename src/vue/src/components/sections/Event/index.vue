@@ -9,11 +9,13 @@
 
 <script>
 import UiVideo from 'components/ui/Video/Figure';
+import Experiences from './Experience';
 
 export default {
   name: 'SectionEvent',
   components: {
     UiVideo,
+    Experiences,
   },
   props: {
     title: {
@@ -30,6 +32,15 @@ export default {
         return {
           city: '',
           state: '',
+        };
+      },
+    },
+    experience: {
+      type: Object,
+      default() {
+        return {
+          title: '',
+          items: [],
         };
       },
     },
@@ -62,15 +73,24 @@ export default {
           <h2
             class="title"
             v-text="title"/>
+          <p class="text">
+            <strong
+              class="date"
+              v-text="date" />
+            <strong
+              class="address"
+              v-text="address" />
+          </p>
         </header>
-        <p class="text">
-          <strong
-            class="date"
-            v-text="date" />
-          <strong
-            class="address"
-            v-text="address" />
-        </p>
+
+        <Experiences
+          v-bind="experience"
+          class="experience"/>
+
+        <div class="map">
+          <!-- @todo -->
+        </div>
+
       </div>
       <div class="col -right">
         <UiVideo
@@ -109,7 +129,7 @@ export default {
   .title
     f-style(title)
     display block
-    text-align center
+    // text-align center
 
   .address,
   .date
