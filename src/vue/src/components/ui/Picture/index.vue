@@ -244,6 +244,9 @@ export default {
     .image
       object-fit contain
 
+  [data-full]
+    absolute 0
+
   [data-overlay]
     &:before
       content ''

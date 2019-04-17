@@ -10,13 +10,16 @@ $kff-w-basis = 1440px // photoshop size, use to calc ratio
 
 // Hack... because i don't know why is that important to have that much values and their implications
 // basicaly <900 = mobile, >=900 = desktop
-$kff-mq-phone = 767px
-$kff-mq-desktop = 768px
+$kff-mq-phone = 700px
+// $kff-mq-desktop = 768px
+$kff-mq-tablet-portrait = 701px
+$kff-mq-tablet = 1024px
+$kff-mq-desktop = 1025px
 $kff-mq-show-burger = $kff-mq-tablet
 rupture.mobile-cutoff = $kff-mq-phone
 rupture.desktop-cutoff = $kff-mq-desktop
 
-$mq-mobile = 500px
+$mq-mobile = 700px
 
 /*
   ===MARGIN===
@@ -42,3 +45,7 @@ $z-footer = 30
 
 $h-header = 50px 30px
 $w-sidebar = 455px
+
+not-mobile()
+  +above($mq-mobile + 1)
+    {block}

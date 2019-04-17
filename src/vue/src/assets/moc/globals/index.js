@@ -4,6 +4,7 @@ import partners from '../partners';
 import about from '../about';
 import event from '../event';
 import crew from '../crew';
+import athletes from '../athletes';
 
 export default {
   navigation,
@@ -12,4 +13,5 @@ export default {
   about,
   event,
   crew,
+  athletes,
 };

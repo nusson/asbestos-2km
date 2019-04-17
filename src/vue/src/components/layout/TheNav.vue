@@ -9,7 +9,7 @@ When nav is displayed, we :
 </docs>
 
 <script>
-import LangSwitcher from 'components/misc/LangSwitcher';
+import LangSwitcher from 'components/ui/LangSwitcher';
 import { mapGetters, mapState } from 'vuex';
 import UiButton from 'components/ui/Button';
 import { TimelineMax, TweenMax, Power4 } from 'gsap';

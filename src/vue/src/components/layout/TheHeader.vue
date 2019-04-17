@@ -10,7 +10,7 @@ import { chunk } from 'lodash';
 import { mapGetters, mapState } from 'vuex';
 import LogoSvg from 'assets/svg/logo.svg?vue';
 import BurgerSvg from 'assets/svg/burger.svg?inline'; // inline to by-pass svg optimisation
-import LangSwitcher from 'components/misc/LangSwitcher';
+import LangSwitcher from 'components/ui/LangSwitcher';
 
 export default {
   name: 'TheHeader',

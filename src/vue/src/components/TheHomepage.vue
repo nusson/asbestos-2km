@@ -55,7 +55,7 @@ export default {
     const unwatchReady = this.$watch('ready', (ready) => {
       if (!ready) return;
       this.$nextTick(() => {
-        this.initParallax();
+        // this.initParallax();
         unwatchReady();
       });
     }, { immediate: true });
@@ -98,7 +98,7 @@ export default {
     v-if="ready"
     class="PageHome">
     <!-- <div class="preHero" /> -->
-    <section
+    <!-- <section
       ref="SectionHero"
       class="section -hero parallax">
       <SectionHero class="hero slide-effect"/>
@@ -116,12 +116,12 @@ export default {
         v-bind="about"
         class="about slide-effect"/>
     </section>
-
+-->
     <SectionEvent
       v-bind="event"
       class="event" />
 
-    <SectionActivities v-bind="activities" />
+    <!-- <SectionActivities v-bind="activities" /> -->
     <SectionCrew v-bind="crew" />
     <SectionGuests v-bind="athletes" />
     <SectionContact />

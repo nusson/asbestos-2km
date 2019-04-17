@@ -234,9 +234,7 @@ export default {
         resolver = resolve;
         rejecter = reject;
       })
-      .catch((error) => {
-        console.debug(error);
-      });
+      .catch(({ message }) => { console.debug(message); });
 
       if (this.state.playing) {
         rejecter(new Error('already play'));
@@ -269,7 +267,7 @@ export default {
       if (!this.state.playing) {
         return new Promise((resolve, reject) => {
             reject(new Error('do not play already'));
-          });
+          }).catch(({ message }) => { console.debug(message); });
       }
 
       if (this.type === VIDEO_TYPES.INTERNAL) {
@@ -284,7 +282,7 @@ export default {
         default:
           return new Promise((resolve, reject) => {
             reject(new Error('incorrect video url'));
-          });
+          }).catch(({ message }) => { console.debug(message); });
       }
     },
     /** stop video
@@ -294,7 +292,7 @@ export default {
       if (!this.state.playing) {
         return new Promise((resolve, reject) => {
             reject(new Error('do not play already'));
-          });
+          }).catch(({ message }) => { console.debug(message); });
       }
 
       if (this.type === VIDEO_TYPES.INTERNAL) {
@@ -327,7 +325,7 @@ export default {
         default:
           return new Promise((resolve, reject) => {
             reject(new Error('incorrect video url'));
-          });
+          }).catch(({ message }) => { console.debug(message); });
       }
     },
     /** mute video

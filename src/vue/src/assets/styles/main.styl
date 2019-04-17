@@ -11,3 +11,18 @@ box-sizing-reset()
 @import '/utils/helpers'
 @import '/utils/wysiwyg'
 // @todo: add a /utils/form
+
+.section
+  y-padding(60px)
+  >.header
+    safe-content()
+
+    .title, .description
+      text-content()
+    .title
+      f-style(title, h1)
+    .description
+      f-style(text, medium)
+      margin-top 1em
+  >.content
+    margin-top 40px

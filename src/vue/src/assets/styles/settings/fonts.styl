@@ -36,6 +36,32 @@ $lh-medium  = 1.4
 /*
   ===MIXINS===
 */
+fsize($sizes, $responsive = false)
+  if $responsive
+    // @todo add min and max (in px)
+    // https://css-tricks.com/snippets/sass/viewport-sized-typography-minimum-maximum-sizes/
+    font-size unit(remove-unit($sizes[0]) * f-vw(), 'vw')
+    +below($kff-mq-tablet)
+      font-size $sizes[0]
+    +below($kff-mq-tablet-portrait)
+      font-size $sizes[1]
+
+  else if length($sizes) = 3
+    font-size $sizes[0]
+    +tablet()
+      font-size $sizes[1]
+    +mobile()
+      font-size $sizes[2]
+
+  else if length($sizes) = 2
+    font-size $sizes[0]
+    +mobile()
+      font-size $sizes[1]
+    
+  else
+    font-size $sizes
+
+
 f-style($type='default', // default | title | subtitle | fbQuote | legend
   $level=null, // for titles, if `big` use fz-titleBig (some titles are bigger on mobile/tablet)
   $color=null, // for titles, can be white or black
@@ -55,7 +81,7 @@ f-style($type='default', // default | title | subtitle | fbQuote | legend
   if $type is 'default'
     font-family $ff-text
     line-height $lh-regular
-    f-size($fz-regular)
+    fsize($fz-regular)
 
     // only if default type because you may use custom font familly for each variant
     if $italic
@@ -81,17 +107,22 @@ f-style($type='default', // default | title | subtitle | fbQuote | legend
     //     text-transform uppercase
 
     if $level is 'hero'
-      f-size(10rem 6rem)
+      fsize(10rem 6rem)
     else if $level is 'h1'
-      f-size(3rem 2.4rem)
+      fsize(5rem 4rem 3.2rem)
     else if $level is 'h2'
-      f-size(2.6rem)
+      fsize(2.6rem)
     else if $level is 'h3'
-      f-size(2.2rem)
+      fsize(2.2rem)
     else if $level is 'h4'
-      f-size(1.6rem)
+      fsize(1.6rem)
     else
-      f-size($fz-title, $responsive: true)
+      fsize($fz-title, $responsive: true)
+
+  if $type is 'text'
+    line-height 1.6
+    if $level is 'medium'
+      fsize(1.6rem 1.4rem)
 
     // Other type here
     // ...
@@ -100,7 +131,7 @@ f-style($type='default', // default | title | subtitle | fbQuote | legend
   if $color
     color $color
   if $size
-    f-size($size, $responsive)
+    fsize($size, $responsive)
   if $decoration
     text-decoration $decoration
   if $style
