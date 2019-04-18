@@ -78,8 +78,6 @@ export default {
       })();
       each(sections, (options) => {
         const slide = options.triggerElement.querySelector('.slide-effect');
-        console.log('slide', slide);
-
 
         const scene = new Scene({
           duration: '200%',
@@ -163,6 +161,8 @@ export default {
     y-padding(0px)
   &.-contact
     responsive-prop(margin-top, 60px 40px 30px)
+  &.-activities
+    background-color $c-light
 
   // .-about
 

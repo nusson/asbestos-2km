@@ -190,6 +190,7 @@ export default {
     width 100%
     box-shadow: 2px 2px 5px rgba($c-dark, 0.4);
     max-width 300px
+    background-color $c-white
 
   .swiper
     padding 7px // for box-shadow...
