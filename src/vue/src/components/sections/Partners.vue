@@ -60,7 +60,7 @@ export default {
 
       this.$store.dispatch('ScrollMagic/ADD_SCENE', {
         scene,
-        indicators: true,
+        indicators: false,
       });
     },
   },

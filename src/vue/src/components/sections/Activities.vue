@@ -55,18 +55,8 @@ export default {
     ...mapGetters({
       isDesktop: 'Interface/isDesktop',
       isMobile: 'Interface/isMobile',
+      viewport: 'Interface/viewport',
     }),
-    options() {
-      if (this.isMobile) {
-        return {
-          spaceBetween: 15,
-          slidesPerView: 1.2,
-        };
-      }
-      return {
-        spaceBetween: 40,
-      };
-    },
   },
   mounted() {},
   methods: {
@@ -79,8 +69,6 @@ export default {
       this.actives.push(index);
     },
     onOpen(el, done) {
-      console.log('onOpen', { el, done });
-
       return new TimelineMax({
         onComplete: done,
       })
@@ -97,16 +85,18 @@ export default {
       .set(el, { height: 'auto' });
     },
     onClose(el, done) {
-      console.log('onOpen', { el, done });
       return new TimelineMax({
         onComplete: done,
       })
-      .fromTo(el, 0.6, { height: el.offsetHeight }, {
-        height: 0,
+      .to(el, 0.4, {
         opacity: 0,
         y: 10,
+        ease: Power3.easeIn,
+      }, 0)
+      .fromTo(el, 0.6, { height: el.offsetHeight }, {
+        height: 0,
         ease: Back.easeIn,
-      });
+      }, 0);
     },
   },
 };
@@ -118,10 +108,13 @@ export default {
       :title="title"
       :description="description"
       class="header"/>
-    <UiSwiper
+    <component
       v-if="items"
-      :loop="true"
-      :options="options"
+      :is="isDesktop? 'div' : 'UiSwiper'"
+      :loop="false"
+      :space-between="isDesktop ? 41 : 21"
+      :centered-slides="false"
+      slides-per-view="auto"
       tag="ol"
       class="swiper content">
       <li
@@ -161,7 +154,7 @@ export default {
           </div>
         </article>
       </li>
-    </UiSwiper>
+    </component>
   </section>
 </template>
 
@@ -175,17 +168,37 @@ export default {
   */
 
   //  ===LAYOUT===
-  .SectionActivities
-    // background-color $c-white
+  +desktop()
+    .swiper
+      safe-content()
+      flexbox(row, $justify:flex-start, $wrap:wrap)
+      >.slide
+        flex 1 1 30%
+        max-width calc('100% - 20px')
+        &:nth-child(n+4)
+          margin-top 40px
+        &:nth-child(3n+2)
+          x-margin(40px)
+        .content
+          flex-basis 30%
+          cursor pointer
 
   .slide
     position relative
-    ratio-box(2/3)
-    width 400px
+    // ratio-box(4/5)
+    ratio-box(3/4)
+    width 100%
     box-shadow: 2px 2px 5px rgba($c-dark, 0.4);
+    max-width 300px
 
   .swiper
     padding 7px // for box-shadow...
+    x-padding(40px)
+    .slide
+    +below(1024px)
+      x-padding(20px)
+      .slide
+        width calc('100% - 40px')
 
   .article
     absolute 0
@@ -194,19 +207,15 @@ export default {
       position relative
       size 100%
       flex 1 1 auto
-      // flexbox(center)
-      // .picture
-      //   // ratio-box(1)
-      //   width 100%
+
     .content
       padding 20px
+      padding-bottom 40px
       flex 1 0 15%
       .header
-        // absolute false 0 0 0
         background-color $c-white
         color $c-dark
         z-index 2
-        // min-height 15%
         flexbox(row)
         .title
           f-style(title, h3)

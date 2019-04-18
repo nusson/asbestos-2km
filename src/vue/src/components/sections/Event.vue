@@ -8,6 +8,8 @@
 <!-- eslint-enable -->
 
 <script>
+import { Scene } from 'scrollmagic';
+import { mapGetters } from 'vuex';
 import SectionHeader from 'components/misc/SectionHeader';
 import UiVideo from 'components/ui/Video/Figure';
 // import Experiences from './Experience';
@@ -55,16 +57,56 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      pinVideoScene: null,
+    };
   },
   computed: {
+    ...mapGetters({
+      viewport: 'Interface/viewport',
+    }),
     address() {
       const { city, state } = this.place;
       return `${city}, ${state}`;
     },
   },
-  mounted() {},
-  methods: {},
+  mounted() {
+    const unwatchReady = this.$watch('viewport', ({ width }) => {
+      if (width < 800 || this.pinVideoScene) {
+        if (this.pinVideoScene) {
+          // @todo destroy
+        }
+        return;
+      }
+      this.$nextTick(() => {
+        this.pinVideoScene = this.createPinVideoScene();
+        unwatchReady();
+      });
+    }, { immediate: true });
+  },
+  methods: {
+    createPinVideoScene() {
+      const height = this.$el.offsetHeight - this.$refs.Video.$el.offsetHeight - 60 - 20;
+      const duration = (height / this.viewport.height) * 100;
+      const scene = new Scene({
+        triggerElement: this.$refs.VideoWrapper,
+        // triggerElement: this.$el,
+        // duration: '200%',
+        duration: `${duration}%`,
+        triggerHook: 0,
+        offset: -60,
+        // ...options,
+      })
+        .setPin(this.$refs.Video.$el);
+        // .setPin(this.$refs.VideoWrapper);
+        // .setTween(slide, { y: '50%', ease: Linear.easeNone });
+      this.$store.dispatch('ScrollMagic/ADD_SCENE', {
+        scene,
+        indicators: true,
+      });
+      return scene;
+    },
+  },
 };
 </script>
 
@@ -100,9 +142,12 @@ export default {
       </ol>
 
     </div>
-    <div class="col -right">
+    <div
+      ref="VideoWrapper"
+      class="col -right">
       <UiVideo
         v-if="video"
+        ref="Video"
         v-bind="video"
         :muted="false"
         class="video" />
@@ -121,10 +166,18 @@ export default {
 
   //  ===LAYOUT===
   .SectionEvent
-    +not-mobile()
+    +above($kff-mq-tablet-portrait)
       flexbox(row, $align: flex-start)
       safe-content()
+      .video
+        max-height 80vh
+    +below($kff-mq-tablet-portrait - 1)
+      .col.-left
+        safe-content()
+        padding-bottom 20px
+
     >.col
+    >>> >.scrollmagic
       flex-basis 50%
       &.-left
         margin-right 40px
@@ -163,7 +216,6 @@ export default {
   .video
     // width (864px / 2)
     max-width 100%
-    max-height 80vh
     ratio-box(864/1080)
 
   //  ===DEBUG===
