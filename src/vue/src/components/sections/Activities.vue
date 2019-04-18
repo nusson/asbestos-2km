@@ -148,8 +148,8 @@ export default {
               @leave="onClose">
               <p
                 v-if="indexOf(actives, index) >= 0"
-                class="description -full"
-                v-text="item.description.full"/>
+                class="description -full _wysiwyg"
+                v-html="item.description.full"/>
             </transition>
           </div>
         </article>

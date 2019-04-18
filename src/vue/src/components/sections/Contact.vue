@@ -8,9 +8,11 @@
 <!-- eslint-enable -->
 
 <script>
+import SectionHeader from 'components/misc/SectionHeader';
+
 export default {
   name: 'SectionContact',
-  components: {},
+  components: { SectionHeader },
   props: {
     title: {
       type: String,
@@ -26,10 +28,14 @@ export default {
 </script>
 
 <template>
-  <section class="SectionContact _fullViewport">
-    <h2
-      class="title"
-      v-text="title"/>
+  <section class="SectionContact">
+    <SectionHeader
+      :title="title"
+      :description="`
+      <h4>@TODO</h4>
+      <p>Fixed section so reveal sunset and contatct form on SM</p>
+      `"
+      class="header"/>
   </section>
 </template>
 
@@ -47,10 +53,13 @@ export default {
     background black url('~assets/images/section-contact.jpg') center center no-repeat
     background-size cover
     color $c-white
+    min-height calc('var(--viewport-height) - 51px')
+    +mobile()
+      min-height calc('var(--viewport-height) - 30px')
 
   //  ===DEBUG===
   .SectionContact
-    flexbox(center)
+    // flexbox(center)
 </style>
 
 
