@@ -1,5 +1,6 @@
 export default {
-  title: "Pleins \n d'activités",
+  title: 'Divertissant et inédit',
+  description: '<p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>',
   items: [
     {
       title: 'Zonne de slackline',

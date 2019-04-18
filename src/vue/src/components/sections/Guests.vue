@@ -8,11 +8,12 @@
 <!-- eslint-enable -->
 
 <script>
+import SectionHeader from 'components/misc/SectionHeader';
 import TeamSwiper from 'components/misc/TeamSwiper';
 
 export default {
   name: 'SectionGuests',
-  components: { TeamSwiper },
+  components: { SectionHeader, TeamSwiper },
   props: {
     title: {
       type: String,
@@ -39,14 +40,10 @@ export default {
 
 <template>
   <section class="SectionGuests section">
-    <header class="header">
-      <h2
-        class="title"
-        v-text="title"/>
-      <div
-        class="description _wysiwyg"
-        v-html="description"/>
-    </header>
+    <SectionHeader
+      :title="title"
+      :description="description"
+      class="header"/>
     <TeamSwiper
       :items="items"
       layout="athletes"

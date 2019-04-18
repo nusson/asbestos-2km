@@ -41,6 +41,7 @@ export default {
       athletes: 'Global/athletes',
       ready: 'Global/loaded',
       isDesktop: 'Interface/isDesktop',
+      isMobile: 'Interface/isMobile',
     }),
     ...mapState('I18n', {
       locale: ({ locale }) => locale,
@@ -55,7 +56,7 @@ export default {
     const unwatchReady = this.$watch('ready', (ready) => {
       if (!ready) return;
       this.$nextTick(() => {
-        // this.initParallax();
+        this.initParallax();
         unwatchReady();
       });
     }, { immediate: true });
@@ -68,7 +69,7 @@ export default {
           triggerElement: this.$refs.SectionHero,
           triggerHook: 0,
         });
-        if (this.isDesktop) {
+        if (!this.isMobile) {
           list.push({
             triggerElement: this.$refs.SectionAbout,
           });
@@ -77,6 +78,9 @@ export default {
       })();
       each(sections, (options) => {
         const slide = options.triggerElement.querySelector('.slide-effect');
+        console.log('slide', slide);
+
+
         const scene = new Scene({
           duration: '200%',
           triggerHook: 'onEnter',
@@ -98,7 +102,7 @@ export default {
     v-if="ready"
     class="PageHome">
     <!-- <div class="preHero" /> -->
-    <!-- <section
+    <section
       ref="SectionHero"
       class="section -hero parallax">
       <SectionHero class="hero slide-effect"/>
@@ -116,15 +120,22 @@ export default {
         v-bind="about"
         class="about slide-effect"/>
     </section>
--->
+
     <SectionEvent
       v-bind="event"
-      class="event" />
+      class="section -event" />
 
-    <!-- <SectionActivities v-bind="activities" /> -->
-    <SectionCrew v-bind="crew" />
-    <SectionGuests v-bind="athletes" />
-    <SectionContact />
+    <SectionActivities
+      v-bind="activities"
+      class="section -activities" />
+    <SectionCrew
+      v-bind="crew"
+      class="section -crew" />
+    <SectionGuests
+      v-bind="athletes"
+      class="section -athletes" />
+    <SectionContact
+      class="section -contact" />
   </div>
 </template>
 
@@ -147,6 +158,11 @@ export default {
 
 .section
   position relative
+  &.-hero
+  &.-about
+    y-padding(0px)
+  &.-contact
+    responsive-prop(margin-top, 60px 40px 30px)
 
   // .-about
 

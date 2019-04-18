@@ -165,6 +165,7 @@ export default {
 
       let { controller } = getters;
       if (!controller) {
+        console.log('create via SET_SMOOTH_SCROLLBAR');
         dispatch('CREATE', { refreshInterval: 0, container: scrollbar.containerEl });
         controller = getters.controller; // eslint-disable-line prefer-destructuring
       }

@@ -25,7 +25,7 @@ $fw-regular  = 400
 $fw-light    = 300
 
 /** font sizes generic */
-$fz-regular = (1.6rem 1.6rem)
+$fz-regular = (1.6rem 1.4rem 1.2rem)
 $fz-h1      = (3rem 2.4rem)
 $fz-title   = (2.6rem 2rem)
 
@@ -41,19 +41,20 @@ fsize($sizes, $responsive = false)
     // @todo add min and max (in px)
     // https://css-tricks.com/snippets/sass/viewport-sized-typography-minimum-maximum-sizes/
     font-size unit(remove-unit($sizes[0]) * f-vw(), 'vw')
-    +below($kff-mq-tablet)
+    +tablet()
       font-size $sizes[0]
-    +below($kff-mq-tablet-portrait)
+    +mobile()
       font-size $sizes[1]
 
-  else if length($sizes) = 3
+  else if length($sizes) is 3
     font-size $sizes[0]
+    content length($sizes)
     +tablet()
       font-size $sizes[1]
     +mobile()
       font-size $sizes[2]
 
-  else if length($sizes) = 2
+  else if length($sizes) is 2
     font-size $sizes[0]
     +mobile()
       font-size $sizes[1]
@@ -111,18 +112,21 @@ f-style($type='default', // default | title | subtitle | fbQuote | legend
     else if $level is 'h1'
       fsize(5rem 4rem 3.2rem)
     else if $level is 'h2'
-      fsize(2.6rem)
+      fsize(2.6rem 1.8rem)
     else if $level is 'h3'
-      fsize(2.2rem)
+      fsize(2.2rem 1.6rem)
     else if $level is 'h4'
       fsize(1.6rem)
     else
       fsize($fz-title, $responsive: true)
 
   if $type is 'text'
-    line-height 1.6
-    if $level is 'medium'
+    if $level is 'card'
+      line-height 1.4
       fsize(1.6rem 1.4rem)
+    else
+      line-height 1.6
+      fsize(1.8rem 1.6rem)
 
     // Other type here
     // ...

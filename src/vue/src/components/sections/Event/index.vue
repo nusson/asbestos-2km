@@ -8,20 +8,26 @@
 <!-- eslint-enable -->
 
 <script>
+import SectionHeader from 'components/misc/SectionHeader';
 import UiVideo from 'components/ui/Video/Figure';
-import Experiences from './Experience';
+// import Experiences from './Experience';
 
 export default {
   name: 'SectionEvent',
   components: {
+    SectionHeader,
     UiVideo,
-    Experiences,
+    // Experiences,
   },
   props: {
-    title: {
-      type: String,
-      default: '',
-    },
+    // title: {
+    //   type: String,
+    //   default: '',
+    // },
+    // description: {
+    //   type: String,
+    //   default: '',
+    // },
     date: {
       type: String,
       default: '',
@@ -35,13 +41,10 @@ export default {
         };
       },
     },
-    experience: {
-      type: Object,
+    items: {
+      type: Array,
       default() {
-        return {
-          title: '',
-          items: [],
-        };
+        return [];
       },
     },
     video: {
@@ -66,39 +69,43 @@ export default {
 </script>
 
 <template>
-  <section class="SectionEvent">
-    <div class="content">
-      <div class="col -left">
-        <header>
-          <h2
-            class="title"
-            v-text="title"/>
-          <p class="text">
-            <strong
-              class="date"
-              v-text="date" />
-            <strong
-              class="address"
-              v-text="address" />
-          </p>
-        </header>
+  <section class="SectionEvent section">
+    <div class="col -left">
+      <ol class="list steps">
+        <li
+          v-for="({ title, description, map }, index) in items"
+          :key="`step-${index}`"
+          class="item step">
+          <div>
+            <SectionHeader
+              :title="title"
+              :description="description"
+              tag="div"
+              class="header" />
+            <figure
+              v-if="map"
+              class="map-wrapper">
+              <div class="map"/>
+              <figcaption class="caption">
+                <p
+                  class="address"
+                  v-html="map.address" />
+                <a
+                  :href="map.cta.href"
+                  v-text="map.cta.label" />
+              </figcaption>
+            </figure>
+          </div>
+        </li>
+      </ol>
 
-        <Experiences
-          v-bind="experience"
-          class="experience"/>
-
-        <div class="map">
-          <!-- @todo -->
-        </div>
-
-      </div>
-      <div class="col -right">
-        <UiVideo
-          v-if="video"
-          v-bind="video"
-          :muted="true"
-          class="video" />
-      </div>
+    </div>
+    <div class="col -right">
+      <UiVideo
+        v-if="video"
+        v-bind="video"
+        :muted="false"
+        class="video" />
     </div>
   </section>
 </template>
@@ -114,27 +121,44 @@ export default {
 
   //  ===LAYOUT===
   .SectionEvent
-    responsive-prop(max-width, 1280px 800px)
-    responsive-prop(padding, (80px 20px) 20px)
-    center-margin()
-    background-color $c-white
-
-  .content
-    flexbox(row)
+    +not-mobile()
+      flexbox(row, $align: flex-start)
+      safe-content()
     >.col
       flex-basis 50%
+      &.-left
+        margin-right 40px
+        +mobile()
+          safe-content()
+          padding-bottom 30px
 
-  .date,
-  .address,
-  .title
-    f-style(title)
-    display block
-    // text-align center
+  .step
+    // height 80vh
+    // flexbox(center)
+    responsive-prop(padding-top, 10vmin 60px)
+    &:first-child
+      responsive-prop(padding-top, 30vh 0px)
 
-  .address,
-  .date
-    margin-top 2em
+  .header
+    padding 0
+    margin 0
+    >>> .date
+    >>> .address
+      f-style(title, h2)
 
+  .map-wrapper
+    position relative
+    responsive-prop(margin-top, 60px 40px 30px)
+    ratio-box(4/3)
+    width 100%
+    flexbox(center)
+
+    .map
+      absolute 0
+      background-color rgba(tomato, 0.5)
+    .caption
+      position relative
+      z-index 2
 
   .video
     // width (864px / 2)

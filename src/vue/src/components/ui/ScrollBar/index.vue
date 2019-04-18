@@ -37,7 +37,7 @@
     },
     destroyed() {
       if (this.scrollbar) {
-        this.destroyed();
+        this.destroyScrollbar();
       }
     },
     mounted() {
@@ -45,18 +45,23 @@
         if (!viewport) return;
         if (!this.isDesktop) {
           if (this.scrollbar) {
-            this.destroyed();
+            this.destroyScrollbar();
           }
         } else if (!this.scrollbar) {
-          this.scrollbar = SmoothScrollbar.init(this.$refs.scrollArea, this.defaultOptions);
-          this.$store.commit('Interface/SET_SCROLLBAR', this.scrollbar);
-          this.$store.dispatch('ScrollMagic/SET_SMOOTH_SCROLLBAR', this.scrollbar);
-          this.$store.dispatch('Interface/SCROLL_TOP', 0);
+          this.createScrollbar();
         }
       }, { immediate: true });
     },
     methods: {
-      destroyed() {
+      createScrollbar() {
+        console.log('createScrollbar');
+
+        this.scrollbar = SmoothScrollbar.init(this.$refs.scrollArea, this.defaultOptions);
+        this.$store.commit('Interface/SET_SCROLLBAR', this.scrollbar);
+        this.$store.dispatch('ScrollMagic/SET_SMOOTH_SCROLLBAR', this.scrollbar);
+        this.$store.dispatch('Interface/SCROLL_TOP', 0);
+      },
+      destroyScrollbar() {
         this.scrollbar.destroy();
         this.scrollbar = null;
         this.$store.commit('Interface/SET_SCROLLBAR', this.scrollbar);
@@ -80,13 +85,12 @@
     height var(--viewport-height)
     &[data-scrollable=false]
       pointer-events none
-    +not-desktop()
-      height 100%
+    // +not-desktop()
+    //   height 100%
 
   .ie &
     .smooth-scrollbar
-      +desktop()
-        fixed 0
-        size 100%
+      fixed 0
+      size 100%
 
 </style>

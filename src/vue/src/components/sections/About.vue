@@ -70,7 +70,7 @@ export default {
 </script>
 
 <template>
-  <div class="SectionAbout">
+  <div class="SectionAbout section">
     <div class="container">
       <header class="header">
         <h2
@@ -96,19 +96,6 @@ export default {
   */
 
   //  ===LAYOUT===
-  .container
-    position relative
-    z-index 5
-    
-  .title
-    f-style(title, $color: $c-white)
-    margin-bottom 1em
-
-  .content
-    color $c-white
-    responsive-prop(max-width, 800px 500px)
-    +desktop()
-      column-count 2
 
   .SectionAbout
     position relative
@@ -119,17 +106,25 @@ export default {
       absolute 0
       background-color rgba(black, 0.3)
       z-index 2
-    +mobile()
-      >.container
-        padding 60px 20px
-        // .content
-        //   x-padding(10px)
-    +desktop()
-      flexbox(center)
-      >.container
-        width 80vw
-        min-height 80vh
-        max-width 1024px
+    .container
+      position relative
+      z-index 5
+      width 100%
+      safe-content()
+      // padding-top 10vh
+      responsive-prop(padding-top, 10vh 20vh 0px)
+
+  .title
+    f-style(title, h1, $color: $c-white)
+
+  .content
+    color $c-white
+    margin-top 0.2em
+    f-style(text, $color: $c-white)
+    responsive-prop(max-width, 800px 700px 500px)
+    +not-mobile()
+      column-count 2
+
   //  ===DEBUG===
 </style>
 

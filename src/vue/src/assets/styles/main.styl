@@ -14,15 +14,9 @@ box-sizing-reset()
 
 .section
   y-padding(60px)
-  >.header
-    safe-content()
-
-    .title, .description
-      text-content()
-    .title
-      f-style(title, h1)
-    .description
-      f-style(text, medium)
-      margin-top 1em
-  >.content
-    margin-top 40px
+  +tablet()
+    y-padding(40px)
+  +mobile()
+    y-padding(30px)
+  .header + .content
+    responsive-prop(margin-top, 60px 30px)

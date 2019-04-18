@@ -4,7 +4,7 @@ export default {
   items: [
     {
       title: 'Dany',
-      description: 'Coordonnateur du projet',
+      job: 'Coordonnateur du projet',
       images: {
         small: { debug: true },
         big: { debug: true },
@@ -12,7 +12,7 @@ export default {
     },
     {
       title: 'Mathieu',
-      description: 'Responsable des installations de slackline',
+      job: 'Responsable des installations de slackline',
       images: {
         small: { debug: true },
         big: { debug: true },
@@ -20,7 +20,7 @@ export default {
     },
     {
       title: 'Danick',
-      description: 'Événement public',
+      job: 'Événement public',
       images: {
         small: { debug: true },
         big: { debug: true },
@@ -28,7 +28,7 @@ export default {
     },
     {
       title: 'Camille',
-      description: 'Campement',
+      job: 'Campement',
       images: {
         small: { debug: true },
         big: { debug: true },
@@ -36,7 +36,7 @@ export default {
     },
     {
       title: 'Félix',
-      description: 'Campement',
+      job: 'Campement',
       images: {
         small: { debug: true },
         big: { debug: true },
@@ -44,7 +44,7 @@ export default {
     },
     {
       title: 'Nicolas',
-      description: 'Programmation Web',
+      job: 'Programmation Web',
       images: {
         small: { debug: true },
         big: { debug: true },
@@ -52,7 +52,7 @@ export default {
     },
     {
       title: 'Cinthia',
-      description: 'Marketing',
+      job: 'Marketing',
       images: {
         small: { debug: true },
         big: { debug: true },
@@ -60,7 +60,7 @@ export default {
     },
     {
       title: 'Karine',
-      description: 'Animations',
+      job: 'Animations',
       images: {
         small: { debug: true },
         big: { debug: true },
@@ -68,7 +68,7 @@ export default {
     },
     {
       title: 'Renaud',
-      description: 'Installations',
+      job: 'Installations',
       images: {
         small: { debug: true },
         big: { debug: true },
@@ -76,7 +76,7 @@ export default {
     },
     {
       title: 'Dominic',
-      description: 'Commanditaires',
+      job: 'Commanditaires',
       images: {
         small: { debug: true },
         big: { debug: true },

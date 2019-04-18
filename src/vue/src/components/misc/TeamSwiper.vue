@@ -8,6 +8,7 @@
 <!-- eslint-enable -->
 
 <script>
+import { mapGetters } from 'vuex';
 import UiSwiper from 'components/ui/Swiper';
 import UiPicture from 'components/ui/Picture';
 
@@ -32,6 +33,22 @@ export default {
   data() {
     return {};
   },
+  computed: {
+    ...mapGetters({
+      isMobile: 'Interface/isMobile',
+    }),
+    options() {
+      if (this.isMobile) {
+        return {
+          spaceBetween: 15,
+          slidesPerView: 1.2,
+        };
+      }
+      return {
+        spaceBetween: 60,
+      };
+    },
+  },
   mounted() {},
   methods: {},
 };
@@ -39,14 +56,14 @@ export default {
 
 <template>
   <UiSwiper
-    :space-between="60"
+    :options="options"
     :centered-slides="true"
     :loop="true"
     :data-layout="layout"
     tag="ol"
     class="TeamSwiper swiper">
     <li
-      v-for="({title, description, images}, index) in items"
+      v-for="({title, job, description, images}, index) in items"
       :key="`activity-${index}`"
       class="slide">
       <div class="slide-content">
@@ -70,8 +87,9 @@ export default {
               class="title"
               v-text="title" />
             <p
-              class="description"
-              v-text="description" />
+              v-if="job"
+              class="job"
+              v-text="job" />
               <!-- <button class="action">+</button> -->
           </figcaption>
         </figure>
@@ -96,9 +114,6 @@ export default {
   .slide
     size 100%
 
-  .slide-content
-    safe-content()
-
   .image-wrapper
     position relative
 
@@ -108,8 +123,6 @@ export default {
     flex 0 1 30%
     >.image-wrapper
       flex-grow 0
-      // +above($mq-mobile + 1)
-      // ratio-box(1)
     .caption
       margin-top 20px
       color $c-dark
@@ -118,11 +131,11 @@ export default {
         f-style(title, h3)
       .description
         margin-top 0.2em
-        // display none
 
   //  ===DESKTOP===
   +not-mobile()
     .slide-content
+      safe-content()
       flexbox(row, $justify:center)
       >.figure
         margin-left 10%
@@ -131,39 +144,25 @@ export default {
       ratio-box(1)
       flex 0 1 60vmin
 
-    .figure
+    .figure >.image-wrapper
       ratio-box(1)
 
   //  ===MOBILE===
   +mobile()
     .slide-content
-      // height 50vmin
       .image-wrapper.-big
         display none
       >.figure
         size 100%
         flex 1 1 100%
-        // flexbox(row)
-        // flex-direction row
-        // flexbox(column)
-        // align-items flex-start
         x-margin(0px)
         >.image-wrapper
           ratio-box(4/3)
-          // height 50vmin
         >.caption
           margin-left 15px
 
-  //  ===ATHLETES===
-  // [data-layout="crew"]
-  //   +mobile()
-  //     .figure >.caption
-  //       .title, .description
-  //         display inline
-
   [data-layout="athletes"]
     .slide-content
-      // flexbox(row, $direction:row-reverse, $justify:flex-end)
       flex-direction row-reverse
       >.figure
         x-margin(0px, 10%)
@@ -173,10 +172,9 @@ export default {
           x-margin(0px)
       +mobile()
         .figure
-          // flex-direction row-reverse
           >.image-wrapper
             ratio-box(16/9)
-            // x-margin(0px, 15px)
+
   //  ===DEBUG===
   // figure
   //   background-color rgba(tomato, 0.2)

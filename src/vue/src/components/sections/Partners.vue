@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     initScrollMagic() {
-      const from = { opacity: 0, y: 15, scale: 0.9 };
+      const from = { opacity: 0.01, y: 15, scale: 0.9 };
       const to = {
         scale: 1,
         opacity: 1,
