@@ -127,6 +127,13 @@ f-style($type='default', // default | title | subtitle | fbQuote | legend
     else
       line-height 1.6
       fsize(1.8rem 1.6rem)
+  if $type is 'menu'
+    if $level is 'logo'
+      font-family $ff-title
+      fsize(1.8rem 1.4rem 1.4rem)
+    else
+      fsize(1.2rem 1.3rem)
+      text-transform uppercase
 
     // Other type here
     // ...

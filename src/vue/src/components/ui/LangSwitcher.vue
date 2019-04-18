@@ -63,7 +63,7 @@ export default {
 
   //  ===LAYOUT===
   .LangSwitcher
-    f-style($uppercase: true)
+    f-style(menu)
 
   //  ===DEBUG===
   [data-debug-mode="true"] .LangSwitcher

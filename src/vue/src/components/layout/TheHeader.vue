@@ -34,6 +34,7 @@ export default {
   computed: {
     ...mapGetters({
       isDesktop: 'Interface/isDesktop',
+      isMobile: 'Interface/isMobile',
     }),
     ...mapState('Menu', {
       mobileMenuIsOpen: ({ mobileMenuIsOpen }) => mobileMenuIsOpen,
@@ -143,7 +144,7 @@ export default {
               v-text="label"/>
           </li>
           <li class="item route -langSwitcher">
-            <LangSwitcher class="lang" />
+            <LangSwitcher class="link lang" />
           </li>
         </ul>
       </nav>
@@ -173,6 +174,11 @@ export default {
     z-index $z-navbar
 
   .logo
+    f-style(menu, logo)
+    fsize(1.8rem)
+  .-logo
+    flex-grow 1
+    text-align center
     //
 
   .link
@@ -180,6 +186,7 @@ export default {
     f-style(menu)
     color $c-dark
     kff-transition color
+    white-space nowrap
     .icon
       fill $c-dark
       kff-transition fill
@@ -199,14 +206,17 @@ export default {
     responsive-prop(height, $h-header)
     .list.routes
       size 100%
-      padding-left 10px
-      padding-right 10px
-      max-width 1080px + 20px
-      center-margin()
+      safe-content()
       flexbox(row, $align:center)
+      .route
+        x-margin(20px)
+        &:first-child
+          margin-left 0
+        &:last-child
+          margin-right 0
 
   /* ===MOBILE=== */
-  +mobile()
+  +not-desktop()
     .logo
       //
     .navbar
