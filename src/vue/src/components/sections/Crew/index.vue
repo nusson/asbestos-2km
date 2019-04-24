@@ -15,8 +15,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { TimelineMax, Power3, Back } from 'gsap';
-import { indexOf, without } from 'lodash';
+// import { TimelineMax, Power3, Back } from 'gsap';
+// import { indexOf, without } from 'lodash';
 import SectionHeader from 'components/misc/SectionHeader';
 import UiSwiper from 'components/ui/Swiper';
 import UiPicture from 'components/ui/Picture';
@@ -48,11 +48,11 @@ export default {
       },
     },
   },
-  data() {
-    return {
-      actives: [],
-    };
-  },
+  // data() {
+  //   return {
+  //     actives: [],
+  //   };
+  // },
   computed: {
     ...mapGetters({
       isDesktop: 'Interface/isDesktop',
@@ -61,46 +61,46 @@ export default {
     }),
   },
   mounted() {},
-  methods: {
-    indexOf,
-    toggle(index) {
-      if (indexOf(this.actives, index) >= 0) {
-        this.actives = without(this.actives, index);
-        return;
-      }
-      this.actives.push(index);
-    },
-    onOpen(el, done) {
-      return new TimelineMax({
-        onComplete: done,
-      })
-      .fromTo(el, 0.4, {
-          height: 0,
-          opacity: 0,
-          y: 10,
-        }, {
-          height: el.offsetHeight,
-          opacity: 1,
-          y: 0,
-          ease: Power3.easeOut,
-        })
-      .set(el, { height: 'auto' });
-    },
-    onClose(el, done) {
-      return new TimelineMax({
-        onComplete: done,
-      })
-      .to(el, 0.4, {
-        opacity: 0,
-        y: 10,
-        ease: Power3.easeIn,
-      }, 0)
-      .fromTo(el, 0.6, { height: el.offsetHeight }, {
-        height: 0,
-        ease: Back.easeIn,
-      }, 0);
-    },
-  },
+  // methods: {
+  //   indexOf,
+  //   toggle(index) {
+  //     if (indexOf(this.actives, index) >= 0) {
+  //       this.actives = without(this.actives, index);
+  //       return;
+  //     }
+  //     this.actives.push(index);
+  //   },
+  //   onOpen(el, done) {
+  //     return new TimelineMax({
+  //       onComplete: done,
+  //     })
+  //     .fromTo(el, 0.4, {
+  //         height: 0,
+  //         opacity: 0,
+  //         y: 10,
+  //       }, {
+  //         height: el.offsetHeight,
+  //         opacity: 1,
+  //         y: 0,
+  //         ease: Power3.easeOut,
+  //       })
+  //     .set(el, { height: 'auto' });
+  //   },
+  //   onClose(el, done) {
+  //     return new TimelineMax({
+  //       onComplete: done,
+  //     })
+  //     .to(el, 0.4, {
+  //       opacity: 0,
+  //       y: 10,
+  //       ease: Power3.easeIn,
+  //     }, 0)
+  //     .fromTo(el, 0.6, { height: el.offsetHeight }, {
+  //       height: 0,
+  //       ease: Back.easeIn,
+  //     }, 0);
+  //   },
+  // },
 };
 </script>
 

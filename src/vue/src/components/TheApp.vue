@@ -30,6 +30,7 @@ export default {
     ...mapGetters({
       loaded: 'Loader/loaded',
       viewport: 'Interface/viewport',
+      isMobile: 'Interface/isMobile',
       scrollable: 'Interface/scrollable',
       mode: 'App/mode',
     }),
@@ -55,9 +56,13 @@ export default {
         ._fullViewportH {
           height: ${this.viewport.height}px;
         }
+        ._fullViewportHWithoutHeader {
+          height: ${this.viewport.height - (this.isMobile ? 40 : 50)}px;
+        }
         :root { 
           --viewport-width: ${this.viewport.width}px;
           --viewport-height: ${this.viewport.height}px;
+          --viewport-height-no-header: ${this.viewport.height - (this.isMobile ? 40 : 50)}px;
         }
       `;
     },

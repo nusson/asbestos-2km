@@ -15,8 +15,8 @@ export default {
   name: 'SectionActivities',
   components: {
     SectionHeader,
-    // TeamGrid: () => import('./Grid'),
-    TeamSwiper: () => import('components/misc/TeamSwiper'),
+    Grid: () => import('./Grid'),
+    Swiper: () => import('components/misc/TeamSwiper'),
   },
   props: {
     title: {
@@ -57,7 +57,7 @@ export default {
       class="header"/>
     <component
       v-if="items.length"
-      :is="isMobile ? 'TeamSwiper' : 'TeamSwiper'"
+      :is="isMobile ? 'Swiper' : 'Grid'"
       :items="items"
       class="swiper content"/>
   </div>

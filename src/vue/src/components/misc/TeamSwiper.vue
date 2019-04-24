@@ -166,6 +166,10 @@ export default {
     size 100%
     +mobile()
       max-width calc('100% - 30px')
+    opacity 1
+    kff-transition(opacity)
+    &:not(.swiper-slide-active)
+      opacity 0
 
   .image-wrapper
     position relative
