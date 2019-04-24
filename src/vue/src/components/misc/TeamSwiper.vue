@@ -169,7 +169,8 @@ export default {
     opacity 1
     kff-transition(opacity)
     &:not(.swiper-slide-active)
-      opacity 0
+      +not-mobile()
+        opacity 0
 
   .image-wrapper
     position relative

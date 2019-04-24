@@ -112,7 +112,7 @@ export default {
       width 100%
       safe-content()
       // padding-top 10vh
-      responsive-prop(padding-top, 10vh 20vh 0px)
+      responsive-prop(padding-top, 20vh 20vh 0px)
 
   .title
     f-style(title, h1, $color: $c-white)
