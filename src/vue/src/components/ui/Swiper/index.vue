@@ -75,7 +75,9 @@ export default {
   },
   computed: {
     /* compute final options */
+
     _options() {
+    console.log('this.options', this.options);
       return {
         loop: this.loop,
         centeredSlides: this.centeredSlides,
@@ -135,7 +137,7 @@ export default {
   mounted() {
     // When dom change, create swiper
     // just to be sure we have our slides
-    this.$nextTick(() => {
+    setTimeout(() => {
       this.mounted = true; // trigger computed (because they use $refs)
       if (this.$refs.Wrapper.children.length) {
         this.swiper = this.createSwiper();
@@ -151,7 +153,7 @@ export default {
           { childList: true, subtree: true },
         );
       }
-    });
+    }, 1000);
   },
   methods: {
     /**
@@ -160,8 +162,6 @@ export default {
      * @return {Object} Swiper instance
      */
     createSwiper() {
-      console.log('[Swiper] createSwiper', { ...this._options });
-
       // ensure `swiper-slide` class to slides
       each(this.$refs.Wrapper.children, (node) => {
         node.classList.add('swiper-slide');

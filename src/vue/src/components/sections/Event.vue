@@ -166,24 +166,24 @@ export default {
 
   //  ===LAYOUT===
   .SectionEvent
-    +above($kff-mq-tablet-portrait)
+    +above($kff-mq-tablet-portrait + 1)
       flexbox(row, $align: flex-start)
       safe-content()
       .video
         max-height 80vh
-    +below($kff-mq-tablet-portrait - 1)
-      .col.-left
+    +below($kff-mq-tablet-portrait)
+      .header
         safe-content()
-        padding-bottom 20px
+      .col.-left
+        x-padding(0)
+        width 100%
+        padding-bottom 30px
 
     >.col
     >>> >.scrollmagic
       flex-basis 50%
       &.-left
         margin-right 40px
-        +mobile()
-          safe-content()
-          padding-bottom 30px
 
   .step
     // height 80vh

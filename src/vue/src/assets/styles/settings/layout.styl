@@ -1,10 +1,13 @@
 safe-content()
   max-width 1280px
-  center-margin()
-  x-padding(40px)
   box-sizing border-box
+  center-margin()
+  x-padding($gutters[0])
   +below(1024px)
-    x-padding(20px)
+    x-padding($gutters[1])
+  +below(700px)
+    x-padding($gutters[2])
 
 text-content()
   max-width 600px
+  

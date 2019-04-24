@@ -115,7 +115,8 @@ export default {
      */
     debugImage() {
       if (this.debug) {
-        return `https://picsum.photos/800/600/?image=${random(100)}`;
+        return 'https://www.fillmurray.com/800/600/';
+        // return `https://picsum.photos/800/600/?image=${random(100)}`;
       }
       return null;
     },

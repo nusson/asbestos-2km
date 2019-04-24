@@ -162,7 +162,7 @@ export default {
   &.-contact
     responsive-prop(margin-top, 60px 40px 30px)
   &.-activities
-    background-color $c-light
+    // background-color $c-light
 
   // .-about
 

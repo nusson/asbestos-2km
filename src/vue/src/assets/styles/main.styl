@@ -12,6 +12,20 @@ box-sizing-reset()
 @import '/utils/wysiwyg'
 // @todo: add a /utils/form
 
+// .touchevents,
+// .swiper-container
+// html
+a,
+button,
+img,
+video,
+input
+  &
+  &:active
+  &:focus
+    outline none
+    user-select none
+
 .section
   y-padding(60px)
   +tablet()

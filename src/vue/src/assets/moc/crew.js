@@ -4,83 +4,113 @@ export default {
   items: [
     {
       title: 'Dany',
-      job: 'Coordonnateur du projet',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Coordonnateur du projet',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
     {
       title: 'Mathieu',
-      job: 'Responsable des installations de slackline',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Responsable des installations de slackline',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
     {
       title: 'Danick',
-      job: 'Événement public',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Événement public',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
     {
       title: 'Camille',
-      job: 'Campement',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Campement',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
     {
       title: 'Félix',
-      job: 'Campement',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Campement',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
     {
       title: 'Nicolas',
-      job: 'Programmation Web',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Programmation Web',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
     {
       title: 'Cinthia',
-      job: 'Marketing',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Marketing',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
     {
       title: 'Karine',
-      job: 'Animations',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Animations',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
     {
       title: 'Renaud',
-      job: 'Installations',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Installations',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
     {
       title: 'Dominic',
-      job: 'Commanditaires',
-      images: {
-        small: { debug: true },
-        big: { debug: true },
+      description: 'Commanditaires',
+      image: {
+        debug: true,
       },
+      // images: {
+      //   small: { debug: true },
+      //   big: { debug: true },
+      // },
     },
   ],
 };

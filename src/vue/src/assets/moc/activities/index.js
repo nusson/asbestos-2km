@@ -17,7 +17,9 @@ export default {
     //     <br>split text et translateX -> + bg white prend tout X
     //     `,
     //   },
-    //   image: 'https://picsum.photos/1280/1280?image=870', // eslint-disable-line global-require
+    //   image: {
+    //     src: 'https://picsum.photos/1280/1280?image=870', // eslint-disable-line global-require
+    //   }
     // },
     {
       title: 'Zonne de slackline',
@@ -25,7 +27,9 @@ export default {
         short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         full: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus congue vulputate aliquam. Sed eget lectus urna. In sodales urna justo, ac scelerisque sem efficitur mollis. Duis ut consequat arcu. Nulla eros lectus,',
       },
-      image: require('assets/images/activities/zonne-slack.jpg'), // eslint-disable-line global-require
+      image: {
+        src: require('assets/images/activities/zonne-slack.jpg'), // eslint-disable-line global-require
+      },
     },
     {
       title: 'La traversée',
@@ -33,7 +37,9 @@ export default {
         short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         full: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus congue vulputate aliquam. Sed eget lectus urna. In sodales urna justo, ac scelerisque sem efficitur mollis. Duis ut consequat arcu. Nulla eros lectus,',
       },
-      image: require('assets/images/activities/send.jpg'), // eslint-disable-line global-require
+      image: {
+        src: require('assets/images/activities/send.jpg'), // eslint-disable-line global-require
+      },
     },
     {
       title: 'Ateliers pour enfants',
@@ -41,7 +47,9 @@ export default {
         short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         full: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus congue vulputate aliquam. Sed eget lectus urna. In sodales urna justo, ac scelerisque sem efficitur mollis. Duis ut consequat arcu. Nulla eros lectus,',
       },
-      image: require('assets/images/activities/enfants.jpg'), // eslint-disable-line global-require
+      image: {
+        src: require('assets/images/activities/enfants.jpg'), // eslint-disable-line global-require
+      },
     },
     {
       title: 'Pilou joue de la musique',
@@ -49,7 +57,9 @@ export default {
         short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         full: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus congue vulputate aliquam. Sed eget lectus urna. In sodales urna justo, ac scelerisque sem efficitur mollis. Duis ut consequat arcu. Nulla eros lectus,',
       },
-      image: require('assets/images/activities/pilou.jpg'), // eslint-disable-line global-require
+      image: {
+        src: require('assets/images/activities/pilou.jpg'), // eslint-disable-line global-require
+      },
     },
     {
       title: 'Mush et slack a l\'église',
@@ -57,7 +67,9 @@ export default {
         short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         full: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus congue vulputate aliquam. Sed eget lectus urna. In sodales urna justo, ac scelerisque sem efficitur mollis. Duis ut consequat arcu. Nulla eros lectus,',
       },
-      image: require('assets/images/activities/church.jpg'), // eslint-disable-line global-require
+      image: {
+        src: require('assets/images/activities/church.jpg'), // eslint-disable-line global-require
+      },
     },
     {
       title: 'Grosse fete a la brasserie',
@@ -65,7 +77,9 @@ export default {
         short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         full: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus congue vulputate aliquam. Sed eget lectus urna. In sodales urna justo, ac scelerisque sem efficitur mollis. Duis ut consequat arcu. Nulla eros lectus,',
       },
-      image: require('assets/images/activities/moulin.jpg'), // eslint-disable-line global-require
+      image: {
+        src: require('assets/images/activities/moulin.jpg'), // eslint-disable-line global-require
+      },
     },
   ],
 };

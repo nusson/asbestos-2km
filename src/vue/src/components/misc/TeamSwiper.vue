@@ -9,7 +9,9 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { uniqueId } from 'lodash';
 import UiSwiper from 'components/ui/Swiper';
+import UiSwiperNavigation from 'components/ui/Swiper/Navigation';
 import UiPicture from 'components/ui/Picture';
 
 export default {
@@ -17,6 +19,7 @@ export default {
   components: {
     UiSwiper,
     UiPicture,
+    UiSwiperNavigation,
   },
   props: {
     layout: {
@@ -36,16 +39,24 @@ export default {
   computed: {
     ...mapGetters({
       isMobile: 'Interface/isMobile',
+      mqMobile: 'Interface/mqMobile',
     }),
+    _id() {
+      return uniqueId('TeamSwiper_');
+    },
     options() {
-      if (this.isMobile) {
-        return {
-          spaceBetween: 15,
-          slidesPerView: 1.2,
-        };
-      }
       return {
         spaceBetween: 60,
+        loop: true,
+        slidesPerView: 'auto',
+        breakpoints: {
+          [this.mqMobile]: {
+            // spaceBetween: 0,
+            spaceBetween: 15,
+            // slidesPerView: 1,
+            slidesPerView: 'auto',
+          },
+        },
       };
     },
   },
@@ -55,47 +66,64 @@ export default {
 </script>
 
 <template>
-  <UiSwiper
-    :options="options"
-    :centered-slides="true"
-    :loop="true"
-    :data-layout="layout"
-    tag="ol"
-    class="TeamSwiper swiper">
-    <li
-      v-for="({title, job, description, images}, index) in items"
-      :key="`activity-${index}`"
-      class="slide">
-      <div class="slide-content">
-        <div class="image-wrapper -big">
-          <UiPicture
-            :full="true"
-            v-bind="images.big"
-            class="picture -big"
-            cover="cover" />
-        </div>
-        <figure class="figure">
-          <div class="image-wrapper -small">
+  <div
+    :id="_id"
+    class="TeamSwiper">
+    <UiSwiper
+      :id="_id"
+      :options="options"
+      :navigation="{
+        nextEl: `#${_id} .next`,
+        prevEl: `#${_id} .prev`,
+      }"
+      :pagination="{
+        el: `#${_id} .pagination`,
+        dynamicBullets: true,
+      }"
+      :centered-slides="true"
+      :loop="false"
+      :data-layout="layout"
+      tag="ol"
+      class="swiper">
+      <li
+        v-for="({title, job, description, images, image}, index) in items"
+        :key="`activity-${index}`"
+        class="slide">
+        <div class="slide-content">
+          <div
+            v-if="images && images.big"
+            class="image-wrapper -big">
             <UiPicture
-              v-bind="images.small"
               :full="true"
-              class="picture -small"
+              v-bind="images.big"
+              class="picture -big"
               cover="cover" />
           </div>
-          <figcaption class="caption">
-            <h3
-              class="title"
-              v-text="title" />
-            <p
-              v-if="job"
-              class="job"
-              v-text="job" />
-              <!-- <button class="action">+</button> -->
-          </figcaption>
-        </figure>
-      </div>
-    </li>
-  </UiSwiper>
+          <figure class="figure">
+            <div class="image-wrapper -small">
+              <UiPicture
+                v-bind="image || images.small"
+                :full="true"
+                class="picture -small"
+                cover="cover" />
+            </div>
+            <figcaption class="caption">
+              <h3
+                class="title"
+                v-text="title" />
+              <p
+                v-if="job"
+                class="job"
+                v-text="job" />
+                <!-- <button class="action">+</button> -->
+            </figcaption>
+          </figure>
+        </div>
+      </li>
+    </UiSwiper>
+
+    <UiSwiperNavigation class="navigation" />
+  </div>
 </template>
 
 <style lang="stylus" scoped>
@@ -111,12 +139,36 @@ export default {
   */
 
   //  ===LAYOUT===
+  .TeamSwiper
+    position relative
+    safe-content()
+    >>>.swiper-container
+      overflow visible
+
+  .navigation
+    position absolute
+    right $gutters[2]
+    z-index 10
+
+    +tablet()
+      right 40px
+    +mobile()
+      bottom -17px
+      right $gutters[2]
+    +above($mq-mobile + 1)
+      bottom 5px
+      z-index 10
+      right 80px
+    +above(1300px)
+      right 120px
+
   .slide
     size 100%
+    +mobile()
+      max-width calc('100% - 30px')
 
   .image-wrapper
     position relative
-
 
   .figure
     flexbox(column)
@@ -152,28 +204,30 @@ export default {
     .slide-content
       .image-wrapper.-big
         display none
-      >.figure
-        size 100%
-        flex 1 1 100%
-        x-margin(0px)
-        >.image-wrapper
-          ratio-box(4/3)
-        >.caption
-          margin-left 15px
+    .figure
+      size 100%
+      flex 1 1 100%
+      x-margin(0px)
+    .image-wrapper
+      ratio-box(4/3)
+    .caption
+      margin-left $gutters[2]
+    .title
+      max-width calc('100% - 130px')
 
-  [data-layout="athletes"]
-    .slide-content
-      flex-direction row-reverse
-      >.figure
-        x-margin(0px, 10%)
-      +tablet()
-        justify-content space-between
-        >.figure
-          x-margin(0px)
-      +mobile()
-        .figure
-          >.image-wrapper
-            ratio-box(16/9)
+  // [data-layout="athletes"]
+  //   .slide-content
+  //     flex-direction row-reverse
+  //     >.figure
+  //       x-margin(0px, 10%)
+  //     +tablet()
+  //       justify-content space-between
+  //       >.figure
+  //         x-margin(0px)
+  //     // +mobile()
+  //     //   .figure
+  //     //     >.image-wrapper
+  //     //       ratio-box(16/9)
 
   //  ===DEBUG===
   // figure

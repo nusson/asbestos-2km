@@ -221,8 +221,11 @@ export default {
   getters: {
     viewport: state => state.viewport,
     device: state => state.device,
-    isMobile: state => state.viewport.width <= 700,
-    isDesktop: state => state.viewport.width > 1024,
+    mqMobile: () => 700,
+    mqPortrait: () => 900,
+    mqDesktop: () => 1025,
+    isMobile: ({ viewport }, { mqMobile }) => viewport.width <= mqMobile,
+    isDesktop: ({ viewport }, { mqDesktop }) => viewport.width >= mqDesktop,
     scrollContainer: state => state.scrollContainer,
     scrollable: state => state.scrollable,
   },
