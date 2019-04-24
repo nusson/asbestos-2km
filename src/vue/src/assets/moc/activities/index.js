@@ -2,23 +2,23 @@ export default {
   title: 'Divertissant et inédit',
   description: '<p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>',
   items: [
-    {
-      title: 'Idee layout',
-      description: {
-        short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        full: `
-        Big squares, just 2 per screen,
-        <br>with different scroll speed...
-        <br>le top serait de changer la velocite sur la colonne ou lón scrol
-        <br>
-        <br>Cote design:
-        <br>Pour le titre une bande (cf note design) (split text par ligne)
-        <br>et au rollover/proximity ca trigger show
-        <br>split text et translateX -> + bg white prend tout X 
-        `,
-      },
-      image: 'https://picsum.photos/1280/1280?image=870', // eslint-disable-line global-require
-    },
+    // {
+    //   title: 'Idee layout',
+    //   description: {
+    //     short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    //     full: `
+    //     Big squares, just 2 per screen,
+    //     <br>with different scroll speed...
+    //     <br>le top serait de changer la velocite sur la colonne ou lón scrol
+    //     <br>
+    //     <br>Cote design:
+    //     <br>Pour le titre une bande (cf note design) (split text par ligne)
+    //     <br>et au rollover/proximity ca trigger show
+    //     <br>split text et translateX -> + bg white prend tout X
+    //     `,
+    //   },
+    //   image: 'https://picsum.photos/1280/1280?image=870', // eslint-disable-line global-require
+    // },
     {
       title: 'Zonne de slackline',
       description: {

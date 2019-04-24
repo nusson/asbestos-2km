@@ -102,7 +102,7 @@ export default {
         // .setTween(slide, { y: '50%', ease: Linear.easeNone });
       this.$store.dispatch('ScrollMagic/ADD_SCENE', {
         scene,
-        indicators: true,
+        indicators: false,
       });
       return scene;
     },

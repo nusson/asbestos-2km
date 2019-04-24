@@ -73,24 +73,24 @@ export default {
   <div
     id="App"
     :data-debug-mode="$root.debug"
-    :data-scrollable="scrollable.toString()">
+    :data-scrollable="true">
 
     <TheHeader v-if="loaded"/>
 
-    <SmoothScrollBar
+    <!-- <SmoothScrollBar
       :data-scrollable="scrollable.toString()"
       tag="main"
-      class="app_content">
-      <transition
-        :css="false"
-        mode="in-out"
-        appear>
-        <router-view
-          ref="Page"
-          class="page"/>
-      </transition>
-      <!-- <TheFooter v-if="loaded"/> -->
-    </SmoothScrollBar>
+      class="app_content"> -->
+    <transition
+      :css="false"
+      mode="in-out"
+      appear>
+      <router-view
+        ref="Page"
+        class="page"/>
+    </transition>
+    <!-- <TheFooter v-if="loaded"/> -->
+    <!-- </SmoothScrollBar> -->
 
     <Overlay />
     <PageTransition ref="PageTransition" />
@@ -117,7 +117,8 @@ export default {
     .app_content
       flexbox(column)
       size 100%
-      overflow hidden
+      // overflow hidden
+      overflow auto
       +not-desktop()
         overflow auto
       > .page
