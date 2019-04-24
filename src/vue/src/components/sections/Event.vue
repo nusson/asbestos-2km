@@ -190,7 +190,8 @@ export default {
     // flexbox(center)
     responsive-prop(padding-top, 10vmin 60px)
     &:first-child
-      responsive-prop(padding-top, 30vh 0px)
+      // responsive-prop(padding-top, 30vh 0px)
+      padding-top 0px
 
   .header
     padding 0
