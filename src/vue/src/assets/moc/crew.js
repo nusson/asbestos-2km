@@ -6,111 +6,74 @@ export default {
       title: 'Dany',
       description: 'Coordonnateur du projet',
       image: {
-        debug: true,
+        src: '/uploads/team/Dany.jpg',
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
     {
       title: 'Mathieu',
       description: 'Responsable des installations de slackline',
       image: {
-        debug: true,
+        src: '/uploads/team/Mathieu.jpg',
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
     {
       title: 'Danick',
-      description: 'Événement public',
+      description: 'Responsable site et événement',
       image: {
-        debug: true,
+        src: '/uploads/team/danick.jpg',
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
     {
       title: 'Camille',
-      description: 'Campement',
+      description: 'Responsable du campement',
       image: {
-        debug: true,
+        src: '/uploads/team/Camille.jpg',
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
     {
       title: 'Félix',
-      description: 'Campement',
+      description: 'Responsable du campement',
       image: {
-        debug: true,
+        src: '/uploads/team/Felix.jpg',
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
     {
       title: 'Nicolas',
       description: 'Programmation Web',
       image: {
-        debug: true,
+        src: '/uploads/team/Nico.jpg',
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
     {
       title: 'Cinthia',
       description: 'Marketing',
       image: {
+        // src: '/uploads/team/xxxx.jpg',
         debug: true,
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
     {
       title: 'Karine',
       description: 'Animations',
       image: {
+        // src: '/uploads/team/xxxx.jpg',
         debug: true,
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
     {
       title: 'Renaud',
-      description: 'Installations',
+      description: 'Installations slackline',
       image: {
-        debug: true,
+        src: '/uploads/team/Renaud.jpg',
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
     {
       title: 'Dominic',
       description: 'Commanditaires',
       image: {
+        // src: '/uploads/team/xxxx.jpg',
         debug: true,
       },
-      // images: {
-      //   small: { debug: true },
-      //   big: { debug: true },
-      // },
     },
   ],
 };

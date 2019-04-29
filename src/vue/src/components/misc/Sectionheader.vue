@@ -33,7 +33,7 @@ export default {
     class="SectionHeader">
     <h2
       class="title"
-      v-text="title"/>
+      v-html="title"/>
     <div
       v-if="description"
       class="description _wysiwyg"

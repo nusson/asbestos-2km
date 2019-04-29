@@ -1,0 +1,79 @@
+export default {
+  title: 'Divertissant et inédit',
+  description: '<p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>',
+  items: [
+    {
+      title: 'La traversée de 2km',
+      description: {
+        // short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        full: 'Tout au long de la fin de semaine, une quinzaine d’athlètes monteront tour à tour sur la Highline la plus longue jamais traversée afin de tenter de battre un nouveau record du monde!',
+      },
+      image: {
+        src: '/uploads/activities/traversee-2km.jpg',
+      },
+    },
+    {
+      title: 'La 1ere compétition de Highline Freestyle au Canada',
+      description: {
+        // short: 'Venez encourager les athlètes lors de cette compétition de calibre international',
+        full: 'Venez encourager les athlètes lors de cette compétition de calibre international.<br>Attendez-vous à un spectacle impressionnant avec des mouvements uniques requérant le plus haut niveau d’équilibre!',
+      },
+      image: {
+        src: '/uploads/activities/highline-freestyle.jpg',
+      },
+    },
+    {
+      title: 'Initiations',
+      description: {
+        // short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        full: 'Tout ceux qui le souhaitent auront la chance de se faire initier à ce sport d’équilibre dans un environnement sécuritaire adapté à tous les niveaux et accompagné de Slackliners accomplis.',
+      },
+      image: {
+        src: '/uploads/accompagnement-texte-descriptif-3.jpg',
+      },
+    },
+    {
+      title: 'Démonstrations',
+      description: {
+        // short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        full: `
+          À tout moment, devant vos yeux, notre brochette d’athlètes vous feront la démonstration d’une multitudes de mouvements inédits, inventés ou simplement improbables.
+          <br>Préparez-vous à être surpris devant nos performances enflammées!
+        `,
+      },
+      image: {
+        src: '/uploads/activities/demonstrations.jpg',
+      },
+    },
+    {
+      title: 'Activités familiales',
+      description: {
+        // short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        full: 'Des activités pour tous les goûts. Du Yoga jusqu’aux séances de maquillages pour les touts petits, tout le monde sera diverti!',
+      },
+      image: {
+        src: '/uploads/activities/activites-familiales.jpg',
+      },
+    },
+    {
+      title: 'Soirées-Spectacles',
+      description: {
+        // short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        full: 'Les soirées se poursuivent dans une ambiance festive grâce aux musiciens spécialement sélectionnés pour s’assurer de terminer la journée en beauté.',
+      },
+      image: {
+        src: '/uploads/activities/soirees-spectacles.jpg',
+      },
+    },
+    {
+      title: 'Nourriture & Alcool sur place',
+      description: {
+        // short: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        full: 'Pour tous les appétits et pour toutes les soifs, chacun y trouvera son compte avec la présence de Foodtrucks diversifiés et de bières locales sur place.',
+      },
+      image: {
+        src: '/uploads/activities/nourriture-et-alcool.jpg',
+      },
+    },
+  ],
+};

@@ -30,6 +30,10 @@ export default {
     //   type: String,
     //   default: '',
     // },
+    address: {
+      type: String,
+      default: '',
+    },
     date: {
       type: String,
       default: '',
@@ -65,10 +69,10 @@ export default {
     ...mapGetters({
       viewport: 'Interface/viewport',
     }),
-    address() {
-      const { city, state } = this.place;
-      return `${city}, ${state}`;
-    },
+    // address() {
+    //   const { city, state } = this.place;
+    //   return `${city}, ${state}`;
+    // },
   },
   mounted() {
     const unwatchReady = this.$watch('viewport', ({ width }) => {

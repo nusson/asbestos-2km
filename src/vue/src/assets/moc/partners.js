@@ -10,13 +10,13 @@ export default {
         src: '/uploads/partners/asbestos.svg',
       },
     },
-    {
-      name: 'Keen',
-      url: 'https://www.keenfootwear.com',
-      image: {
-        src: '/uploads/partners/keen.svg',
-      },
-    },
+    // {
+    //   name: 'Keen',
+    //   url: 'https://www.keenfootwear.com',
+    //   image: {
+    //     src: '/uploads/partners/keen.svg',
+    //   },
+    // },
     {
       name: 'Moulin 7',
       url: 'http://moulin7.com',

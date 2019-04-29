@@ -86,7 +86,7 @@ export default {
       tag="ol"
       class="swiper">
       <li
-        v-for="({title, job, description, images, image}, index) in items"
+        v-for="({title, job, description, images, image, place, name, link}, index) in items"
         :key="`activity-${index}`"
         class="slide">
         <div class="slide-content">
@@ -109,12 +109,17 @@ export default {
             </div>
             <figcaption class="caption">
               <h3
+                v-if="title"
                 class="title"
                 v-text="title" />
+              <a v-else class="title" :href="link">
+                <strong class="strong" v-text="name" />
+                <br><span class="normal" v-text="place" />
+              </a>
               <p
-                v-if="job"
-                class="job"
-                v-text="job" />
+                v-if="description"
+                class="description"
+                v-text="description" />
                 <!-- <button class="action">+</button> -->
             </figcaption>
           </figure>
@@ -186,6 +191,8 @@ export default {
       flex-grow 1
       .title
         f-style(title, h3)
+        .normal
+          f-style(title, h4)
       .description
         margin-top 0.2em
 
