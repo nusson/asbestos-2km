@@ -128,7 +128,7 @@ export default {
 
       // if no created yet, create it now (yep, its instantanious :) )
       if (!controller) {
-        console.log('create via ADD_SCENE');
+        // console.log('create via ADD_SCENE');
         dispatch('CREATE');
         controller = getters.controller; // eslint-disable-line prefer-destructuring
       }
@@ -161,11 +161,11 @@ export default {
     SET_SMOOTH_SCROLLBAR({
       state, getters, dispatch, commit,
     }, scrollbar) {
-      console.log('SET_SMOOTH_SCROLLBAR', scrollbar);
+      // console.log('SET_SMOOTH_SCROLLBAR', scrollbar);
 
       let { controller } = getters;
       if (!controller) {
-        console.log('create via SET_SMOOTH_SCROLLBAR');
+        // console.log('create via SET_SMOOTH_SCROLLBAR');
         dispatch('CREATE', { refreshInterval: 0, container: scrollbar.containerEl });
         controller = getters.controller; // eslint-disable-line prefer-destructuring
       }
