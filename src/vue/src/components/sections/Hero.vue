@@ -31,12 +31,12 @@ export default {
       default() {
         return {
           mobile: {
-            demo: () => import('assets/videos/hero/tmp-hero-video-640.mp4').then(module => module.default),
-            full: () => import('assets/videos/hero/tmp-hero-video-1280.mp4').then(module => module.default),
+            demo: '/uploads/hero/hero-video-640.mp4', // () => import('/uploads/hero/hero-video-640.mp4').then(module => module.default),
+            full: '/uploads/hero/hero-video-640.mp4', // () => import('/uploads/hero/hero-video-1280.mp4').then(module => module.default),
           },
           desktop: {
-            demo: () => import('assets/videos/hero/tmp-hero-video-1280.mp4').then(module => module.default),
-            full: () => import('assets/videos/hero/tmp-hero-video-1920.mp4').then(module => module.default),
+            demo: '/uploads/hero/hero-video-640.mp4', // () => import('/uploads/hero/hero-video-1280.mp4').then(module => module.default),
+            full: '/uploads/hero/hero-video-640.mp4', // () => import('/uploads/hero/hero-video-1920.mp4').then(module => module.default),
           },
         };
       },
@@ -50,9 +50,11 @@ export default {
   asyncComputed: {
     backgroundVideo() {
       if (this.isDesktop) {
-        return this.video.desktop.demo();
+        // return this.video.desktop.demo();
+        return this.video.desktop.demo;
       }
-      return this.video.mobile.demo();
+      // return this.video.mobile.demo();
+      return this.video.mobile.demo;
     },
   },
   mounted() {
