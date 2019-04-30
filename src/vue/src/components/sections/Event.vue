@@ -128,19 +128,6 @@ export default {
               :description="description"
               tag="div"
               class="header" />
-            <figure
-              v-if="map"
-              class="map-wrapper">
-              <div class="map"/>
-              <figcaption class="caption">
-                <p
-                  class="address"
-                  v-html="map.address" />
-                <a
-                  :href="map.cta.href"
-                  v-text="map.cta.label" />
-              </figcaption>
-            </figure>
           </div>
         </li>
       </ol>
@@ -182,6 +169,8 @@ export default {
         x-padding(0)
         width 100%
         padding-bottom 30px
+    +mobile()
+      padding-bottom 0 !important
 
     >.col
     >>> >.scrollmagic

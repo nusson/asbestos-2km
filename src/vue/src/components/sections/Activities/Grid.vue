@@ -95,16 +95,16 @@ export default {
 
         const tl = new TimelineMax()
           .fromTo(slide, 0.8, {
-            y: '300px',
+            y: '0px',
           }, {
-            y: '-150px',
+            y: '400px',
             ease: Power0.easeNone,
           }, 0);
 
         const scene = new Scene({
           triggerElement: slide,
-          duration: '300%',
-          triggerHook: 1,
+          duration: '160%',
+          triggerHook: 0.8,
         })
         .setTween(tl);
 
@@ -174,16 +174,16 @@ export default {
       &:nth-child(n+3)
         margin-top 40px
       &:nth-child(4)
-        top -126px
+        top 211px
       &:nth-child(6)
-        top -252px
+        top 422px
       +tablet()
         &:nth-child(n+3)
           margin-top 20px
-        &:nth-child(4)
-          top -124px
-        &:nth-child(6)
-          top -248px
+        // &:nth-child(4)
+        //   top (114px + 20px)
+        // &:nth-child(6)
+        //   top (228px + 20px)
 
       // &:nth-child(2)
       // &:nth-child(4)
@@ -247,8 +247,8 @@ export default {
     padding-bottom 40px
     // kff-transition()
     position relative
-    transition transform 0.6s easing('in-back')/*, background 0.6s easing('in-back') */
-    transition margin-top 0.6s easing('in-back')
+    // transition transform 0.6s easing('in-back')/*, background 0.6s easing('in-back') */
+    // transition margin-top 0.6s easing('in-back')
     // &:before
     //   absolute 0
     //   background-color $c-white

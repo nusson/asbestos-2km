@@ -1,6 +1,5 @@
 export default {
   title: 'Team organisatrice',
-  description: '<p>Soybeans, owls duck raising or, cheep in plows. Shovels at rakes plows. Grapes nest pitch fork an plows maple syrup yearlings, quilt squeak doggies. Augers oats hen cowpies. Outhouse at nails mower. In the straw rain barrels. Utters are weathervane foal est. Rooster celery pineapples fertilizer, a melon chirp pets in. Augers oats hen cowpies.</p>',
   items: [
     {
       title: 'Dany',

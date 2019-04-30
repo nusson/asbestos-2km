@@ -10,7 +10,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/uploads/athletes/Mia Noblet.jpg',
+          src: '/uploads/athletes/Mia-Noblet.jpg',
         },
       },
     },
@@ -22,7 +22,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/uploads/athletes/Ari DeLashmutt - Slackline.jpg',
+          src: '/uploads/athletes/Ari-DeLashmutt---Slackline.jpg',
         },
       },
     },
@@ -34,7 +34,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/uploads/athletes/Anthony Boulay.jpg',
+          src: '/uploads/athletes/Anthony-Boulay.jpg',
         },
       },
     },
@@ -46,7 +46,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/uploads/athletes/Spenser Seabrooke - Slackliner .jpg',
+          src: '/uploads/athletes/Spenser-Seabrooke---Slackliner.jpg',
         },
       },
     },
@@ -58,7 +58,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/uploads/athletes/Copie de Asbestos-1.9km-_C7A5210.jpg',
+          src: '/uploads/athletes/Copie-de-Asbestos-1.9km-_C7A5210.jpg',
         },
       },
     },
@@ -71,7 +71,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/uploads/athletes/Lukas Irmler - Slackliner.jpg',
+          src: '/uploads/athletes/Lukas-Irmler---Slackliner.jpg',
         },
       },
     },
@@ -83,7 +83,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/uploads/athletes/Liz Thomas.jpg',
+          src: '/uploads/athletes/Liz-Thomas.jpg',
         },
       },
     },
@@ -95,7 +95,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/uploads/athletes/Michael Madsen.jpg',
+          src: '/uploads/athletes/Michael-Madsen.jpg',
         },
       },
     },

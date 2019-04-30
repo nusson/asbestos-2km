@@ -89,8 +89,8 @@ export default {
         v-for="({title, job, description, images, image, place, name, link}, index) in items"
         :key="`activity-${index}`"
         class="slide">
-        <div class="slide-content">
-          <div
+        <!-- <div class="slide-content"> -->
+        <!-- <div
             v-if="images && images.big"
             class="image-wrapper -big">
             <UiPicture
@@ -98,32 +98,39 @@ export default {
               v-bind="images.big"
               class="picture -big"
               cover="cover" />
+          </div> -->
+        <figure class="slide-content figure">
+          <div class="image-wrapper -big">
+            <UiPicture
+              v-bind="image || images.big"
+              :full="true"
+              class="picture -big"
+              cover="cover" />
           </div>
-          <figure class="figure">
-            <div class="image-wrapper -small">
-              <UiPicture
-                v-bind="image || images.small"
-                :full="true"
-                class="picture -small"
-                cover="cover" />
-            </div>
-            <figcaption class="caption">
-              <h3
-                v-if="title"
-                class="title"
-                v-text="title" />
-              <a v-else class="title" :href="link">
-                <strong class="strong" v-text="name" />
-                <br><span class="normal" v-text="place" />
-              </a>
-              <p
-                v-if="description"
-                class="description"
-                v-text="description" />
-                <!-- <button class="action">+</button> -->
-            </figcaption>
-          </figure>
-        </div>
+          <figcaption class="caption">
+            <h3
+              v-if="title"
+              class="title"
+              v-text="title" />
+            <a
+              v-else
+              :href="link"
+              class="title">
+              <strong
+                class="strong"
+                v-text="name" />
+              <br><span
+                class="normal"
+                v-text="place" />
+            </a>
+            <p
+              v-if="description"
+              class="description"
+              v-text="description" />
+              <!-- <button class="action">+</button> -->
+          </figcaption>
+        </figure>
+        <!-- </div> -->
       </li>
     </UiSwiper>
 
@@ -181,35 +188,38 @@ export default {
     position relative
 
   .figure
-    flexbox(column)
-    flex 0 1 30%
-    >.image-wrapper
-      flex-grow 0
-    .caption
-      margin-top 20px
-      color $c-dark
-      flex-grow 1
-      .title
-        f-style(title, h3)
-        .normal
-          f-style(title, h4)
-      .description
-        margin-top 0.2em
+    // flexbox(column)
+    // flex 0 1 30%
+    // >.image-wrapper
+    //   flex-grow 0
+  .caption
+    margin-top 20px
+    color $c-dark
+    flex-grow 1
+    .title
+      f-style(title, h3)
+      .normal
+        f-style(title, h4)
+    .description
+      margin-top 0.2em
 
   //  ===DESKTOP===
   +not-mobile()
     .slide-content
-      safe-content()
+      // safe-content()
       flexbox(row, $justify:center)
-      >.figure
-        margin-left 10%
 
     .image-wrapper.-big
       ratio-box(1)
-      flex 0 1 60vmin
+      flex 1 1 60vmin
+      max-width 60vmin
 
-    .figure >.image-wrapper
-      ratio-box(1)
+    .caption
+      margin-left 10%
+      flex 1 1 40vmin
+      min-width 300px
+      +below(1024px)
+        margin-left 20px
 
   //  ===MOBILE===
   +mobile()

@@ -1,12 +1,4 @@
 export default {
-  title: 'La région en action',
-  // description: '<p>Fière de sa nouvelle mission sportive, festive et éducative, la Ville d’Asbestos reçoit de nouveaux visiteurs à la mine Jeffrey et attire l’attention sur son magnifique lac aux couleurs turquoises.</p>',
-  date: 'du 25 au 27 juillet 2019',
-  address: 'Sur le site de la mine Jeffrey, Asbestos, Québec',
-  place: {
-    city: 'Asbestos',
-    state: 'Québec',
-  },
   video: {
     src: '/uploads/event/world-record-asbestos-2018-by-@LeviAllen.mp4',
     legend: 'World Record 1.9km - Asbestos, Québec 2018 - by <a target="_blank" href="https://www.instagram.com/leviallen" rel="author">@LeviAllen</a>',
@@ -26,17 +18,6 @@ export default {
         <p>Par ailleurs, sur des lignes plus courtes comme celles de 50 mètres de long que vous verrez aussi à Asbestos, les athlètes pratiquent plutôt le Freestyle. Une version acrobatique de la highline où ils performent des mouvements dynamiques ressemblant parfois à la gymnastique, parfois à la trampoline, sur une sangle de 2,5 cm de large!
           <br>Venez les voir lors de la 1ère compétition de Highline Freestyle au Canada !</p>
       `,
-    },
-    {
-      title: 'Du 25 au<br>27 juillet 2019',
-      description: '<h3 class="address">Sur le site de la mine Jeffrey,<br>Asbestos,<br>Québec</h3>',
-      map: {
-        address: 'Sur le site de la mine Jeffrey, Asbestos, Québec',
-        cta: {
-          label: 'Get directions',
-          src: '#',
-        },
-      },
     },
   ],
 };

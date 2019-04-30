@@ -18,6 +18,7 @@ import SectionActivities from 'components/sections/Activities';
 import SectionCrew from 'components/sections/Crew';
 import SectionGuests from 'components/sections/Guests';
 import SectionContact from 'components/sections/Contact';
+import SectionWhenAndWhere from 'components/sections/WhenAndWhere';
 
 export default {
   name: 'PageHome',
@@ -30,6 +31,7 @@ export default {
     SectionCrew,
     SectionGuests,
     SectionContact,
+    SectionWhenAndWhere,
   },
   computed: {
     ...mapGetters({
@@ -39,6 +41,7 @@ export default {
       event: 'Global/event',
       crew: 'Global/crew',
       athletes: 'Global/athletes',
+      whenAndWhere: 'Global/whenAndWhere',
       ready: 'Global/loaded',
       isDesktop: 'Interface/isDesktop',
       isMobile: 'Interface/isMobile',
@@ -110,6 +113,10 @@ export default {
       v-bind="partners"
       class="section -partners" />
 
+    <SectionWhenAndWhere
+      v-bind="whenAndWhere"
+      class="section -whenAndWhere" />
+
     <div class="trigger-sm-about"/>
     <section
       ref="SectionAbout"
@@ -118,10 +125,6 @@ export default {
         v-bind="about"
         class="about slide-effect"/>
     </section>
-
-    <SectionEvent
-      v-bind="event"
-      class="section -event" />
 
     <SectionActivities
       v-bind="activities"
@@ -132,6 +135,11 @@ export default {
     <SectionGuests
       v-bind="athletes"
       class="section -athletes" />
+
+    <SectionEvent
+      v-bind="event"
+      class="section -event" />
+
     <SectionContact
       class="section -contact" />
   </div>

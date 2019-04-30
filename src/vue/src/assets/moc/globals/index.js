@@ -5,6 +5,7 @@ import about from '../about';
 import event from '../event';
 import crew from '../crew';
 import athletes from '../athletes';
+import whenAndWhere from '../whenAndWhere';
 
 export default {
   navigation,
@@ -14,4 +15,5 @@ export default {
   event,
   crew,
   athletes,
+  whenAndWhere,
 };

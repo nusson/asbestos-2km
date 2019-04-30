@@ -51,6 +51,14 @@ export default {
             state: '',
           },
         },
+        whenAndWhere: {
+          title: '',
+          description: '',
+          map: {
+            address: '',
+            cta: null,
+          },
+        },
 
         seo: null,
         contact: {},
@@ -143,6 +151,7 @@ export default {
     event: ({ data }) => get(data, 'event'),
     crew: ({ data }) => get(data, 'crew'),
     athletes: ({ data }) => get(data, 'athletes'),
+    whenAndWhere: ({ data }) => get(data, 'whenAndWhere'),
 
 
     socials: ({ data }) => get(data, 'socials'),

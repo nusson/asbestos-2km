@@ -22,6 +22,10 @@ export default {
       type: String,
       default: 'Asbestos 2.0',
     },
+    subtitle: {
+      type: String,
+      default: 'Un Nouveau Record du Monde ! ',
+    },
     video: {
       type: Object,
       default() {
@@ -68,6 +72,9 @@ export default {
         ref="Title"
         class="title"
         v-text="title" />
+      <p
+        class="subtitle"
+        v-text="subtitle" />
     </div>
     <UiVideo
       v-if="backgroundVideo"
@@ -106,6 +113,11 @@ export default {
       $align:center)
     width 85vw
     max-width 1920px
+  .subtitle
+    margin-top 1em
+    f-style(title, h2,
+      $color:$c-white,
+      $align:center)
 
   //  ===DEBUG===
 </style>

@@ -135,7 +135,7 @@ const config = {
      */
     new CleanWebpackPlugin({
       verbose: true,
-      cleanOnceBeforeBuildPatterns: ['assets/**/*'],
+      cleanOnceBeforeBuildPatterns: ['assets/**/*', 'uploads/**/*'],
       dry: !ENV.BUILD, // will delete files only if build
     }),
     WebpackHelper.getExtractHTMLPlugin({

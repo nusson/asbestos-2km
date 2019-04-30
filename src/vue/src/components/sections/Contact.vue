@@ -50,12 +50,13 @@ export default {
 
   //  ===LAYOUT===
   .SectionContact
-    background black url('~assets/images/section-contact.jpg') center center no-repeat
+    background black url('/uploads/section-contact.jpg') center center no-repeat
     background-size cover
     color $c-white
     min-height calc('var(--viewport-height) - 51px')
     +mobile()
       min-height calc('var(--viewport-height) - 30px')
+      margin-top 0 !important
 
   //  ===DEBUG===
   .SectionContact
