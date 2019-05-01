@@ -27,9 +27,6 @@ export default {
       showLegend: false,
     };
   },
-  mounted() {
-    console.log('m', this);
-  },
   methods: {
     onMouseEnter() {
       // console.log('onMouseOver');

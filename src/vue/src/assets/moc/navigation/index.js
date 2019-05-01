@@ -4,23 +4,23 @@ export default [
     label: 'À propos',
   },
   {
-    slug: 'event',
-    label: 'Votre événement',
-  },
-  {
     slug: 'activity',
-    label: 'Vos activités',
+    label: 'Activités',
   },
   {
     slug: 'crew',
-    label: 'Notre crew',
+    label: 'Organisation',
   },
   {
-    slug: 'artists',
-    label: 'Nos invités',
+    slug: 'athletes',
+    label: 'Athlètes',
+  },
+  {
+    slug: 'event',
+    label: 'FAQ',
   },
   {
     slug: 'contact',
-    label: 'Contactez-nous',
+    label: 'Contact',
   },
 ];

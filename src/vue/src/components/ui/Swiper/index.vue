@@ -77,7 +77,6 @@ export default {
     /* compute final options */
 
     _options() {
-    console.log('this.options', this.options);
       return {
         loop: this.loop,
         centeredSlides: this.centeredSlides,

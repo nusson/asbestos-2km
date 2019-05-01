@@ -34,3 +34,33 @@ input
     y-padding(30px)
   .header + .content
     responsive-prop(margin-top, 60px 30px)
+
+
+
+.btn.play
+  position relative
+  flexbox(center)
+  cursor pointer
+  >.text
+    f-style(title, $lh:0, $size:2.4rem, $uppercase:true)
+    background-color transparent
+    color $c-white
+    kff-transition(color)
+    &:before
+      absolute top 50% left 50%
+      content ''
+      border-radius 50%
+      size 120px
+      border 1px solid
+      transform scale(1) translate(-50%, -50%)
+      kff-transition()
+      transform-origin top left
+  .no-touchevents &:hover
+    background-color rgba($c-black, 0)
+    >.text
+      color $c-accent
+      &:before
+        color $c-accent
+        border-color $c-accent
+        border-width 2px
+        transform scale(1.2) translate(-50%, -50%)

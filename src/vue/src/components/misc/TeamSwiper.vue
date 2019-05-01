@@ -126,7 +126,7 @@ export default {
             <p
               v-if="description"
               class="description"
-              v-text="description" />
+              v-html="description" />
               <!-- <button class="action">+</button> -->
           </figcaption>
         </figure>
@@ -165,8 +165,10 @@ export default {
     +tablet()
       right 40px
     +mobile()
-      bottom -17px
-      right $gutters[2]
+      // bottom -17px
+      // right $gutters[2]
+      position relative
+      flexbox(center)
     +above($mq-mobile + 1)
       bottom 5px
       z-index 10
@@ -224,7 +226,7 @@ export default {
   //  ===MOBILE===
   +mobile()
     .slide-content
-      .image-wrapper.-big
+      .image-wrapper.-small
         display none
     .figure
       size 100%

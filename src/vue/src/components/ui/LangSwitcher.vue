@@ -63,6 +63,7 @@ export default {
 
   //  ===LAYOUT===
   .LangSwitcher
+    display inline-block
     f-style(menu)
 
   //  ===DEBUG===

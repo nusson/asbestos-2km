@@ -58,8 +58,10 @@ export default {
     .title, .description
       text-content()
     .title
+      display inline-block
       f-style(title, h1)
     .description
+      display inline-block
       f-style(text, medium)
       margin-top 1em
 

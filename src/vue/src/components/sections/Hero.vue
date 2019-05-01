@@ -63,7 +63,11 @@ export default {
       FitText.fit(this.$refs.Title);
     });
   },
-  methods: {},
+  methods: {
+    play() {
+
+    },
+  },
 };
 </script>
 
@@ -77,6 +81,14 @@ export default {
       <p
         class="subtitle"
         v-text="subtitle" />
+
+      <button
+        class="actions btn play _no-btn"
+        @click.prevent="play">
+        <span
+          class="text"
+          v-text="$t('play')"/>
+      </button>
     </div>
     <UiVideo
       v-if="backgroundVideo"
@@ -104,23 +116,34 @@ export default {
 
   .SectionHero
     flexbox(center)
+    text-align center
 
   .content
     position relative
     z-index 5
 
   .title
+    display inline-block
+    margin 0 auto
     f-style(title, hero,
       $color:$c-white,
       $align:center)
     width 85vw
     max-width 1920px
+
   .subtitle
+    safe-content()
     margin-top 1em
     f-style(title, h2,
       $color:$c-white,
       $align:center)
 
+  .btn
+    // margin 120px auto 0
+    transform scale(0.8)
+    x-margin(auto)
+    responsive-prop(margin-top, 120px 80px 60px)
+    responsive-prop(margin-bottom, 120px 40px 0px)
   //  ===DEBUG===
 </style>
 
@@ -130,3 +153,15 @@ export default {
   .SectionHero
     //
 </style>
+
+
+<i18n>
+{
+  "fr": {
+    "play": "Jouer"
+  },
+  "en": {
+    "play": "Play"
+  }
+}
+</i18n>

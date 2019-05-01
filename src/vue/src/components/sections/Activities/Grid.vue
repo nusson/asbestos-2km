@@ -144,8 +144,8 @@ export default {
               class="title"
               v-text="item.title" />
             <p
-              class="description -full _wysiwyg"
-              v-html="item.description.full"/>
+              class="description _wysiwyg"
+              v-html="item.description"/>
             <span class="bg"/>
           </div>
         </caption>

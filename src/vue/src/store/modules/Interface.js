@@ -7,11 +7,17 @@
  * @author Nicolas Husson <nicolas@kffein.com>
  */
 
-import { each, isNumber, throttle } from 'lodash';
-import { TweenMax, Power2 } from 'gsap';
-import ScrollToPlugin from 'gsapPlugins/ScrollToPlugin'; // eslint-disable-line no-unused-vars
+import {
+ each, isNumber, throttle, min, max,
+} from 'lodash';
+import {
+ TweenMax, Power2, Power3, Power4,
+} from 'gsap';
+import ScrollToPlugin from 'gsapPlugins/ScrollToPlugin';
 import DomHelper from 'utils/helpers/Dom';
 import Modernizr from 'utils/plugins/Modernizr';
+
+const debugScrollTo = ScrollToPlugin; // eslint-disable-line no-unused-vars
 
 export default {
   namespaced: true,
@@ -32,6 +38,8 @@ export default {
 
     /** @argument {Boolean} scrollable - if container is scrollable or not - @todo watch this where your container stand */
     scrollable: true,
+
+    scrollTween: null,
   },
   mutations: {
     /**
@@ -149,64 +157,96 @@ export default {
      * @returns {ScrollBar, TweenMax} scrollbar / tween instance (or null if no scroll)
      */
     SCROLL_TO({ state, getters }, { duration = null, to = null }) {
+      if (state.scrollTween) {
+        state.scrollTween.kill();
+        state.scrollTween = null;
+      }
       return new Promise((resolve, reject) => {
         let y = to;
         let speed = duration;
-        const { scrollBar } = state;
+        // const { scrollBar } = state;
         const { isDesktop } = getters;
         let BASE_SPEED;
-        const container = getters.scrollContainer;
+        // const container = getters.scrollContainer;
 
         // compute y (px) whereas value is px, selector or HTMLElement
         y = (() => {
-          let posY = null;
           if (isNumber(to)) {
-            posY = to;
-          } else {
-            if (typeof (to) === 'string') {
-              posY = document.querySelector(to);
-            }
-            if (DomHelper.isElement(to)) {
-              posY = to;
-            }
+            return to;
           }
-          if (!posY && posY !== 0) {
-            reject();
+
+          let el = null;
+          if (typeof (to) === 'string') {
+            el = document.querySelector(to);
           }
-          return posY;
+          if (DomHelper.isElement(el)) {
+            return DomHelper.getY(el);
+          }
+
+          return reject();
         })();
 
         if (!y && y !== 0) reject();
 
-        if (isDesktop) {
-          // now we scroll with scrollBar :)
-          // onlyScrollIfNeeded: scroll if element is not in screen
-          if (DomHelper.isElement(y)) {
-            return scrollBar.scrollIntoView(y, {
-              onlyScrollIfNeeded: true,
-            });
-          }
-          // compute duration based on gap between 2 scrolls
-          // scrollBar only
-          if (!duration && duration !== 0 && typeof (y) === 'number') {
-            BASE_SPEED = 1; // Time in secondes per 1,000 pixels
-            const currentY = scrollBar.scrollTop;
-            const gapY = Math.abs(y - currentY);
-            speed = (gapY * BASE_SPEED);// / 1000;
-          }
-          return scrollBar.scrollTo(0, y, speed, resolve);
+        y -= 30;
+        y = max([y, 0]);
+
+        // if (isDesktop) {
+        //   // now we scroll with scrollBar :)
+        //   // onlyScrollIfNeeded: scroll if element is not in screen
+        //   if (DomHelper.isElement(y)) {
+        //     return scrollBar.scrollIntoView(y, {
+        //       onlyScrollIfNeeded: true,
+        //     });
+        //   }
+        //   // compute duration based on gap between 2 scrolls
+        //   // scrollBar only
+        //   if (!duration && duration !== 0 && typeof (y) === 'number') {
+        //     BASE_SPEED = 1; // Time in secondes per 1,000 pixels
+        //     const currentY = scrollBar.scrollTop;
+        //     const gapY = Math.abs(y - currentY);
+        //     speed = (gapY * BASE_SPEED);// / 1000;
+        //   }
+        //   return scrollBar.scrollTo(0, y, speed, resolve);
+        // }
+        if (!duration && duration !== 0) {
+          BASE_SPEED = 1; // Time in secondes per 1,000 pixels
+          const currentY = window.pageYOffset;
+          const gapY = Math.abs(y - currentY);
+          speed = (gapY * BASE_SPEED) / 1000;
+
+          speed = min([speed, 4]);
         }
-          // now we scroll with TweenMax :)
-          return TweenMax.to(container, speed / 1000, {
+        const ease = (() => {
+          if (speed > 3) {
+            return Power4.easeInOut;
+          }
+          if (speed > 2) {
+            return Power3.easeInOut;
+          }
+          return Power2.easeInOut;
+        })();
+
+        // now we scroll with TweenMax :)
+        state.scrollTween = TweenMax.to(document.documentElement, speed, {
           scrollTo: {
             y,
             autoKill: false,
           },
-          ease: Power2.easeInOut,
+          ease,
           onComplete: () => {
             resolve();
+            if (state.scrollTween) {
+              state.scrollTween.kill();
+              state.scrollTween = null;
+            }
           },
         });
+        console.log('SCROLL_TO', {
+          to, speed, duration, y, isDesktop, window,
+        }, state.scrollTween);
+
+        return state.scrollTween;
       });
     },
 
@@ -226,7 +266,7 @@ export default {
     mqDesktop: () => 1025,
     isMobile: ({ viewport }, { mqMobile }) => viewport.width <= mqMobile,
     isDesktop: ({ viewport }, { mqDesktop }) => viewport.width >= mqDesktop,
-    scrollContainer: state => state.scrollContainer,
+    scrollContainer: () => window,
     scrollable: state => state.scrollable,
   },
 };

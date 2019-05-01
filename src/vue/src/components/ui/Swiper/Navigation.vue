@@ -56,15 +56,17 @@ export default {
   //  ===LAYOUT===
   .UiSwiperNavigation
     position relative
-    // debug()
     height 44px
+    +mobile()
+      margin-top 20px
 
   .nav-btn
     background none
     size auto
-    absolute bottom 0
     color $c-accent
     cursor pointer
+    +above($mq-mobile + 1)
+      absolute bottom 0
     .no-touchevents &
       color $c-dark
       opacity 0.6
@@ -85,6 +87,9 @@ export default {
   .pagination
     position relative
     flex 1 1 100%
+    max-width 130px
+    +mobile()
+      margin-right 20px
 
   .UiSwiperNavigation
     +above($mq-mobile +1)

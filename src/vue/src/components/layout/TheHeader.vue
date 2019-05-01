@@ -8,6 +8,7 @@
 <script>
 import { chunk } from 'lodash';
 import { mapGetters, mapState } from 'vuex';
+import { Scene } from 'scrollmagic';
 import LogoSvg from 'assets/svg/logo.svg?vue';
 import BurgerSvg from 'assets/svg/burger.svg?inline'; // inline to by-pass svg optimisation
 import LangSwitcher from 'components/ui/LangSwitcher';
@@ -29,12 +30,15 @@ export default {
       svg: {
         burger: BurgerSvg,
       },
+      hasBackground: false,
     };
   },
   computed: {
     ...mapGetters({
+      viewport: 'Interface/viewport',
       isDesktop: 'Interface/isDesktop',
       isMobile: 'Interface/isMobile',
+      mqPortrait: 'Interface/mqPortrait',
     }),
     ...mapState('Menu', {
       mobileMenuIsOpen: ({ mobileMenuIsOpen }) => mobileMenuIsOpen,
@@ -45,7 +49,7 @@ export default {
       locale: ({ locale }) => locale,
     }),
     menu() {
-      if (this.isDesktop) {
+      if (!this.isMobile) {
         const chunks = chunk(this.navigation, this.navigation.length / 2);
         return {
           left: chunks[0],
@@ -57,6 +61,28 @@ export default {
   },
   mounted() {
     this.autoClose();
+    // this.$watch('viewport', ({ width }) => {
+    //   this.isNavbar = width >= this.mqPortrait;
+    // }, { immediate: true });
+
+    const scene = new Scene({
+      // triggerElement: '.SectionPartners',
+      // offset: -50,
+      // triggerHook: 0, // this.isDesktop ? 0.4 : 0.8,
+      triggerElement: 'body',
+      offset: 100,
+      triggerHook: 0, // this.isDesktop ? 0.4 : 0.8,
+    })
+    .on('enter', () => {
+      this.hasBackground = true;
+    })
+    .on('leave', () => {
+      this.hasBackground = false;
+    });
+    this.$store.dispatch('ScrollMagic/ADD_SCENE', {
+      scene,
+      indicators: true,
+    });
   },
   methods: {
     toggleMobileMenu() {
@@ -71,19 +97,24 @@ export default {
      */
     autoClose() {
       const close = () => {
-        this.$store.dispatch('Menu/CLOSE_COLLECTIONS_MENU');
         this.$store.dispatch('Menu/CLOSE_MOBILE_MENU');
       };
       this.$router.afterEach(close);
       this.$watch('isDesktop', close);
+    },
+    scrollTo(slug) {
+      this.$store.dispatch('Menu/CLOSE_MOBILE_MENU');
+      this.$store.dispatch('Interface/SCROLL_TO', { to: `[data-anchor='${slug}']` });
     },
   },
 };
 </script>
 
 <template>
-  <header class="TheHeader">
-    <template v-if="isDesktop">
+  <header
+    :data-background="hasBackground || mobileMenuIsOpen"
+    class="TheHeader">
+    <template v-if="!isMobile">
       <nav class="navbar">
         <ul class="list routes">
           <li
@@ -93,18 +124,21 @@ export default {
             <a
               :href="`#${slug}`"
               class="link"
+              @click.prevent="scrollTo(slug)"
               v-text="label"/>
           </li>
           <li class="item route -logo">
             <router-link
               :to="{name: `home.${locale}`}"
               class="logo"
+              @click.native.prevent="scrollTo('hero')"
               v-text="'Asbestos 2.0'"/>
           </li>
           <li
             v-for="{slug, label} in menu.right"
             :key="`route-${slug}`"
-            class="item route">
+            class="item route"
+            @click.prevent="scrollTo(slug)">
             <a
               :href="`#${slug}`"
               class="link"
@@ -127,6 +161,7 @@ export default {
         <router-link
           :to="{name: `home.${locale}`}"
           class="logo"
+          @click.native.prevent="scrollTo('hero')"
           v-text="'Asbestos 2.0'" />
         <span class="nothing-for-flex"/>
       </div>
@@ -141,6 +176,7 @@ export default {
             <a
               :href="`#${slug}`"
               class="link"
+              @click.prevent="scrollTo(slug)"
               v-text="label"/>
           </li>
           <li class="item route -langSwitcher">
@@ -184,7 +220,6 @@ export default {
   .link
     cursor pointer
     f-style(menu)
-    color $c-dark
     kff-transition color
     white-space nowrap
     .icon
@@ -201,22 +236,38 @@ export default {
     position relative
     width 100%
     z-index $z-navbar
-    background-color $c-white
-    box-shadow: 0px 0px 10px $c-dark;
     responsive-prop(height, $h-header)
+    color $c-white
+    background-color transparent
+    kff-transition(all)
+    .link
+      color $c-white
+      kff-transition(all)
     .list.routes
       size 100%
       safe-content()
       flexbox(row, $align:center)
       .route
         x-margin(20px)
+        +below(1200px)
+          x-margin(10px)
         &:first-child
           margin-left 0
         &:last-child
           margin-right 0
 
+  [data-background]
+    .navbar
+      background-color $c-white
+      color $c-black
+      box-shadow: 0px 0px 10px $c-dark;
+      .link
+        color $c-black
+        >>> svg
+          stroke $c-dark
   /* ===MOBILE=== */
-  +not-desktop()
+  // +below($kff-mq-tablet-portrait - 1px)
+  +mobile()
     .logo
       //
     .navbar
@@ -225,7 +276,8 @@ export default {
     .burger
       size 20px
       >>> svg
-        stroke $c-dark
+        kff-transition(stroke)
+        stroke $c-white
         .close
           display none
       &[data-active] >>> svg
@@ -248,6 +300,7 @@ export default {
     display flex
     justify-content center
     align-items flex-start
+    flexbox(column, $justify: center)
     // @todo use transition vue
     &:not([data-shown])
       transform translateX(-100%)
@@ -266,6 +319,7 @@ export default {
 
     // .list.routes
       // height 100%
+
 
   //  ===DEBUG===
   // [data-debug-mode="true"] .TheHeader

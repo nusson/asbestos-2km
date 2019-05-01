@@ -51,10 +51,10 @@ export default {
         <caption class="caption">
           <h3
             class="title"
-            v-text="item.title" />
+            v-text="item.name" />
           <p
-            class="description -full _wysiwyg"
-            v-html="item.description"/>
+            class="description _wysiwyg"
+            v-html="item.place"/>
         </caption>
       </figure>
     </li>

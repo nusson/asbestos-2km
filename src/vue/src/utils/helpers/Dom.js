@@ -42,8 +42,8 @@ export default class DomHelper {
   * @param {DOMElement} el - your dom element
   */
   static getY(el) {
-    // const scrollTop = window.pageYOffset
-    const { scrollTop } = document.querySelector('.the_page');
+    const scrollTop = window.pageYOffset;
+    // const { scrollTop } = document.querySelector('.the_page');
     return el.getBoundingClientRect().top + scrollTop;
   }
 

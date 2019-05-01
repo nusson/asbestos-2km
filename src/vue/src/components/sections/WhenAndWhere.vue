@@ -102,12 +102,12 @@ export default {
       .video
         max-height 80vh
     +below($kff-mq-tablet-portrait)
-      .header
-        safe-content()
+      text-align center
+      padding-bottom 0
       .col.-left
+        safe-content()
         x-padding(0)
         width 100%
-        padding-bottom 30px
 
     >.col
       flex-basis 50%
@@ -141,10 +141,11 @@ export default {
 
   .map-wrapper
     position relative
-    responsive-prop(margin-top, 0px 40px 30px)
     ratio-box(4/3)
     width 100%
     flexbox(center)
+    +mobile()
+      margin-top 20px
 
     .map
       absolute 0

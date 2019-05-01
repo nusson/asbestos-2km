@@ -491,7 +491,7 @@ export default {
       :loop="loop"
       :muted="state.muted"
       :autoplay="autoplay"
-      :controls="controls"
+      :controls="controls && !state.ended"
       :data-cover="cover"
       class="video"
       controlsList="nodownload">
@@ -555,29 +555,6 @@ export default {
     background-color rgba($c-black, 0.4)
     cursor pointer
     kff-transition(background-color)
-    >.text
-      f-style(title, $lh:0, $size:2.4rem, $uppercase:true)
-      background-color transparent
-      color $c-white
-      kff-transition(color)
-      &:before
-        absolute top 50% left 50%
-        content ''
-        border-radius 50%
-        size 120px
-        border 1px solid
-        transform scale(1) translate(-50%, -50%)
-        kff-transition()
-        transform-origin top left
-    .no-touchevents &:hover
-      background-color rgba($c-black, 0)
-      >.text
-        color $c-accent
-        &:before
-          color $c-accent
-          border-color $c-accent
-          border-width 2px
-          transform scale(1.2) translate(-50%, -50%)
 
 
   .sm

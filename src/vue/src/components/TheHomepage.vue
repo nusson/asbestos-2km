@@ -105,6 +105,7 @@ export default {
     <!-- <div class="preHero" /> -->
     <section
       ref="SectionHero"
+      data-anchor="hero"
       class="section -hero parallax">
       <SectionHero class="hero slide-effect"/>
     </section>
@@ -115,9 +116,12 @@ export default {
 
     <SectionWhenAndWhere
       v-bind="whenAndWhere"
+      data-anchor="whenAndWhere"
       class="section -whenAndWhere" />
 
-    <div class="trigger-sm-about"/>
+    <div
+      class="trigger-sm-about"
+      data-anchor="about"/>
     <section
       ref="SectionAbout"
       class="section -about parallax">
@@ -128,19 +132,24 @@ export default {
 
     <SectionActivities
       v-bind="activities"
+      data-anchor="activity"
       class="section -activities" />
     <SectionCrew
       v-bind="crew"
+      data-anchor="crew"
       class="section -crew" />
     <SectionGuests
       v-bind="athletes"
+      data-anchor="athletes"
       class="section -athletes" />
 
     <SectionEvent
       v-bind="event"
+      data-anchor="event"
       class="section -event" />
 
     <SectionContact
+      data-anchor="contact"
       class="section -contact" />
   </div>
 </template>
