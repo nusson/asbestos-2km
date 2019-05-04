@@ -156,7 +156,7 @@ export default {
      * if @param is a HTMLElement target or a selector, smoothScrollBar (desktop) uses default speed
      * @returns {ScrollBar, TweenMax} scrollbar / tween instance (or null if no scroll)
      */
-    SCROLL_TO({ state, getters }, { duration = null, to = null }) {
+    SCROLL_TO({ state/* , getters */ }, { duration = null, to = null }) {
       if (state.scrollTween) {
         state.scrollTween.kill();
         state.scrollTween = null;
@@ -165,7 +165,7 @@ export default {
         let y = to;
         let speed = duration;
         // const { scrollBar } = state;
-        const { isDesktop } = getters;
+        // const { isDesktop } = getters;
         let BASE_SPEED;
         // const container = getters.scrollContainer;
 
@@ -242,9 +242,6 @@ export default {
             }
           },
         });
-        console.log('SCROLL_TO', {
-          to, speed, duration, y, isDesktop, window,
-        }, state.scrollTween);
 
         return state.scrollTween;
       });

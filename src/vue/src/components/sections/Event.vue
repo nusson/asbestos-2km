@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     createPinVideoScene() {
-      const height = this.$el.offsetHeight - this.$refs.Video.$el.offsetHeight - 60 - 20;
+      const height = this.$el.offsetHeight - this.$refs.Video.$el.offsetHeight - 60;
       const duration = (height / this.viewport.height) * 100;
       const scene = new Scene({
         triggerElement: this.$refs.VideoWrapper,
@@ -98,7 +98,7 @@ export default {
         // duration: '200%',
         duration: `${duration}%`,
         triggerHook: 0,
-        offset: -60,
+        offset: -80,
         // ...options,
       })
         .setPin(this.$refs.Video.$el);
@@ -157,20 +157,19 @@ export default {
 
   //  ===LAYOUT===
   .SectionEvent
-    +above($kff-mq-tablet-portrait + 1)
+    +above($kff-mq-tablet-portrait)
       flexbox(row, $align: flex-start)
       safe-content()
       .video
         max-height 80vh
-    +below($kff-mq-tablet-portrait)
+    +below($kff-mq-tablet-portrait - 1)
+      padding-bottom 0 !important
       .header
         safe-content()
       .col.-left
         x-padding(0)
         width 100%
         padding-bottom 30px
-    +mobile()
-      padding-bottom 0 !important
 
     >.col
     >>> >.scrollmagic
@@ -192,20 +191,6 @@ export default {
     >>> .date
     >>> .address
       f-style(title, h2)
-
-  .map-wrapper
-    position relative
-    responsive-prop(margin-top, 60px 40px 30px)
-    ratio-box(4/3)
-    width 100%
-    flexbox(center)
-
-    .map
-      absolute 0
-      background-color rgba(tomato, 0.5)
-    .caption
-      position relative
-      z-index 2
 
   .video
     // width (864px / 2)

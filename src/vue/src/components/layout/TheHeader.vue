@@ -81,7 +81,7 @@ export default {
     });
     this.$store.dispatch('ScrollMagic/ADD_SCENE', {
       scene,
-      indicators: true,
+      indicators: false,
     });
   },
   methods: {
@@ -260,7 +260,8 @@ export default {
     .navbar
       background-color $c-white
       color $c-black
-      box-shadow: 0px 0px 10px $c-dark;
+      // box-shadow: 0px 0px 10px $c-dark;
+      box-shadow 0px 0px 10px rgba($c-black, 0.15)
       .link
         color $c-black
         >>> svg

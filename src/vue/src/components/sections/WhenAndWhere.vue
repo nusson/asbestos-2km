@@ -108,6 +108,8 @@ export default {
         safe-content()
         x-padding(0)
         width 100%
+      >>>.description
+        max-width none
 
     >.col
       flex-basis 50%
@@ -144,7 +146,7 @@ export default {
     ratio-box(4/3)
     width 100%
     flexbox(center)
-    +mobile()
+    +below($kff-mq-tablet-portrait)
       margin-top 20px
 
     .map

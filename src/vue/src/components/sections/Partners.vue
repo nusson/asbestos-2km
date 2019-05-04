@@ -121,19 +121,25 @@ export default {
   .header
     flexbox(row, $justify:center)
     >.title
-      f-style(title, $align:center)
+      f-style(title, h3, $align:center)
 
   .list.partners
     margin-top 40px
-    flexbox(row, $justify:space-around)
+    flexbox(row, $justify:space-evenly)
     max-width $kff-w-max
     x-margin(auto)
     +below($mq-mobile)
+      margin-top 20px
       flexbox(column, $justify:space-around)
       max-width 200px
+      .item
+        margin-left 0 !important
     >.item
-      x-margin(20px)
+      // x-margin(40px)
       flex-basis 25%
+      max-width 200px
+      // +.item
+      //   margin-left 10%
 
   .partner
     flexbox(column)

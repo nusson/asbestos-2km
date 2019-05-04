@@ -177,7 +177,9 @@ export default {
   &.-about
     y-padding(0px)
   &.-contact
-    responsive-prop(margin-top, 60px 40px 30px)
+    responsive-prop(margin-top, 60px 40px)
+    +below($kff-mq-tablet-portrait - 1)
+      margin-top 0
   &.-activities
     // background-color $c-light
 

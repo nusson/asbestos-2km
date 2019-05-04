@@ -99,31 +99,31 @@ export default {
         },
       },
     },
-    {
-      name: 'Anthony Hotte',
-      place: 'Québec, Canada',
-      description: 'Antho Hotte dépassent les limites de l’imaginaire sur Slackline avec son duo acrobatique Les Farfadets.',
-      // link: '',
-      images: {
-        small: { debug: true },
-        big: {
-          // src: '/uploads/athletes/xxxx.jpg',
-          debug: true,
-        },
-      },
-    },
-    {
-      name: 'Guillaume Fontaine',
-      place: 'Québec, Canada',
-      description: 'Aussi membre du surprenant duo des Farfadets, Guillaume Fontaine renouvelle le monde des possibilités de la Slackline. Spécialiste de la Rodeo Line, il y ajoute sans cesse de nouveaux accessoires pour satisfaire son goût du cirque. La Chine lui doit la première marche du podium lors du *** de Highline.',
-      // link: '',
-      images: {
-        small: { debug: true },
-        big: {
-          // src: '/uploads/athletes/xxxx.jpg',
-          debug: true,
-        },
-      },
-    },
+    // {
+    //   name: 'Anthony Hotte',
+    //   place: 'Québec, Canada',
+    //   description: 'Antho Hotte dépassent les limites de l’imaginaire sur Slackline avec son duo acrobatique Les Farfadets.',
+    //   // link: '',
+    //   images: {
+    //     small: { debug: true },
+    //     big: {
+    //       // src: '/uploads/athletes/xxxx.jpg',
+    //       debug: true,
+    //     },
+    //   },
+    // },
+    // {
+    //   name: 'Guillaume Fontaine',
+    //   place: 'Québec, Canada',
+    //   description: 'Aussi membre du surprenant duo des Farfadets, Guillaume Fontaine renouvelle le monde des possibilités de la Slackline. Spécialiste de la Rodeo Line, il y ajoute sans cesse de nouveaux accessoires pour satisfaire son goût du cirque. La Chine lui doit la première marche du podium lors du *** de Highline.',
+    //   // link: '',
+    //   images: {
+    //     small: { debug: true },
+    //     big: {
+    //       // src: '/uploads/athletes/xxxx.jpg',
+    //       debug: true,
+    //     },
+    //   },
+    // },
   ],
 };

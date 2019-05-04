@@ -117,14 +117,17 @@ f-style($type='default', // default | title | subtitle | fbQuote | legend
       fsize(2.2rem 1.6rem)
     else if $level is 'h4'
       fsize(1.6rem 1.3rem)
+      opacity 0.7
     else
       fsize($fz-title, $responsive: true)
 
   if $type is 'text'
     if $level is 'card'
-      line-height 1.4
+      opacity 0.7
+      line-height 1.6
       fsize(1.4rem 1.4rem)
     else
+      opacity 0.6
       line-height 1.6
       fsize(1.8rem 1.6rem)
   if $type is 'menu'

@@ -57,13 +57,25 @@ export default {
 
     .title, .description
       text-content()
+      display block
     .title
-      display inline-block
+      // display inline-block
       f-style(title, h1)
+      flex 0 1 auto
+      max-width none
     .description
-      display inline-block
+      // display inline-block
       f-style(text, medium)
-      margin-top 1em
+      flex 1 1 100%
+      margin-top 10px
+
+    // +above($kff-mq-tablet-portrait + 1)
+    //   flexbox($justify: flex-start, $align: flex-start)
+    //   .description
+    //     margin-left 40px
+    //     margin-top 8px
+    // +below($kff-mq-tablet-portrait)
+    //   margin-top 20px
 
   //  ===DEBUG===
 </style>

@@ -77,7 +77,7 @@ export default {
     z-index 2
     transform translateY(-110%)
     transition transform 0.6s easing('in-quad') 0s
-    box-shadow 1px 0px 10px rgba($c-black, 0.8)
+    box-shadow 1px 0px 10px rgba($c-black, 0.4)
     &[data-visible]
       transform translateY(0)
       transition transform 1.2s easing('out-expo') 1.5s

@@ -1,5 +1,5 @@
 export default {
-  title: 'Des activités pour tous',
+  title: 'Des activités<br>pour tous',
   description: '<p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>',
   items: [
     {

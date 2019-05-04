@@ -33,7 +33,7 @@ export default {
     };
   },
   mounted() {
-    this.initSMParralaxRight();
+    // this.initSMParralaxRight();
     // this.initSMPinCaption();
   },
   methods: {
@@ -166,101 +166,53 @@ export default {
   //  ===LAYOUT===
   .SectionActivitiesGrid
     safe-content()
-    flexbox($align:flex-start,$justify:flex-start,$wrap:wrap)
+    // flexbox($align:flex-start,$justify:flex-start,$wrap:wrap)
     >.item
-      flex 0 0 50%
       position relative
-      overflow hidden
-      &:nth-child(n+3)
+      .figure
+        flexbox(row)
+        .background
+          flex 0 0 55%
+      &:not(:first-child)
         margin-top 40px
-      &:nth-child(4)
-        top 211px
-      &:nth-child(6)
-        top 422px
-      +tablet()
-        &:nth-child(n+3)
+        +tablet()
           margin-top 20px
-        // &:nth-child(4)
-        //   top (114px + 20px)
-        // &:nth-child(6)
-        //   top (228px + 20px)
-
-      // &:nth-child(2)
-      // &:nth-child(4)
-      // &:nth-child(6)
-      //   top 20vh
-      // &:nth-child(4)
-      //   top 40vh
-      // &:nth-child(6)
-      //   top 60vh
-
-      max-width calc('50% - 20px')
-      +tablet()
-        max-width calc('50% - 10px')
-      &:nth-child(even)
-        responsive-prop(margin-left, $gutters)
-
-      &:nth-child(even)
-        .description
-          margin-left 0
-          margin-right auto
-          transform translateX(-100%)
-          padding-left 15px
-        .title
-          left 0 !important
-        .caption
-          // left 0 !important
       &:nth-child(odd)
-        .figure
         .caption
-          text-align right
-        .description
-          margin-right 0
-          margin-left auto
-          transform translateX(100%)
-          padding-right 15px
+          margin-left 40px
+          +tablet()
+            margin-left 20px
+      &:nth-child(even)
+        .figure
+          flex-direction row-reverse
+        .caption
+          margin-right 40px
+          +tablet()
+            margin-right 20px
 
   .figure
     width 100%
     position relative
-    overflow hidden
-    // height var(--viewport-height-no-header)
-    height 80vh
+    flexbox(row)
 
   .background
-    absolute 0
+    ratio-box(4/3)
+    width 100%
 
   .caption
     margin-right 0 !important
     position relative
-    // display block
     display inline-block
     overflow hidden
     text-align left
     z-index 20
-    // transform translateY(20vh)
-    // margin-top 10vh !important
-    margin-top 100px
+    // margin-top 20px
     width 100%
-    // background-color rgba($c-white, 0)
-    // height 100%
-    padding-bottom 40px
-    // kff-transition()
     position relative
-    // transition transform 0.6s easing('in-back')/*, background 0.6s easing('in-back') */
-    // transition margin-top 0.6s easing('in-back')
-    // &:before
-    //   absolute 0
-    //   background-color $c-white
-    //   transform translateX(100%)
-    //   // kff-transition(transform)
-    //   transition all 0.6s easing('in-back')
 
   .title
-    f-style(title)
-    padding 15px
+    f-style(title, h3)
     display inline-block
-    // display block
     background-color $c-white
     color $c-dark
     width 80%
@@ -268,41 +220,10 @@ export default {
   .description
     display inline-block
     width 80%
-    padding 20px
-    padding-top 0px
-    margin-top -10px
-    +desktop()
-      padding 40px
-      padding-top 5px
+    responsive-prop(margin-top, 10px 5px)
     f-style(text, card)
     color $c-dark
-    opacity 0
-    // max-width 500px
-    margin-right auto
     text-align left
-    // transform translateX(-50%)
-    // transform translateY(20px)
-    // background-color rgba($c-white, 0)
-    background-color $c-white
-    // kff-transition(all)
-    transition all 0.6s easing('in-quad')
-
-  .figure
-    &[data-active]
-    .no-touchevents &:hover
-      // .caption
-      //   // transform translateY(10vh)
-      //   margin-top 10vh !important
-      //   // background-color rgba($c-white, 1)
-      //   transition margin-top 0.8s easing('out-expo') /*, background 0.8s easing('out-expo')*/
-      // &:before
-      //   transform translateX(0%)
-      //   transition all 0.8s easing('out-expo')
-      .description
-        opacity 1
-        transform translateX(0%) translateY(0%) !important
-        // background-color rgba($c-white, 1)
-        transition all 0.8s easing('out-expo')
 
 
   //  ===DEBUG===
