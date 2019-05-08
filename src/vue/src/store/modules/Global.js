@@ -59,10 +59,18 @@ export default {
             cta: null,
           },
         },
+        contact: {
+          title: '',
+          description: '',
+          partners: {
+            title: '',
+            description: '',
+            cta: null,
+          },
+        },
 
         seo: null,
-        contact: {},
-        socials: {},
+        social: [],
         marquee: {
           items: [
             {
@@ -145,6 +153,7 @@ export default {
     loaded: ({ loaded }) => loaded,
     data: ({ data }) => data,
     metadata: ({ data }) => data.seo,
+    hero: ({ data }) => get(data, 'hero'),
     activities: ({ data }) => get(data, 'activities'),
     partners: ({ data }) => get(data, 'partners'),
     about: ({ data }) => get(data, 'about'),
@@ -152,10 +161,8 @@ export default {
     crew: ({ data }) => get(data, 'crew'),
     athletes: ({ data }) => get(data, 'athletes'),
     whenAndWhere: ({ data }) => get(data, 'whenAndWhere'),
-
-
-    socials: ({ data }) => get(data, 'socials'),
+    contact: ({ data }) => get(data, 'contact'),
+    social: ({ data }) => get(data, 'social'),
     menu: ({ data }) => get(data, 'navigation'),
-    jobs: ({ data }) => get(data, 'jobs'),
   },
 };

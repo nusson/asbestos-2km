@@ -7,15 +7,24 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import UiIconsSocial from 'components/ui/Icons/Social';
 
 export default {
   name: 'TheFooter',
-  components: {},
+  components: {
+    UiIconsSocial,
+  },
+  props: {
+    social: {
+      type: Array,
+      default() {
+        return null;
+      },
+    },
+  },
   computed: {
     ...mapGetters({
       locale: 'I18n/locale',
-      contact: 'Global/contact',
-      socials: 'Global/socials',
     }),
     year() {
       return new Date().getFullYear();
@@ -26,60 +35,24 @@ export default {
 
 <template>
   <footer class="TheFooter">
-    <div class="_container">
-      <div class="row">
-        <div
-          class="contact-card"
-          itemscope
-          itemtype="http://schema.org/Corporation">
-          <p
-            itemprop="name"
-            v-html="contact.name"/>
-          <div
-            itemprop="address"
-            itemscope
-            itemtype="http://schema.org/PostalAddress">
-            <p>
-              <span v-html="contact.address1" />,
-              <span v-html="contact.address2" />
-            </p>
-            <p>
-              <span v-html="contact.city" />
-              (<span v-html="contact.state" />)
-              <span v-html="contact.postalCode" />
-            </p>
-          </div>
-          <p>
-            <span
-              itemprop="telephone"
-              v-html="contact.phone" />
-          </p>
-          <p>
-            <span
-              itemprop="email"
-              v-html="contact.email" />
-          </p>
-        </div>
-
-        <nav>
-          <ul>
-            <li
-              v-for="item in socials"
-              :key="item.name">
-              <a :href="item.url">
-                <font-awesome-icon :icon="['fab', item.icon]" />
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <p
-        class="copyrights">
-        <span v-html="contact.name" /> &copy; <span v-html="year" />
-      </p>
-
-    </div>
+    <nav class="navigation -social">
+      <ul class="list">
+        <li
+          v-for="({href, label, platform}, index) in social"
+          :key="`footer-cocial-${index}`"
+          class="item">
+          <a
+            :href="href"
+            :title="label"
+            :class="`link -${platform}`"
+            target="_blank">
+            <UiIconsSocial
+              :icon="platform"
+              class="icon" />
+          </a>
+        </li>
+      </ul>
+    </nav>
   </footer>
 </template>
 
@@ -94,24 +67,24 @@ export default {
 
   //  ===LAYOUT===
   .TheFooter
-    vertical-padding(10)
-    f-style($size: 1.2rem)
+    background-color $c-black
+    .navigation
+      safe-content()
+      text-align right
+      y-padding 20px
 
-  .row
-    flexbox($align: center, $justify: space-between)
+  .link
+    .icon
+      size 20px
+    >>> svg
+      fill $c-white
+      kff-transition(fill)
+    .no-touchevents &:hover >>> svg
+      fill $c-accent
 
-  .copyrights
-    text-align center
-
-  nav
-    ul
-      flexbox($align: center, $justify: space-between)
-
-      a
-        margin-left 10px
-        f-style($size: 2.3rem)
-
-  //  ===DEBUG===
-  [data-debug-mode="true"] .TheFooter
-    //
+  .list
+    flexbox(row, $justify:flex-end)
+    >.item
+      &:not(:first-child)
+        margin-left 20px
 </style>

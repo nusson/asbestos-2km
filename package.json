@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "leaflet": "^1.4.0",
     "vue-async-computed": "^3.6.1"
   }
 }

@@ -171,24 +171,30 @@ export default {
       position relative
       .figure
         flexbox(row)
-        .background
-          flex 0 0 55%
+        .caption
+          flex 0 0 300px
+          x-margin 40px
+          +tablet()
+            x-margin 20px
+          // width 300px
+        // .background
+        //   flex 0 0 70%
       &:not(:first-child)
         margin-top 40px
-        +tablet()
+        +below($kff-mq-tablet-portrait - 1)
           margin-top 20px
-      &:nth-child(odd)
-        .caption
-          margin-left 40px
-          +tablet()
-            margin-left 20px
+      // &:nth-child(odd)
+      //   .caption
+      //     margin-left 40px
+      //     +tablet()
+      //       margin-left 20px
       &:nth-child(even)
         .figure
           flex-direction row-reverse
-        .caption
-          margin-right 40px
-          +tablet()
-            margin-right 20px
+        // .caption
+        //   margin-right 40px
+        //   +tablet()
+        //     margin-right 20px
 
   .figure
     width 100%
@@ -196,11 +202,10 @@ export default {
     flexbox(row)
 
   .background
-    ratio-box(4/3)
+    ratio-box(16/9)
     width 100%
 
   .caption
-    margin-right 0 !important
     position relative
     display inline-block
     overflow hidden
@@ -215,11 +220,11 @@ export default {
     display inline-block
     background-color $c-white
     color $c-dark
-    width 80%
+    // width 80%
 
   .description
     display inline-block
-    width 80%
+    // width 80%
     responsive-prop(margin-top, 10px 5px)
     f-style(text, card)
     color $c-dark

@@ -22,8 +22,8 @@
 <script>
 import Picture from 'components/ui/Picture';
 import StringsHelper from 'utils/helpers/Strings';
-import S from 'string';
-// import { each } from 'lodash';
+// import S from 'string';
+import { first, isEmpty, keys } from 'lodash';
 import { Scene } from 'scrollmagic';
 import { mapGetters } from 'vuex';
 // @todo dynamic conditional imports
@@ -54,7 +54,11 @@ export default {
     src: {
       type: String,
       default: null,
-      required: true,
+    },
+    /** video sources - list of width key and src for responsive */
+    sources: {
+      type: Object,
+      default() { return null; },
     },
     /** poster image can be image url or image object - @see `<UiPicture />` */
     poster: {
@@ -86,6 +90,11 @@ export default {
     },
     /** default controls player option */
     controls: {
+      type: Boolean,
+      default: true,
+    },
+    /** autostop video when offscreen */
+    autoStopOnScroll: {
       type: Boolean,
       default: true,
     },
@@ -177,14 +186,25 @@ export default {
         return `video/${StringsHelper.getFileExtension(this.src)}`;
       }
 
-      if (S(this.src).contains('youtube') || S(this.src).contains('youtu.be')) {
-        return VIDEO_PLATFOMS.YOUTUBE;
-      }
-      if (S(this.src).contains('vimeo')) {
-        return VIDEO_PLATFOMS.VIMEO;
-      }
+      // if (S(this.src).contains('youtube') || S(this.src).contains('youtu.be')) {
+      //   return VIDEO_PLATFOMS.YOUTUBE;
+      // }
+      // if (S(this.src).contains('vimeo')) {
+      //   return VIDEO_PLATFOMS.VIMEO;
+      // }
 
       return null;
+    },
+    _src() {
+      if (!isEmpty(this.sources)) {
+        const { width } = this.viewport;
+        const sizes = keys(this.sources);
+        const closest = first(sizes.sort((a, b) => Math.abs(width - a) - Math.abs(width - b)));
+        if (closest) {
+          return this.sources[closest];
+        }
+      }
+      return this.src;
     },
   },
   watch: {
@@ -217,7 +237,9 @@ export default {
     }
     this.applyCoverPolyfill();
 
-    setTimeout(this.initScrollMagic.bind(this), 1000);
+    if (this.autoStopOnScroll) {
+      setTimeout(this.initScrollMagic.bind(this), 1000);
+    }
   },
   beforeDestroy() {
     // @todo destroy YTPlayer and listeners
@@ -465,11 +487,10 @@ export default {
 
 <template>
   <div class="UIVideo">
-
     <!-- @slot default big button play - can be overrided -->
     <slot name="actions">
       <button
-        v-if="!state.playing"
+        v-if="!state.playing && !autoplay"
         class="actions btn play _no-btn"
         @click.prevent="play">
         <span
@@ -496,7 +517,7 @@ export default {
       class="video"
       controlsList="nodownload">
       <source
-        :src="src"
+        :src="_src"
         :type="format">
     </video>
 

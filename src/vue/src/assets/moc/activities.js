@@ -1,6 +1,9 @@
 export default {
   title: 'Des activités<br>pour tous',
-  description: '<p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>',
+  description: `
+    <p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>
+    <p><strong>Programmation complète à venir</strong></p>
+  `,
   items: [
     {
       title: 'La traversée de 2km',
@@ -20,7 +23,7 @@ export default {
       title: 'Initiations',
       description: 'Tout ceux qui le souhaitent auront la chance de se faire initier à ce sport d’équilibre dans un environnement sécuritaire adapté à tous les niveaux et accompagné de Slackliners accomplis.',
       image: {
-        src: '/uploads/accompagnement-texte-descriptif-3.jpg',
+        src: '/uploads/activities/innitiations.jpg',
       },
     },
     {

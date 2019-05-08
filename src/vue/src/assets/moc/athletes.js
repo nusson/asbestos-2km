@@ -1,5 +1,5 @@
 export default {
-  name: 'Athlètes invités',
+  title: 'Athlètes présents',
   description: '<p>15 athlètes de partout dans le monde tenteront de traverser notre ligne de 2km de long, suspendue à 300 mètres de hauteur, dans l’intention de détenir le nouveau record du monde!</p>',
   items: [
     {

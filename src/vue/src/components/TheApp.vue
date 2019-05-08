@@ -10,7 +10,7 @@ import { mapGetters } from 'vuex';
 import Transitions from 'src/mixins/Transitions';
 import PageTransition from 'components/ui/PageTransition';
 import TheHeader from 'components/layout/TheHeader';
-// import TheFooter from 'components/layout/TheFooter';
+import TheFooter from 'components/layout/TheFooter';
 import TheLoader from 'components/TheLoader';
 import SmoothScrollBar from 'components/ui/ScrollBar';
 import Overlay from 'components/ui/Overlay';
@@ -19,7 +19,7 @@ export default {
   name: 'TheApp',
   components: {
     TheHeader,
-    // TheFooter,
+    TheFooter,
     TheLoader,
     Overlay,
     SmoothScrollBar,
@@ -32,6 +32,7 @@ export default {
       viewport: 'Interface/viewport',
       isMobile: 'Interface/isMobile',
       scrollable: 'Interface/scrollable',
+      social: 'Global/social',
       mode: 'App/mode',
     }),
     dynamicStyles() {
@@ -94,11 +95,14 @@ export default {
         ref="Page"
         class="page"/>
     </transition>
-    <!-- <TheFooter v-if="loaded"/> -->
+    <TheFooter
+      v-if="loaded && social"
+      :social="social"
+      class="footer"/>
     <!-- </SmoothScrollBar> -->
 
-    <Overlay />
-    <PageTransition ref="PageTransition" />
+    <!-- <Overlay />
+    <PageTransition ref="PageTransition" /> -->
     <TheLoader v-if="!loaded"/>
 
     <component

@@ -39,6 +39,7 @@ export default {
       isDesktop: 'Interface/isDesktop',
       isMobile: 'Interface/isMobile',
       mqPortrait: 'Interface/mqPortrait',
+      otherLocale: 'I18n/otherLocale',
     }),
     ...mapState('Menu', {
       mobileMenuIsOpen: ({ mobileMenuIsOpen }) => mobileMenuIsOpen,
@@ -50,7 +51,7 @@ export default {
     }),
     menu() {
       if (!this.isMobile) {
-        const chunks = chunk(this.navigation, this.navigation.length / 2);
+        const chunks = chunk(this.navigation, Math.ceil(this.navigation.length / 2));
         return {
           left: chunks[0],
           right: chunks[1],
@@ -144,7 +145,9 @@ export default {
               class="link"
               v-text="label"/>
           </li>
-          <li class="item route -langSwitcher">
+          <li
+            v-if="otherLocale"
+            class="item route -langSwitcher">
             <LangSwitcher class="lang" />
           </li>
         </ul>
@@ -179,7 +182,9 @@ export default {
               @click.prevent="scrollTo(slug)"
               v-text="label"/>
           </li>
-          <li class="item route -langSwitcher">
+          <li
+            v-if=""
+            class="item route -langSwitcher">
             <LangSwitcher class="link lang" />
           </li>
         </ul>
@@ -240,9 +245,13 @@ export default {
     color $c-white
     background-color transparent
     kff-transition(all)
+    +mobile()
+      color $c-dark
     .link
       color $c-white
       kff-transition(all)
+      +mobile()
+        color $c-dark
     .list.routes
       size 100%
       safe-content()
@@ -278,7 +287,7 @@ export default {
       size 20px
       >>> svg
         kff-transition(stroke)
-        stroke $c-white
+        stroke $c-dark
         .close
           display none
       &[data-active] >>> svg

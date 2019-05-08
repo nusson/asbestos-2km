@@ -47,16 +47,14 @@ export default {
       name: 'Cinthia',
       place: 'Marketing',
       image: {
-        // src: '/uploads/team/xxxx.jpg',
-        debug: true,
+        src: '/uploads/team/Cinthia.jpg',
       },
     },
     {
       name: 'Karine',
       place: 'Animations',
       image: {
-        // src: '/uploads/team/xxxx.jpg',
-        debug: true,
+        src: '/uploads/team/Karine.jpg',
       },
     },
     {
@@ -70,8 +68,7 @@ export default {
       name: 'Dominic',
       place: 'Commanditaires',
       image: {
-        // src: '/uploads/team/xxxx.jpg',
-        debug: true,
+        src: '/uploads/team/Dominic.jpg',
       },
     },
   ],

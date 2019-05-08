@@ -15,10 +15,10 @@ export default [
     slug: 'athletes',
     label: 'Athlètes',
   },
-  {
-    slug: 'event',
-    label: 'FAQ',
-  },
+  // {
+  //   slug: 'event',
+  //   label: 'FAQ',
+  // },
   {
     slug: 'contact',
     label: 'Contact',

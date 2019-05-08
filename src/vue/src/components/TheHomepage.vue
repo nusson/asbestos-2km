@@ -6,7 +6,7 @@
 </docs>
 
 <script>
-import { each } from 'lodash';
+import { each, get } from 'lodash';
 import { mapGetters, mapState } from 'vuex';
 import { Scene } from 'scrollmagic';
 import { Linear } from 'gsap';
@@ -19,6 +19,8 @@ import SectionCrew from 'components/sections/Crew';
 import SectionGuests from 'components/sections/Guests';
 import SectionContact from 'components/sections/Contact';
 import SectionWhenAndWhere from 'components/sections/WhenAndWhere';
+import UiVideo from 'components/ui/Video';
+import UiLightbox from 'components/ui/Lightbox';
 
 export default {
   name: 'PageHome',
@@ -32,9 +34,12 @@ export default {
     SectionGuests,
     SectionContact,
     SectionWhenAndWhere,
+    UiVideo,
+    UiLightbox,
   },
   computed: {
     ...mapGetters({
+      hero: 'Global/hero',
       activities: 'Global/activities',
       partners: 'Global/partners',
       about: 'Global/about',
@@ -42,13 +47,43 @@ export default {
       crew: 'Global/crew',
       athletes: 'Global/athletes',
       whenAndWhere: 'Global/whenAndWhere',
+      contact: 'Global/contact',
       ready: 'Global/loaded',
       isDesktop: 'Interface/isDesktop',
       isMobile: 'Interface/isMobile',
+      lightboxType: 'Lightbox/type',
     }),
     ...mapState('I18n', {
       locale: ({ locale }) => locale,
     }),
+    isLightboxOpen() {
+      return this.lightboxType === 'video';
+    },
+  },
+  watch: {
+    isLightboxOpen: {
+      handler(isOpen) {
+        const videos = {
+          bg: get(this.$refs, 'Hero.$refs.VideoBg'),
+          main: this.$refs.VideoMain,
+        };
+
+        if (isOpen) {
+          if (videos.bg) {
+            videos.bg.stop();
+            videos.main.play();
+          }
+          return;
+        }
+        if (videos.bg) {
+          videos.bg.play();
+        }
+        if (videos.main) {
+          videos.main.stop();
+        }
+      },
+      immediate: true,
+    },
   },
   // beforeDestroy() {
   //   // !!! Do not unregister store
@@ -107,7 +142,10 @@ export default {
       ref="SectionHero"
       data-anchor="hero"
       class="section -hero parallax">
-      <SectionHero class="hero slide-effect"/>
+      <SectionHero
+        ref="Hero"
+        v-bind="hero"
+        class="hero slide-effect"/>
     </section>
 
     <SectionPartners
@@ -130,6 +168,11 @@ export default {
         class="about slide-effect"/>
     </section>
 
+    <SectionEvent
+      v-bind="event"
+      data-anchor="event"
+      class="section -event" />
+
     <SectionActivities
       v-bind="activities"
       data-anchor="activity"
@@ -143,23 +186,46 @@ export default {
       data-anchor="athletes"
       class="section -athletes" />
 
-    <SectionEvent
-      v-bind="event"
-      data-anchor="event"
-      class="section -event" />
-
     <SectionContact
+      v-bind="contact"
       data-anchor="contact"
       class="section -contact" />
+
+
+    <UiLightbox
+      class="lightbox"
+      type="video">
+      <UiVideo
+        v-if="hero && hero.videos && hero.videos.main"
+        ref="VideoMain"
+        v-bind="hero.videos.main"
+        :controls="true"
+        :autoplay="false"
+        :auto-stop-on-scroll="false"
+        cover="contain"
+        class="video"/>
+    </UiLightbox>
   </div>
 </template>
 
 <style lang="stylus" scoped>
+
+  .lightbox
+    >>>.body
+      size 100% 100vh// 80vh
+   >>> .video
+    // ratio-box(16/9)
+    // width 100%
+    absolute 0
+    // width 100%
+    // size 100vw 100vh
+    // position relative
+
 .parallax
   height 100vh
   overflow hidden
   .about
-    min-height 150%
+    min-height 120%
     position relative
     top -50%
   .hero
@@ -186,5 +252,4 @@ export default {
   // .-about
 
   // &.-partners
-
 </style>

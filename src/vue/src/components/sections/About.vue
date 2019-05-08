@@ -99,7 +99,7 @@ export default {
 
   .SectionAbout
     position relative
-    background black url('/uploads/section-hero.jpg') center center no-repeat
+    background black url('/uploads/section-hero.jpg') center 100% no-repeat
     // background black url('/uploads/Photo en haut de la page complètement.jpg') center center no-repeat
     background-size cover
     &:after

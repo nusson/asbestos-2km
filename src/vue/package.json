@@ -107,6 +107,7 @@
     "core-js": "2",
     "element-closest": "^2.0.2",
     "faker": "^4.1.0",
+    "google-maps": "^3.3.0",
     "gsap": "^2.0.2",
     "in-browser-language": "^1.0.3",
     "js-cookie": "^2.2.0",

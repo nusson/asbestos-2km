@@ -11,33 +11,45 @@
 import { mapGetters } from 'vuex';
 import FitText from 'utils/plugins/FitText';
 import UiVideo from 'components/ui/Video';
+import UiPicture from 'components/ui/Picture';
+import UiLightbox from 'components/ui/Lightbox';
+import UiButtonScrollDown from 'components/ui/button/ScrollDown';
 
 export default {
   name: 'SectionHero',
   components: {
     UiVideo,
+    UiPicture,
+    UiLightbox,
+    UiButtonScrollDown,
   },
   props: {
     title: {
       type: String,
-      default: 'Asbestos 2.0',
+      default: null,
     },
     subtitle: {
       type: String,
-      default: 'Un Nouveau Record du Monde ! ',
+      default: null,
     },
-    video: {
+    showVideo: {
+      type: Boolean,
+      default: null,
+    },
+    title_image: {
+      type: String,
+      default: null,
+    },
+    bg_image: {
+      type: String,
+      default: null,
+    },
+    videos: {
       type: Object,
       default() {
         return {
-          mobile: {
-            demo: '/uploads/hero/hero-video-640.mp4', // () => import('/uploads/hero/hero-video-640.mp4').then(module => module.default),
-            full: '/uploads/hero/hero-video-640.mp4', // () => import('/uploads/hero/hero-video-1280.mp4').then(module => module.default),
-          },
-          desktop: {
-            demo: '/uploads/hero/hero-video-640.mp4', // () => import('/uploads/hero/hero-video-1280.mp4').then(module => module.default),
-            full: '/uploads/hero/hero-video-640.mp4', // () => import('/uploads/hero/hero-video-1920.mp4').then(module => module.default),
-          },
+          main: null,
+          background: null,
         };
       },
     },
@@ -45,16 +57,11 @@ export default {
   computed: {
     ...mapGetters({
       isDesktop: 'Interface/isDesktop',
+      isMobile: 'Interface/isMobile',
+      lightboxType: 'Lightbox/type',
     }),
-  },
-  asyncComputed: {
-    backgroundVideo() {
-      if (this.isDesktop) {
-        // return this.video.desktop.demo();
-        return this.video.desktop.demo;
-      }
-      // return this.video.mobile.demo();
-      return this.video.mobile.demo;
+    isLightboxOpen() {
+      return this.lightboxType === 'video';
     },
   },
   mounted() {
@@ -65,7 +72,9 @@ export default {
   },
   methods: {
     play() {
-
+      this.$store.dispatch('Lightbox/OPEN', 'video');
+      // this.$refs.VideoBg.stop();
+      // this.$refs.VideoMain.play();
     },
   },
 };
@@ -74,29 +83,46 @@ export default {
 <template>
   <section class="SectionHero _fullViewport">
     <div class="content">
-      <h1
-        ref="Title"
-        class="title"
-        v-text="title" />
-      <p
-        class="subtitle"
-        v-text="subtitle" />
+      <div class="flex-group">
+        <UiPicture
+          v-if="title_image"
+          :src="title_image"
+          :alt="`${title} - ${subtitle}`"
+          class="title -image"
+        />
+        <!-- <h1
+          ref="Title"
+          class="title"
+          v-text="title" />
+        <p
+          class="subtitle"
+          v-text="subtitle" /> -->
 
-      <button
-        class="actions btn play _no-btn"
-        @click.prevent="play">
-        <span
-          class="text"
-          v-text="$t('play')"/>
-      </button>
+        <button
+          class="_no-btn cta"
+          @click.prevent="play">
+          <span
+            class="text"
+            v-text="$t('play')"/>
+        </button>
+      </div>
+      <UiButtonScrollDown class="flex-spacer scroll" />
     </div>
+    <uiPicture
+      v-if="isMobile"
+      ref="ImageBg"
+      :src="bg_image"
+      cover="cover"
+      class="background -image"
+    />
     <UiVideo
-      v-if="backgroundVideo"
-      :src="backgroundVideo"
+      v-else-if="videos.background"
+      ref="VideoBg"
+      v-bind="videos.background"
       :autoplay="true"
       :loop="true"
       :controls="false"
-      class="background"/>
+      class="background -video"/>
   </section>
 </template>
 
@@ -113,6 +139,16 @@ export default {
   .background
     absolute 0
     z-index 1
+    &:before
+      content ''
+      absolute 0
+      background-color rgba($c-black, 0.25)
+      z-index 50
+      +mobile()
+        background-color rgba($c-white, 0.2)
+    +mobile()
+      >>>.image
+        object-position 100% 50%
 
   .SectionHero
     flexbox(center)
@@ -121,29 +157,76 @@ export default {
   .content
     position relative
     z-index 5
+    flexbox(column)
+    y-padding(10vh)
+    height 100%
+    >.flex-group
+      flexbox(column)
+      flex 0 1 auto
+    >.flex-spacer
+      flex 0 0 auto
 
-  .title
-    display inline-block
-    margin 0 auto
-    f-style(title, hero,
-      $color:$c-white,
-      $align:center)
-    width 85vw
-    max-width 1920px
 
-  .subtitle
-    safe-content()
-    margin-top 1em
-    f-style(title, h2,
-      $color:$c-white,
-      $align:center)
+  .title.-image
+    max-width 700px
+    width 80%
+    x-margin auto
+    responsive-prop(max-height, 60vh 50vh 40vh)
 
-  .btn
-    // margin 120px auto 0
-    transform scale(0.8)
+  .scroll
+    responsive-prop(margin-top, 40px 40px 20px)
+    f-style(title, h3)
+    color $c-white
     x-margin(auto)
-    responsive-prop(margin-top, 120px 80px 60px)
-    responsive-prop(margin-bottom, 120px 40px 0px)
+    +mobile()
+      color $c-white
+      >>>svg
+        fill $c-white
+
+  .cta
+    responsive-prop(margin-top, 40px 20px)
+    border-color $c-white
+    color $c-white
+    // opacity 0.6
+    +mobile()
+      color $c-accent
+      border-color $c-accent
+    &:after
+      border-color $c-white
+      +mobile()
+        border-color $c-accent
+    .no-touchevents &:hover
+      color $c-accent
+      border-color $c-accent
+      // opacity 1
+      &:after
+        // border-width 3px
+        border-color $c-accent
+
+
+  // .title
+  //   display inline-block
+  //   margin 0 auto
+  //   f-style(title, hero,
+  //     $color:$c-white,
+  //     $align:center)
+  //   width 85vw
+  //   max-width 1920px
+
+  // .subtitle
+  //   safe-content()
+  //   margin-top 1em
+  //   f-style(title, h2,
+  //     $color:$c-white,
+  //     $align:center)
+
+  // .btn
+  //   // margin 120px auto 0
+  //   transform scale(0.8)
+  //   x-margin(auto)
+  //   // responsive-prop(margin-top, 120px 80px 60px)
+  //   // responsive-prop(margin-bottom, 120px 40px 0px)
+
   //  ===DEBUG===
 </style>
 
@@ -158,7 +241,7 @@ export default {
 <i18n>
 {
   "fr": {
-    "play": "Jouer"
+    "play": "Voir la vidéo"
   },
   "en": {
     "play": "Play"

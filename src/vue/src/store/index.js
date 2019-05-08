@@ -13,6 +13,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import Lightbox from 'components/ui/Lightbox/store';
 import App from './modules/App';
 import I18n from './modules/I18n';
 import Loader from './modules/Loader';
@@ -36,6 +37,7 @@ const Store = new Vuex.Store({
     ScrollMagic,
     Global,
     Transition,
+    Lightbox,
   },
 });
 export default Store;

@@ -1,7 +1,7 @@
 // import AsbestosLogo from '/uploads/partners/asbestos.svg';
 
 export default {
-  title: 'En collaboration avec',
+  title: 'Présenté par',
   items: [
     {
       name: 'Ville Asbestos',

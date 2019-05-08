@@ -9,9 +9,9 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { TweenMax, Power2 } from 'gsap';
 import { uniqueId } from 'lodash';
 import UiSwiper from 'components/ui/Swiper';
-import UiSwiperNavigation from 'components/ui/Swiper/Navigation';
 import UiPicture from 'components/ui/Picture';
 
 export default {
@@ -19,7 +19,6 @@ export default {
   components: {
     UiSwiper,
     UiPicture,
-    UiSwiperNavigation,
   },
   props: {
     layout: {
@@ -34,7 +33,23 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      showDrag: false,
+      mousePosition: {
+        x: 0,
+        y: 0,
+      },
+      handlers: {
+        move: (event) => {
+          const { top, left } = this.$el.getBoundingClientRect();
+          TweenMax.to(this.mousePosition, 0.5, {
+            x: event.clientX - left - 75,
+            y: event.clientY - top - 75,
+            ease: Power2.easeOut,
+          });
+        },
+      },
+    };
   },
   computed: {
     ...mapGetters({
@@ -60,8 +75,20 @@ export default {
       };
     },
   },
+  watch: {
+    showDrag(show) {
+      if (show) {
+        TweenMax.to(this.$refs.Drag, 0.4, { autoAlpha: 0.8 });
+        window.addEventListener('mousemove', this.handlers.move);
+        return;
+      }
+      TweenMax.to(this.$refs.Drag, 0.4, { autoAlpha: 0 });
+      window.removeEventListener('mousemove', this.handlers.move);
+    },
+  },
   mounted() {},
-  methods: {},
+  methods: {
+  },
 };
 </script>
 
@@ -69,22 +96,24 @@ export default {
   <div
     :id="_id"
     class="TeamSwiper">
+    <div
+      ref="Drag"
+      :style="`transform: translate(${mousePosition.x}px, ${mousePosition.y}px)`"
+      class="drag">
+      <span class="text">DRAG</span>
+    </div>
     <UiSwiper
       :id="_id"
       :options="options"
-      :navigation="{
-        nextEl: `#${_id} .next`,
-        prevEl: `#${_id} .prev`,
-      }"
-      :pagination="{
-        el: `#${_id} .pagination`,
-        dynamicBullets: true,
-      }"
       :centered-slides="true"
       :loop="false"
       :data-layout="layout"
+      :pagination="false"
+      :navigation="false"
       tag="ol"
-      class="swiper">
+      class="swiper"
+      @mouseenter.native="showDrag = true"
+      @mouseleave.native="showDrag = false">
       <li
         v-for="({title, job, description, images, image, place, name, link}, index) in items"
         :key="`activity-${index}`"
@@ -115,8 +144,12 @@ export default {
             <h3
               v-else
               class="title">
-              <strong
-                class="strong"
+
+              <component
+                :is="link? 'a' : 'strong'"
+                :href="link"
+                target="_blank"
+                class="link strong"
                 v-text="name" />
               <br><span
                 class="normal"
@@ -144,7 +177,7 @@ export default {
       </li>
     </UiSwiper>
 
-    <UiSwiperNavigation class="navigation" />
+    <!-- <UiSwiperNavigation class="navigation" /> -->
   </div>
 </template>
 
@@ -167,30 +200,49 @@ export default {
     >>>.swiper-container
       overflow visible
 
-  .navigation
-    position absolute
-    right $gutters[2]
-    z-index 10
-    +tablet()
-      right 40px
-    +mobile()
-      display none !important
-      // bottom -17px
-      // right $gutters[2]
-      position relative
+    .drag
+      absolute top left
+      transform translate(-50%, -50%)
+      opacity 0
+      z-index 100
+      f-style(title, h3)
+      background rgba($c-white, 0.3)
+      padding 1em
+      border-radius 50%
+      overflow hidden
+      size 150px
       flexbox(center)
-    +above($mq-mobile + 1)
-      bottom 5px
-      z-index 10
-      right 80px
-    +above(1300px)
-      right 120px
+      color $c-accent
+      pointer-events none
+
+  // .navigation
+  //   position absolute
+  //   right $gutters[2]
+  //   z-index 10
+  //   +tablet()
+  //     right 40px
+  //   +mobile()
+  //     display none !important
+  //     // bottom -17px
+  //     // right $gutters[2]
+  //     position relative
+  //     flexbox(center)
+  //   +above($mq-mobile + 1)
+  //     bottom 5px
+  //     z-index 10
+  //     right 80px
+  //   +above(1300px)
+  //     right 120px
   .link
     color $c-accent
     fill $c-accent
     size 20px
     display block
     margin-top 10px
+    &.strong
+      display inline-block
+      white-space nowrap
+      color $c-dark
     .no-touchevents &
       fill $c-dark
       kff-transition(fill)
