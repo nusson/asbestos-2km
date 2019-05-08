@@ -32,7 +32,7 @@ class WebpackHelper {
     const ROOT_STACK = path.join(__dirname, '../../');
     const ROOT = path.join(ROOT_STACK, '../../');
 
-    const DIST = path.join(ROOT, 'public/');
+    const DIST = path.join(ROOT, 'dist/');
     const PUBLIC = DIST;
 
     const NODE_MODULES = path.join(ROOT_STACK, 'node_modules/');
@@ -57,7 +57,11 @@ class WebpackHelper {
     const PUBLIC = (({ IS_PROD, IS_STAGE }) => { // eslint-disable-line
       // if (IS_PROD) return 'https://your-host.com/production/';
       // if (IS_STAGE) return 'https://your-host.com/staging/';
-      return '/';
+      if (!argv.build) {
+        return '/';
+      }
+      return '/wp-content/themes/asbestos/dist/';
+      // return '/dist/';
     })(WebpackHelper.ENV);
 
     return {

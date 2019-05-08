@@ -31,4 +31,3 @@ composer.lock
 yarn.lock
 
 **/*.mp4
-public/

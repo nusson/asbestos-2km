@@ -1,6 +1,6 @@
 export default {
   video: {
-    src: '/uploads/event/world-record-asbestos-2018-by-@LeviAllen.mp4',
+    src: '/wp-content/uploads/static/event/world-record-asbestos-2018-by-@LeviAllen.mp4',
     legend: 'World Record 1.9km - Asbestos, Québec 2018 - by <a target="_blank" href="https://www.instagram.com/leviallen" rel="author">@LeviAllen</a>',
   },
   items: [

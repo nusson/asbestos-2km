@@ -7,7 +7,7 @@ export default {
     <br>Réaliser un nouveau record du monde aura une visibilité mondiale et inspirera la relève.`,
     cta: {
       label: 'Télécharger le plan de visibilité',
-      href: '/uploads/plan-de-visibilite-asbestos2km.pdf',
+      href: '/wp-content/uploads/static/plan-de-visibilite-asbestos2km.pdf',
     },
   },
 };

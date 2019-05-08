@@ -5,70 +5,70 @@ export default {
       name: 'Dany',
       place: 'Coordonnateur du projet',
       image: {
-        src: '/uploads/team/Dany.jpg',
+        src: '/wp-content/uploads/static/team/Dany.jpg',
       },
     },
     {
       name: 'Mathieu',
       place: 'Responsable des installations de slackline',
       image: {
-        src: '/uploads/team/Mathieu.jpg',
+        src: '/wp-content/uploads/static/team/Mathieu.jpg',
       },
     },
     {
       name: 'Danick',
       place: 'Responsable site et événement',
       image: {
-        src: '/uploads/team/danick.jpg',
+        src: '/wp-content/uploads/static/team/danick.jpg',
       },
     },
     {
       name: 'Camille',
       place: 'Responsable du campement',
       image: {
-        src: '/uploads/team/Camille.jpg',
+        src: '/wp-content/uploads/static/team/Camille.jpg',
       },
     },
     {
       name: 'Félix',
       place: 'Responsable du campement',
       image: {
-        src: '/uploads/team/Felix.jpg',
+        src: '/wp-content/uploads/static/team/Felix.jpg',
       },
     },
     {
       name: 'Nicolas',
       place: 'Programmation Web',
       image: {
-        src: '/uploads/team/Nico.jpg',
+        src: '/wp-content/uploads/static/team/Nico.jpg',
       },
     },
     {
       name: 'Cinthia',
       place: 'Marketing',
       image: {
-        src: '/uploads/team/Cinthia.jpg',
+        src: '/wp-content/uploads/static/team/Cinthia.jpg',
       },
     },
     {
       name: 'Karine',
       place: 'Animations',
       image: {
-        src: '/uploads/team/Karine.jpg',
+        src: '/wp-content/uploads/static/team/Karine.jpg',
       },
     },
     {
       name: 'Renaud',
       place: 'Installations slackline',
       image: {
-        src: '/uploads/team/Renaud.jpg',
+        src: '/wp-content/uploads/static/team/Renaud.jpg',
       },
     },
     {
       name: 'Dominic',
       place: 'Commanditaires',
       image: {
-        src: '/uploads/team/Dominic.jpg',
+        src: '/wp-content/uploads/static/team/Dominic.jpg',
       },
     },
   ],

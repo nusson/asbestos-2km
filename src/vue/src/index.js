@@ -16,7 +16,7 @@
 // import '@babel/polyfill';
 
 import Vue from 'vue';
-import AsyncComputed from 'vue-async-computed';
+// import AsyncComputed from 'vue-async-computed';
 import { mapGetters } from 'vuex';
 import { get, each } from 'lodash';
 import router from 'router';
@@ -39,7 +39,7 @@ Vue.use(Meta, {
   keyName: 'head',
 });
 
-Vue.use(AsyncComputed);
+// Vue.use(AsyncComputed);
 
 // Font Awesome
 FontAwesome.init();
