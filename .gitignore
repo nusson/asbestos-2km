@@ -29,3 +29,6 @@ aliases
 composer.lock
 /composer.json
 yarn.lock
+
+**/*.mp4
+public/
