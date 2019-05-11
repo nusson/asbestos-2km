@@ -1,3 +1,5 @@
+const path = process.env.NODE_ENV === 'development' ? '/static/uploads/' : '/wp-content/uploads/static/';
+
 export default {
   title: 'Athlètes présents',
   description: '<p>15 athlètes de partout dans le monde tenteront de traverser notre ligne de 2km de long, suspendue à 300 mètres de hauteur, dans l’intention de détenir le nouveau record du monde!</p>',
@@ -10,7 +12,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/wp-content/uploads/static/athletes/Mia-Noblet.jpg',
+          src: `${path}athletes/Mia-Noblet.jpg`,
         },
       },
     },
@@ -22,7 +24,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/wp-content/uploads/static/athletes/Ari-DeLashmutt---Slackline.jpg',
+          src: `${path}athletes/Ari-DeLashmutt---Slackline.jpg`,
         },
       },
     },
@@ -34,7 +36,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/wp-content/uploads/static/athletes/Anthony-Boulay.jpg',
+          src: `${path}athletes/Anthony-Boulay.jpg`,
         },
       },
     },
@@ -46,7 +48,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/wp-content/uploads/static/athletes/Spenser-Seabrooke---Slackliner.jpg',
+          src: `${path}athletes/Spenser-Seabrooke---Slackliner.jpg`,
         },
       },
     },
@@ -58,7 +60,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/wp-content/uploads/static/athletes/Copie-de-Asbestos-1.9km-_C7A5210.jpg',
+          src: `${path}athletes/Copie-de-Asbestos-1.9km-_C7A5210.jpg`,
         },
       },
     },
@@ -71,7 +73,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/wp-content/uploads/static/athletes/Lukas-Irmler---Slackliner.jpg',
+          src: `${path}athletes/Lukas-Irmler---Slackliner.jpg`,
         },
       },
     },
@@ -83,7 +85,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/wp-content/uploads/static/athletes/Liz-Thomas.jpg',
+          src: `${path}athletes/Liz-Thomas.jpg`,
         },
       },
     },
@@ -95,7 +97,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: '/wp-content/uploads/static/athletes/Michael-Madsen.jpg',
+          src: `${path}athletes/Michael-Madsen.jpg`,
         },
       },
     },
@@ -107,7 +109,7 @@ export default {
     //   images: {
     //     small: { debug: true },
     //     big: {
-    //       // src: '/wp-content/uploads/static/athletes/xxxx.jpg',
+    //       // src: `${path}athletes/xxxx.jpg`,
     //       debug: true,
     //     },
     //   },
@@ -120,7 +122,7 @@ export default {
     //   images: {
     //     small: { debug: true },
     //     big: {
-    //       // src: '/wp-content/uploads/static/athletes/xxxx.jpg',
+    //       // src: `${path}athletes/xxxx.jpg`,
     //       debug: true,
     //     },
     //   },

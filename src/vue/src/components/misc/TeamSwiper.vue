@@ -310,7 +310,7 @@ export default {
     .caption
       x-margin($gutters[2])
     .title
-      max-width calc('100% - 130px')
+      // max-width calc('100% - 130px')
 
   // [data-layout="athletes"]
   //   .slide-content

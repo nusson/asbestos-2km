@@ -1,3 +1,5 @@
+const path = process.env.NODE_ENV === 'development' ? '/static/uploads/' : '/wp-content/uploads/static/';
+
 export default {
   title: 'Nous joindre',
   partners: {
@@ -7,7 +9,7 @@ export default {
     <br>Réaliser un nouveau record du monde aura une visibilité mondiale et inspirera la relève.`,
     cta: {
       label: 'Télécharger le plan de visibilité',
-      href: '/wp-content/uploads/static/plan-de-visibilite-asbestos2km.pdf',
+      href: `${path}plan-de-visibilite-asbestos2km.pdf`,
     },
   },
 };

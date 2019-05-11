@@ -1,3 +1,5 @@
+const path = process.env.NODE_ENV === 'development' ? '/static/uploads/' : '/wp-content/uploads/static/';
+
 export default {
   title: 'Des activités<br>pour tous',
   description: `
@@ -9,21 +11,21 @@ export default {
       title: 'La traversée de 2km',
       description: 'Tout au long de la fin de semaine, une quinzaine d’athlètes monteront tour à tour sur la Highline la plus longue jamais traversée afin de tenter de battre un nouveau record du monde!',
       image: {
-        src: '/wp-content/uploads/static/activities/traversee-2km.jpg',
+        src: `${path}activities/traversee-2km.jpg`,
       },
     },
     {
       title: 'La 1ere compétition de Highline Freestyle au Canada',
       description: 'Venez encourager les athlètes lors de cette compétition de calibre international.<br>Attendez-vous à un spectacle impressionnant avec des mouvements uniques requérant le plus haut niveau d’équilibre!',
       image: {
-        src: '/wp-content/uploads/static/activities/highline-freestyle.jpg',
+        src: `${path}activities/highline-freestyle.jpg`,
       },
     },
     {
       title: 'Initiations',
       description: 'Tout ceux qui le souhaitent auront la chance de se faire initier à ce sport d’équilibre dans un environnement sécuritaire adapté à tous les niveaux et accompagné de Slackliners accomplis.',
       image: {
-        src: '/wp-content/uploads/static/activities/innitiations.jpg',
+        src: `${path}activities/innitiations.jpg`,
       },
     },
     {
@@ -33,28 +35,28 @@ export default {
           <br>Préparez-vous à être surpris devant nos performances enflammées!
         `,
       image: {
-        src: '/wp-content/uploads/static/activities/demonstrations.jpg',
+        src: `${path}activities/demonstrations.jpg`,
       },
     },
     {
       title: 'Activités familiales',
       description: 'Des activités pour tous les goûts. Du Yoga jusqu’aux séances de maquillages pour les touts petits, tout le monde sera diverti!',
       image: {
-        src: '/wp-content/uploads/static/activities/activites-familiales.jpg',
+        src: `${path}activities/activites-familiales.jpg`,
       },
     },
     {
       title: 'Soirées-Spectacles',
       description: 'Les soirées se poursuivent dans une ambiance festive grâce aux musiciens spécialement sélectionnés pour s’assurer de terminer la journée en beauté.',
       image: {
-        src: '/wp-content/uploads/static/activities/soirees-spectacles.jpg',
+        src: `${path}activities/soirees-spectacles.jpg`,
       },
     },
     {
-      title: 'Nourriture & Alcool sur place',
+      title: 'Nourriture et Rafraîchissements',
       description: 'Pour tous les appétits et pour toutes les soifs, chacun y trouvera son compte avec la présence de Foodtrucks diversifiés et de bières locales sur place.',
       image: {
-        src: '/wp-content/uploads/static/activities/nourriture-et-alcool.jpg',
+        src: `${path}activities/nourriture-et-alcool.jpg`,
       },
     },
   ],

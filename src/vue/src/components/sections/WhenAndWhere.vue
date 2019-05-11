@@ -77,8 +77,8 @@ export default {
       const gmap = map || this.gmap;
       const marker = new this.google.maps.Marker({
         map: gmap,
-        title,
-        label: title,
+        // title,
+        // label: title,
         position,
         icon,
         animation: this.google.maps.Animation.DROP,

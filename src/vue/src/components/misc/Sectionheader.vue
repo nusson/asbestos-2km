@@ -67,7 +67,7 @@ export default {
       // display inline-block
       f-style(text, medium)
       flex 1 1 100%
-      margin-top 10px
+      margin-top 20px
 
     // +above($kff-mq-tablet-portrait + 1)
     //   flexbox($justify: flex-start, $align: flex-start)

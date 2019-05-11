@@ -75,18 +75,18 @@ export default {
     // },
   },
   mounted() {
-    const unwatchReady = this.$watch('viewport', ({ width }) => {
-      if (width < 800 || this.pinVideoScene) {
-        if (this.pinVideoScene) {
-          // @todo destroy
-        }
-        return;
-      }
-      this.$nextTick(() => {
-        this.pinVideoScene = this.createPinVideoScene();
-        unwatchReady();
-      });
-    }, { immediate: true });
+    // const unwatchReady = this.$watch('viewport', ({ width }) => {
+    //   if (width < 800 || this.pinVideoScene) {
+    //     if (this.pinVideoScene) {
+    //       // @todo destroy
+    //     }
+    //     return;
+    //   }
+    //   this.$nextTick(() => {
+    //     this.pinVideoScene = this.createPinVideoScene();
+    //     unwatchReady();
+    //   });
+    // }, { immediate: true });
   },
   methods: {
     createPinVideoScene() {
@@ -136,12 +136,12 @@ export default {
     <div
       ref="VideoWrapper"
       class="col -right">
-      <UiVideo
+      <!-- <UiVideo
         v-if="video"
         ref="Video"
         v-bind="video"
         :muted="false"
-        class="video" />
+        class="video" /> -->
     </div>
   </section>
 </template>

@@ -19,12 +19,12 @@ const settings = {
     switch (env) {
       // local
       case 'development':
-        return 'https://htdocs.kffein';
+        return 'https://lesfunambulesmodernes.com/';
       // build for prod
       case 'production':
       default:
         // return 'https://htdocs.com';
-        return 'http://htdocs.dev.kffein.work';
+        return 'https://lesfunambulesmodernes.com/';
     }
   })(process.env.NODE_ENV),
 

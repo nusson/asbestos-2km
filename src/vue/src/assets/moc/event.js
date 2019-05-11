@@ -1,8 +1,11 @@
+
+// const path = process.env.NODE_ENV === 'development' ? '/static/uploads/' : '/wp-content/uploads/static/';
+
 export default {
-  video: {
-    src: '/wp-content/uploads/static/event/world-record-asbestos-2018-by-@LeviAllen.mp4',
-    legend: 'World Record 1.9km - Asbestos, Québec 2018 - by <a target="_blank" href="https://www.instagram.com/leviallen" rel="author">@LeviAllen</a>',
-  },
+  // video: {
+  //   src: '/wp-content/uploads/static/event/world-record-asbestos-2018-by-@LeviAllen.mp4',
+  //   legend: 'World Record 1.9km - Asbestos, Québec 2018 - by <a target="_blank" href="https://www.instagram.com/leviallen" rel="author">@LeviAllen</a>',
+  // },
   items: [
     {
       title: 'Qu’est-ce que la Slackline?',

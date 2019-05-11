@@ -1,6 +1,7 @@
 import { without, merge } from 'lodash';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import cssnano from 'cssnano';
 import WebpackHelper from './_helper';
-
 /**
  * @returns generic loaders (cause it's a big list...)
  * @param {Object} options - see code for list of options
@@ -10,7 +11,8 @@ import WebpackHelper from './_helper';
 export default function (opts = {}) {
   const options = merge({
     stylus: null,
-    extract: !WebpackHelper.ENV.IS_DEV,
+    extract: WebpackHelper.ENV.IS_DEV,
+    optimize: !WebpackHelper.ENV.IS_DEV,
     includeCSSPaths: [
       // `${WebpackHelper.DIRS.NODE_MODULES}swiper/dist/css/`,
     ], // you can add some vendors path to be able to require them
@@ -21,12 +23,26 @@ export default function (opts = {}) {
     return require('mini-css-extract-plugin'); // eslint-disable-line global-require
   })();
 
+  const miniExtractLoader = (() => {
+    if (!options.extract) return null;
+    return {
+      loader: MiniCssExtractPlugin.loader,
+      options: {
+        filename: '[name].css',
+        // you can specify a publicPath here
+        // by default it uses publicPath in webpackOptions.output
+        // publicPath: '../',
+        hmr: WebpackHelper.ENV.IS_DEV,
+      },
+    };
+  })();
   /**
    * all loaders used for css / stylus etc
    */
   const cssLoaders = without([
     'css-hot-loader',
-    options.extract ? MiniCssExtractPlugin.loader : 'style-loader',
+
+    options.extract ? miniExtractLoader : 'style-loader',
     'css-loader',
     {
       loader: 'postcss-loader',
@@ -66,6 +82,21 @@ export default function (opts = {}) {
 
 
   const plugins = without([
+    (({ optimize }) => {
+      if (!optimize) return null;
+      return new OptimizeCSSAssetsPlugin({
+        cssProcessor: cssnano,
+        cssProcessorOptions: {
+          discardComments: {
+            removeAll: true,
+          },
+          // Run cssnano in safe mode to avoid potentially unsafe transformations.
+          safe: true,
+        },
+        canPrint: false,
+      });
+    })(options),
+
     (({ extract }) => {
       if (!extract) return null;
       return new MiniCssExtractPlugin({
@@ -73,6 +104,7 @@ export default function (opts = {}) {
         chunkFilename: `assets/css/[id]${WebpackHelper.HASH}.css`,
       });
     })(options),
+
     /** inject libs/settings within our stylus
      * @params {Array} imports - files to import
      */

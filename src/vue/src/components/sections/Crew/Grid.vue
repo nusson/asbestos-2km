@@ -88,7 +88,7 @@ export default {
       &:nth-child(3n + 4)
       &:nth-child(3n + 5)
       &:nth-child(3n + 6)
-        background-color tomato
+        // background-color tomato
         responsive-prop(margin-top, $gutters)
 
   .figure

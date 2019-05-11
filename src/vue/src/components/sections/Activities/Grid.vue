@@ -227,7 +227,7 @@ export default {
     // width 80%
     responsive-prop(margin-top, 10px 5px)
     f-style(text, card)
-    color $c-dark
+    // color $c-dark
     text-align left
 
 

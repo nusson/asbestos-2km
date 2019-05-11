@@ -73,6 +73,11 @@ export default {
       type: String,
       default: 'cover',
     },
+    /** default preload player option - @see https://www.w3schools.com/tags/att_video_preload.asp */
+    preload: {
+      type: String,
+      default: 'auto',
+    },
     /** default loop player option */
     loop: {
       type: Boolean,

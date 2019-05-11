@@ -114,7 +114,7 @@ export default {
         f-style(title, h3)
       .description
         margin-top 20px
-        f-style(text, 'card')
+        f-style(text, 'card', $color: $c-white)
         opacity 1
         max-width 500px
       .cta
