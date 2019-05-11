@@ -1,6 +1,7 @@
 import { without, merge } from 'lodash';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import cssnano from 'cssnano';
+import { log } from 'util';
 import WebpackHelper from './_helper';
 /**
  * @returns generic loaders (cause it's a big list...)
@@ -11,7 +12,7 @@ import WebpackHelper from './_helper';
 export default function (opts = {}) {
   const options = merge({
     stylus: null,
-    extract: WebpackHelper.ENV.IS_DEV,
+    extract: !WebpackHelper.ENV.IS_DEV,
     optimize: !WebpackHelper.ENV.IS_DEV,
     includeCSSPaths: [
       // `${WebpackHelper.DIRS.NODE_MODULES}swiper/dist/css/`,
@@ -41,7 +42,6 @@ export default function (opts = {}) {
    */
   const cssLoaders = without([
     'css-hot-loader',
-
     options.extract ? miniExtractLoader : 'style-loader',
     'css-loader',
     {

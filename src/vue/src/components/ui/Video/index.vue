@@ -181,26 +181,37 @@ export default {
     //     backgroundColor: '#944bf6',
     //   };
     // },
-    /**
-     * @return {String} video format ('videp/mp4') based on file extension
-     * or 'youtube' | 'vimeo'
-     */
-    format() {
-      if (this.type === VIDEO_TYPES.INTERNAL) {
-        if (typeof (this.src) !== 'string' || this.src === '') return null;
-        return `video/${StringsHelper.getFileExtension(this.src)}`;
-      }
+    // /**
+    //  * @return {String} video format ('videp/mp4') based on file extension
+    //  * or 'youtube' | 'vimeo'
+    //  */
+    // format() {
+    //   if (this.type === VIDEO_TYPES.INTERNAL) {
+    //     if (typeof (this.src) !== 'string' || this.src === '') return null;
+    //     return `video/${StringsHelper.getFileExtension(this.src)}`;
+    //   }
 
-      // if (S(this.src).contains('youtube') || S(this.src).contains('youtu.be')) {
-      //   return VIDEO_PLATFOMS.YOUTUBE;
-      // }
-      // if (S(this.src).contains('vimeo')) {
-      //   return VIDEO_PLATFOMS.VIMEO;
-      // }
+    //   // if (S(this.src).contains('youtube') || S(this.src).contains('youtu.be')) {
+    //   //   return VIDEO_PLATFOMS.YOUTUBE;
+    //   // }
+    //   // if (S(this.src).contains('vimeo')) {
+    //   //   return VIDEO_PLATFOMS.VIMEO;
+    //   // }
 
-      return null;
-    },
-    _src() {
+    //   return null;
+    // },
+    // _src() {
+    //   if (!isEmpty(this.sources)) {
+    //     const { width } = this.viewport;
+    //     const sizes = keys(this.sources);
+    //     const closest = first(sizes.sort((a, b) => Math.abs(width - a) - Math.abs(width - b)));
+    //     if (closest) {
+    //       return this.sources[closest];
+    //     }
+    //   }
+    //   return this.src;
+    // },
+    _sources() {
       if (!isEmpty(this.sources)) {
         const { width } = this.viewport;
         const sizes = keys(this.sources);
@@ -209,7 +220,8 @@ export default {
           return this.sources[closest];
         }
       }
-      return this.src;
+      return [];
+      // return this.src;
     },
   },
   watch: {
@@ -522,8 +534,10 @@ export default {
       class="video"
       controlsList="nodownload">
       <source
-        :src="_src"
-        :type="format">
+        v-for="(url, format) in _sources"
+        :key="`video-${format}`"
+        :src="url"
+        :type="`video/${format}`">
     </video>
 
     <div

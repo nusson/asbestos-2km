@@ -40,14 +40,14 @@ export default {
       <li
         v-for="locale in otherLocales"
         :key="locale">
-        <router-link
-          :to="{name: `${$route.meta.id}.${locale}`, /* params: {slug:$route.params.slugs[locale]} */ }"
+        <a
+          :href="`/${locale}`"
           v-html="locale" />
       </li>
     </ul>
-    <router-link
+    <a
       v-else
-      :to="{name: `${$route.meta.id}.${otherLocale}`, /* params: {slug: $route.params.slugs[otherLocale]} */ }"
+      :href="`/${otherLocale}`"
       v-html="otherLocale" />
   </nav>
 </template>

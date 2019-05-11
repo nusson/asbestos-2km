@@ -102,11 +102,11 @@ export default {
             v-for="item in menu.primary"
             :key="item.slug"
             class="item">
-            <router-link
+            <a
               ref="PrimaryLinks"
-              :to="item.url"
+              :href="item.url"
               class="link"
-              @click.native.prevent="$store.dispatch('Menu/CLOSE_MENU')"
+              @click.prevent="$store.dispatch('Menu/CLOSE_MENU')"
               v-html="item.name"
             />
           </li>

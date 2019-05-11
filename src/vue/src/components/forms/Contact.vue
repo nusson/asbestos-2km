@@ -7,7 +7,7 @@
 
 <script>
 import axios from 'axios';
-import { /* assign, */ each } from 'lodash';
+import { /* assign, */ each, get } from 'lodash';
 import FormField from './Field.vue';
 
 export default {
@@ -22,14 +22,14 @@ export default {
     /** api endpoint - don't worry, we will handle submit */
     action: {
       type: String,
-      default: '#',
+      default: 'http://lesfunambulesmodernes.com/contact',
     },
     /** api endpoint - don't worry, we will handle submit */
     i18n: {
       type: Object,
       default() {
         return {
-          error: 'oops',
+          error: 'oops, une erreur est survenue, veuillez réessayer plus tard',
           submit: {
             default: 'Envoyer votre message',
             sent: 'Merci 😃',
@@ -48,6 +48,7 @@ export default {
           label: 'Qui êtes vous?',
           placeholder: 'Inscrivez votre nom',
           value: null,
+          // value: 'null',
         },
         email: {
           label: 'Votre courriel',
@@ -57,8 +58,8 @@ export default {
             'required',
             'email',
           ],
-            // email: 'Ce courriel ne semble pas valide',
           value: null,
+          // value: 'hellow@hiohi.com',
         },
         message: {
           label: 'Votre message',
@@ -75,6 +76,7 @@ export default {
             },
           ],
           value: null,
+          // value: 'hellow sdfuighiduhguydfhoig huidfohg iodfhignuidrohgiuredh guoryhsdo@hiohi.com',
         },
       },
     };
@@ -123,18 +125,21 @@ export default {
       each(this.model, ({ value }, key) => {
         datas.append(key, value);
       });
+      datas.append('action', 'contact');
 
-      axios.post(this.action, datas)
-      .then(() => {
+      const action = get(window, 'wp_ajax.ajax_url', this.action);
+
+      axios.post(action, datas)
+      .then((response) => {
+        if (response.data !== 1) {
+          return new Error('mail not sent');
+        }
         this.sendingStatus = 'sent';
-        // setTimeout(()=>{
-        //   this.sendingStatus = null;
-        // }, 5000)
+        return response;
       })
-      .catch((/* {message} */) => {
-        // this.sendingStatus = null;
-        this.sendingStatus = 'sent';
-        // this.error = this.i18n.error;
+      .catch((/* { message } */) => {
+        this.sendingStatus = null;
+        this.error = this.i18n.error;
       });
     },
   },
@@ -202,6 +207,9 @@ export default {
     color $c-white !important
     &:after
       border-color $c-white !important
+
+.error .text
+  color $c-error !important
 
 [disabled]
   pointer-events none

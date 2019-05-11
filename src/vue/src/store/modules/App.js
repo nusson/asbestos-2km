@@ -10,7 +10,7 @@ export default {
   namespaced: true,
   state: {
     debug,
-    ready: false, // true if all content loaded
+    ready: true, // true if all content loaded
     mode: 'out-in',
 
   },

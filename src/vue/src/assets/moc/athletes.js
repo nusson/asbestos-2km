@@ -1,4 +1,4 @@
-const path = process.env.NODE_ENV === 'development' ? '/static/uploads/' : '/wp-content/uploads/static/';
+// const path = process.env.NODE_ENV === 'development' ? '/static/uploads/' : '/wp-content/uploads/static/';
 
 export default {
   title: 'Athlètes présents',
@@ -12,7 +12,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: `${path}athletes/Mia-Noblet.jpg`,
+          src: '/wp-content/uploads/static/athletes/Mia-Noblet.jpg',
         },
       },
     },
@@ -24,7 +24,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: `${path}athletes/Ari-DeLashmutt---Slackline.jpg`,
+          src: '/wp-content/uploads/static/athletes/Ari-DeLashmutt---Slackline.jpg',
         },
       },
     },
@@ -36,7 +36,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: `${path}athletes/Anthony-Boulay.jpg`,
+          src: '/wp-content/uploads/static/athletes/Anthony-Boulay.jpg',
         },
       },
     },
@@ -48,7 +48,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: `${path}athletes/Spenser-Seabrooke---Slackliner.jpg`,
+          src: '/wp-content/uploads/static/athletes/Spenser-Seabrooke---Slackliner.jpg',
         },
       },
     },
@@ -60,7 +60,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: `${path}athletes/Copie-de-Asbestos-1.9km-_C7A5210.jpg`,
+          src: '/wp-content/uploads/static/athletes/Copie-de-Asbestos-1.9km-_C7A5210.jpg',
         },
       },
     },
@@ -73,7 +73,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: `${path}athletes/Lukas-Irmler---Slackliner.jpg`,
+          src: '/wp-content/uploads/static/athletes/Lukas-Irmler---Slackliner.jpg',
         },
       },
     },
@@ -85,7 +85,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: `${path}athletes/Liz-Thomas.jpg`,
+          src: '/wp-content/uploads/static/athletes/Liz-Thomas.jpg',
         },
       },
     },
@@ -97,7 +97,7 @@ export default {
       images: {
         small: { debug: true },
         big: {
-          src: `${path}athletes/Michael-Madsen.jpg`,
+          src: '/wp-content/uploads/static/athletes/Michael-Madsen.jpg',
         },
       },
     },
@@ -109,7 +109,7 @@ export default {
     //   images: {
     //     small: { debug: true },
     //     big: {
-    //       // src: `${path}athletes/xxxx.jpg`,
+    //       // src: `/wp-content/uploads/static/athletes/xxxx.jpg`,
     //       debug: true,
     //     },
     //   },
@@ -122,7 +122,7 @@ export default {
     //   images: {
     //     small: { debug: true },
     //     big: {
-    //       // src: `${path}athletes/xxxx.jpg`,
+    //       // src: `/wp-content/uploads/static/athletes/xxxx.jpg`,
     //       debug: true,
     //     },
     //   },

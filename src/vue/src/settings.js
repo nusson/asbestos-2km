@@ -31,6 +31,9 @@ const settings = {
   /** @argument {String} API_PREFIX - to construct API_URL */
   API_PREFIX: 'api',
 
+  /** @argument {String} GOOGLE_MAP_KEY - google map api */
+  GOOGLE_MAP_KEY: 'AIzaSyBtNid05UlKS4tqTcJTJ6pHoSCEB2IG2OQ',
+
   /** @argument {String} API_URL - if null, create it below : `${BASE_URL}/${API_PREFIX}` */
   API_URL: null,
   // API_URL: 'https://htdocs.kffein',

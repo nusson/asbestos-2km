@@ -48,6 +48,7 @@ const config = {
       vendors: `${DIRS.SRC}vendors`,
       utils: `${DIRS.SRC}utils`,
       components: `${DIRS.SRC}components`,
+      // components: `${DIRS.SRC}components`,
 
       // to work with gsap, scrollmagic and our pro plugins
       gsapPro: `${DIRS.SRC}vendors/gsap`,

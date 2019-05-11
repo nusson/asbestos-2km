@@ -7,7 +7,6 @@
 // import ApiHelper from 'utils/helpers/Api';
 
 // const DEBUG = true;
-console.warn('no-loader') // eslint-disable-line
 export default {
   namespaced: true,
   state: {

@@ -100,7 +100,7 @@ export default {
       const close = () => {
         this.$store.dispatch('Menu/CLOSE_MOBILE_MENU');
       };
-      this.$router.afterEach(close);
+      // this.$router.afterEach(close);
       this.$watch('isDesktop', close);
     },
     scrollTo(slug) {
@@ -129,10 +129,10 @@ export default {
               v-text="label"/>
           </li>
           <li class="item route -logo">
-            <router-link
-              :to="{name: `home.${locale}`}"
+            <a
+              href="/"
               class="logo"
-              @click.native.prevent="scrollTo('hero')"
+              @click.prevent="scrollTo('hero')"
               v-text="'Asbestos 2.0'"/>
           </li>
           <li
@@ -161,7 +161,7 @@ export default {
           class="link burger _no-btn"
           @click.prevent="toggleMobileMenu"
           v-html="svg.burger"/>
-        <router-link
+        <a
           :to="{name: `home.${locale}`}"
           class="logo"
           @click.native.prevent="scrollTo('hero')"

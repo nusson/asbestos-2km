@@ -12,6 +12,7 @@
 import { map as mapArray } from 'lodash';
 import { mapGetters } from 'vuex';
 import SectionHeader from 'components/misc/SectionHeader';
+import settings from 'src/settings';
 // import Experiences from './Experience';
 
 import GoogleMaps from 'google-maps';
@@ -54,7 +55,9 @@ export default {
     // },
   },
   mounted() {
-    GoogleMaps.KEY = this.map.gmap.key;
+    if (process.env.NODE_ENV !== 'development') {
+      GoogleMaps.KEY = settings.GOOGLE_MAP_KEY; // this.map.gmap.key;
+    }
     GoogleMaps.load(this.onGoogleLoaded.bind(this));
     // this.onGoogleLoaded(window.google);
   },
@@ -72,7 +75,7 @@ export default {
       return new this.google.maps.Map(this.$refs.Map, this.map.gmap.options);
     },
     addMarker({
-      position = null, title, icon, link,
+      position = null, /* title, */ icon, link,
     }, map) {
       const gmap = map || this.gmap;
       const marker = new this.google.maps.Marker({

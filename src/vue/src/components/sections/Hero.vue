@@ -120,7 +120,7 @@ export default {
       ref="VideoBg"
       v-bind="videos.background"
       :autoplay="true"
-      :preload="isDesktop ? 'auto' : 'metadata'"
+      :preload="/*isDesktop ? 'auto' : */'metadata'"
       :loop="true"
       :controls="false"
       class="background -video"/>
@@ -156,6 +156,7 @@ export default {
     text-align center
 
   .content
+    width 100%
     position relative
     z-index 5
     flexbox(column)

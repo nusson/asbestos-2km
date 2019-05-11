@@ -16,7 +16,7 @@ import {
  assign, flatten, values, merge, groupBy, get,
 } from 'lodash';
 import settings from 'src/settings';
-import router from 'router';
+// import router from 'router';
 
 const debug = process.env.NODE_ENV === 'development'; // && false;
 
@@ -102,7 +102,7 @@ export default class ApiHelper {
         }
 
         if (shouldRedirect) {
-          router.replace({ name: `404.${locale}` });
+          // router.replace({ name: `404.${locale}` });
         }
       }
       // throw error because if nop, will continue our promise chain but without response

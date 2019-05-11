@@ -18,8 +18,8 @@
 import Vue from 'vue';
 // import AsyncComputed from 'vue-async-computed';
 import { mapGetters } from 'vuex';
-import { get, each } from 'lodash';
-import router from 'router';
+import { each } from 'lodash';
+// import router from 'router';
 import store from 'store';
 import Meta from 'vue-meta';
 import 'utils/plugins/Modernizr';
@@ -47,7 +47,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 export default new Vue({ // eslint-disable-line
   el: '#App',
-  router,
+  // router,
   i18n,
   store,
   data() {
@@ -83,13 +83,14 @@ export default new Vue({ // eslint-disable-line
     // and may redirect from `/` to `/:locale`
     // @todo maybe use [router.beforeEach](https://router.vuejs.org/guide/advanced/navigation-guards.html#global-guards)
     // and handle the next() or next({ path: `/${locale}` })
-    const { pathname } = document.location;
-    const { route } = this.$router.resolve(pathname);
-    const locale = get(route, 'params.locale', this.locale);
-    if (route.path === '/' && !this.$route.name) {
-      this.$router.push({ path: `/${locale}` });
-    }
-    this.$store.dispatch('I18n/SET_LOCALE', locale);
+    // const { pathname } = document.location;
+    // const { route } = this.$router.resolve(pathname);
+    // const locale = get(route, 'params.locale', this.locale);
+    // if (route.path === '/' && !this.$route.name) {
+    //   this.$router.push({ path: `/${locale}` });
+    // }
+    // this.$store.dispatch('I18n/SET_LOCALE', locale);
+    this.$store.dispatch('I18n/SET_LOCALE', 'fr');
   },
   mounted() {
     this.load();
@@ -106,11 +107,11 @@ export default new Vue({ // eslint-disable-line
       });
 
       // preload route component
-      const preloadRouteComponent = new Promise((resolve) => {
-        this.$router.onReady(resolve);
-        this.$store.commit('App/SET_READY', true);
-      });
-      this.$store.commit('Loader/PROMISE_PUSH', preloadRouteComponent);
+      // const preloadRouteComponent = new Promise((resolve) => {
+      //   this.$router.onReady(resolve);
+      //   this.$store.commit('App/SET_READY', true);
+      // });
+      // this.$store.commit('Loader/PROMISE_PUSH', preloadRouteComponent);
       this.addDebug();
     },
 
@@ -123,7 +124,7 @@ export default new Vue({ // eslint-disable-line
         return;
       }
       window.$root = this;
-      window.$router = this.$router;
+      // window.$router = this.$router;
       window.$i18n = this.$i18n;
       window.$store = this.$store;
     },

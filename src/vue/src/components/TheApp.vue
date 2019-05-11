@@ -15,9 +15,12 @@ import TheLoader from 'components/TheLoader';
 import SmoothScrollBar from 'components/ui/ScrollBar';
 import Overlay from 'components/ui/Overlay';
 
+const TheHomepage = () => import(/* webpackChunkName: "pages-home" */ 'components/TheHomepage');
+
 export default {
   name: 'TheApp',
   components: {
+    TheHomepage,
     TheHeader,
     TheFooter,
     TheLoader,
@@ -91,7 +94,8 @@ export default {
       :css="false"
       mode="in-out"
       appear>
-      <router-view
+      <TheHomepage
+        v-if="loaded"
         ref="Page"
         class="page"/>
     </transition>
