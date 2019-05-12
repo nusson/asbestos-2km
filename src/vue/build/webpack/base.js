@@ -22,7 +22,7 @@ const config = {
    */
   entry: {
     main: [
-      `${DIRS.SRC}index.js`,
+      `${DIRS.SRC}index${ENV.IS_DEV ? '_dev' : ''}.js`,
       `${DIRS.ASSETS}styles/main.styl`,
     ],
   },
@@ -48,6 +48,7 @@ const config = {
       vendors: `${DIRS.SRC}vendors`,
       utils: `${DIRS.SRC}utils`,
       components: `${DIRS.SRC}components`,
+      vue: `vue/dist/vue`,
       // components: `${DIRS.SRC}components`,
 
       // to work with gsap, scrollmagic and our pro plugins

@@ -44,7 +44,8 @@
     },
     created() {
       this.$preloader = new createjs.LoadQueue();
-      axios.get(`manifest.json`, { baseURL: '/' }).then(res => this.load(res.data));
+      // axios.get(`manifest.json`, { baseURL: '/' }).then(res => this.load(res.data));
+      this.load()
     },
     mounted(){
       const ease = Expo.easeOut
@@ -53,26 +54,27 @@
         paused: true
       })
       .add('start')
-      .fromTo(this.$refs.Line, 0.2, {x: 0}, {x: '100%'})
+      .fromTo(this.$refs.Line, 1, {x: 0}, {x: '100%'})
       .add('end')
     },
     methods: {
-      load(manifest) {
+      load(/* manifest */) {
         this.$preloader.on('error', this._onLoadError);
         this.$preloader.on('progress', this._onLoadProgress);
         this.$preloader.on('complete', this._onLoadComplete);
 
-        forEach(manifest, (file, key) => {
-          const ext = file.substr(file.lastIndexOf('.') + 1);
-          if (indexOf(this.ignore, ext) !== -1) { return; }
+        // forEach(manifest, (file, key) => {
+        //   const ext = file.substr(file.lastIndexOf('.') + 1);
+        //   if (indexOf(this.ignore, ext) !== -1) { return; }
 
-          // configBuild[modeBuild].assetsPublicPath + file
-          this.manifest.push({ id: key, src: file });
-        });
+        //   // configBuild[modeBuild].assetsPublicPath + file
+        //   this.manifest.push({ id: key, src: file });
+        // });
 
         const preloaderPromise = new Promise((resolve, reject) => {
           this.resolveLoader = resolve;
-          this.$preloader.loadManifest(this.manifest);
+          // this.$preloader.loadManifest(this.manifest);
+          this._onLoadComplete()
         });
 
         this.$store.commit('Loader/PROMISE_PUSH', preloaderPromise);
@@ -110,11 +112,18 @@
       },
 
       leave(el, done) {
+        return TweenMax.fromTo(el, 0.6, {
+          autoAlpha: 1
+        },{
+          delay: 0.5,
+          autoAlpha:0,
+          ease: Expo.easeIn,
+        })
         if(this.timeline.progress() === 1){
-          return this.$nextTick(done)
+          return this.$nextTick(done.bind(this))
         }
         this.$store.dispatch('Transition/ACTIVE_TRANSITION');
-        return this.timeline.eventCallback('onComplete', done)
+        return this.timeline.eventCallback('onComplete', done.bind(this))
         // TweenMax.to(this.$el, 0.8, {
         //   x: '90%',
         //   ease:Expo.easeIn,
@@ -138,8 +147,12 @@
 </template>
 
 <style lang="stylus" scoped>
+#TheLoader
+  fixed 0
+  background $c-black
+  z-index 10000
 .line
   fixed top left right
   height 5px
-  background $c-black
+  background $c-accent
 </style>

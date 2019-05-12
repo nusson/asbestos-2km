@@ -2,7 +2,7 @@ const path = process.env.NODE_ENV === 'development' ? '/static/uploads/' : '/wp-
 
 export default {
   // description: '<p>Fière de sa nouvelle mission sportive, festive et éducative, la Ville d’Asbestos reçoit de nouveaux visiteurs à la mine Jeffrey et attire l’attention sur son magnifique lac aux couleurs turquoises.</p>',
-  title: 'du 25 au 27 juillet 2019',
+  title: 'du 25 au 27 juillet&nbsp;2019',
   description: `Sur le site de la mine Jeffrey, Asbestos, Québec
   <br>en face de la microbrasserie <a href="http://moulin7.com" target="_blank" title="microbrasserie Moulin 7">Moulin 7</a>`,
   // {

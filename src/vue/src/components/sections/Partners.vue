@@ -90,7 +90,7 @@ export default {
             target="_blank"
             class="partner link">
             <UiPicture
-              v-bind="partner.image"
+              v-bind='partner.image'
               class="logo"
               cover="contain"/>
           </a>

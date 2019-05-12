@@ -47,7 +47,7 @@ export default {
     @mouseleave="onMouseLeave">
     <UiVideo
       v-if="src"
-      v-bind="$props"
+      v-bind='$props'
       class="video" />
     <figcaption
       :data-visible="showLegend"

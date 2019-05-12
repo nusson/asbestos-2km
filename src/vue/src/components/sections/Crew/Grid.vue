@@ -43,7 +43,7 @@ export default {
         @click="toggle(index)">
         <div class="background">
           <UiPicture
-            v-bind="item.image"
+            v-bind='item.image'
             :full="true"
             class="picture"
             cover="cover" />

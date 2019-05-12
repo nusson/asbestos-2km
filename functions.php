@@ -33,7 +33,7 @@ function contact() {
   $email = $_POST['email'];
   $message = $_POST['message'];
 
-  $to = 'hussonicolas@gmail.com';
+  $to = 'info@lesfunambulesmodernes.com';
   $subject = 'CONTACT - lesfunambulesmodernes';
 
   $message = "

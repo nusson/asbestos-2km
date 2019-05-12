@@ -147,7 +147,7 @@ export default {
 <template>
   <component
     :is="tag"
-    v-bind="_attr"
+    v-bind='_attr'
     :title="alt"
     class="UiButton"
     @click="doAction">

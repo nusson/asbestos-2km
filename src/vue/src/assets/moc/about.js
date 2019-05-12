@@ -1,5 +1,5 @@
 export default {
-  title: 'Le Festival Asbestos 2.0',
+  title: 'Slackfest Asbestos 2.0',
   // content: `
   //   <h3>Ideas for style / animation</h3>
   //   <h4>Textes</h4>

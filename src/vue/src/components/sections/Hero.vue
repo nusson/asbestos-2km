@@ -118,9 +118,9 @@ export default {
     <UiVideo
       v-else-if="videos.background"
       ref="VideoBg"
-      v-bind="videos.background"
+      v-bind='videos.background'
       :autoplay="true"
-      :preload="/*isDesktop ? 'auto' : */'metadata'"
+      :preload="'metadata'"
       :loop="true"
       :controls="false"
       class="background -video"/>

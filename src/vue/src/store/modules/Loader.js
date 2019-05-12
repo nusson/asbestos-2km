@@ -10,7 +10,7 @@
 export default {
   namespaced: true,
   state: {
-    loaded: true,
+    loaded: false,
     promises: [],
   },
   mutations: {

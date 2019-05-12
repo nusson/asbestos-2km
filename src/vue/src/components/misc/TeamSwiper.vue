@@ -131,7 +131,7 @@ export default {
         <figure class="slide-content figure">
           <div class="image-wrapper -big">
             <UiPicture
-              v-bind="image || images.big"
+              v-bind='image || images.big'
               :full="true"
               class="picture -big"
               cover="cover" />

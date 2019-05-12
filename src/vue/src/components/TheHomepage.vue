@@ -144,16 +144,16 @@ export default {
       class="section -hero parallax">
       <SectionHero
         ref="Hero"
-        v-bind="hero"
+        v-bind='hero'
         class="hero slide-effect"/>
     </section>
 
     <SectionPartners
-      v-bind="partners"
+      v-bind='partners'
       class="section -partners" />
 
     <SectionWhenAndWhere
-      v-bind="whenAndWhere"
+      v-bind='whenAndWhere'
       data-anchor="whenAndWhere"
       class="section -whenAndWhere" />
 
@@ -164,30 +164,30 @@ export default {
       ref="SectionAbout"
       class="section -about parallax">
       <SectionAbout
-        v-bind="about"
+        v-bind='about'
         class="about slide-effect"/>
     </section>
 
     <SectionEvent
-      v-bind="event"
+      v-bind='event'
       data-anchor="event"
       class="section -event" />
 
     <SectionActivities
-      v-bind="activities"
+      v-bind='activities'
       data-anchor="activity"
       class="section -activities" />
     <SectionCrew
-      v-bind="crew"
+      v-bind='crew'
       data-anchor="crew"
       class="section -crew" />
     <SectionGuests
-      v-bind="athletes"
+      v-bind='athletes'
       data-anchor="athletes"
       class="section -athletes" />
 
     <SectionContact
-      v-bind="contact"
+      v-bind='contact'
       data-anchor="contact"
       class="section -contact" />
 
@@ -198,7 +198,7 @@ export default {
       <UiVideo
         v-if="hero && hero.videos && hero.videos.main"
         ref="VideoMain"
-        v-bind="hero.videos.main"
+        v-bind='hero.videos.main'
         :controls="true"
         :autoplay="false"
         :auto-stop-on-scroll="false"

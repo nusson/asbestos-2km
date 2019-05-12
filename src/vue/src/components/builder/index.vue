@@ -68,7 +68,7 @@ export default {
         v-for="(item, index) in components"
         :key="index"
         :is="getComponent(item)"
-        v-bind="item.data"
+        v-bind='item.data'
         class="item" />
     </component>
   </div>

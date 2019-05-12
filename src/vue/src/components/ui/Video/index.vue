@@ -517,9 +517,9 @@ export default {
     </slot>
 
     <Picture
-      v-if="state.ended || !state.loaded"
+      v-if="poster && (state.ended || !state.loaded)"
       ref="Poster"
-      v-bind="poster"
+      v-bind='poster'
       cover="cover"
       class="poster"/>
 

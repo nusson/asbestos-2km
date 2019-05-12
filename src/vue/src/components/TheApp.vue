@@ -6,7 +6,8 @@
 </docs>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
+import { TweenMax, Expo } from 'gsap';
 import Transitions from 'src/mixins/Transitions';
 import PageTransition from 'components/ui/PageTransition';
 import TheHeader from 'components/layout/TheHeader';
@@ -37,6 +38,9 @@ export default {
       scrollable: 'Interface/scrollable',
       social: 'Global/social',
       mode: 'App/mode',
+    }),
+    ...mapState('Menu', {
+      navigation: ({ navigation }) => navigation,
     }),
     dynamicStyles() {
       /* Usefull to:
@@ -75,6 +79,17 @@ export default {
     // init our interface (viewport etc)
     this.$store.dispatch('Interface/INIT');
   },
+  // methods:{
+  //   enter(el, done) {
+  //     return TweenMax.fromTo(el, 1, {
+  //       autoAlpha:0
+  //     }, {
+  //       autoAlpha:1,
+  //       ease: Expo.easeOut,
+  //       onComplete:done.bind(this)
+  //     })
+  //   }
+  // }
 };
 </script>
 
@@ -84,21 +99,24 @@ export default {
     :data-debug-mode="$root.debug"
     :data-scrollable="true">
 
-    <TheHeader v-if="loaded"/>
+    <TheHeader
+      v-if="loaded"
+      :navigation="navigation"/>
 
     <!-- <SmoothScrollBar
       :data-scrollable="scrollable.toString()"
       tag="main"
       class="app_content"> -->
-    <transition
+    <!-- <transition
       :css="false"
-      mode="in-out"
-      appear>
+      mode="out-in"
+      appear
+      @enter="enter"> -->
       <TheHomepage
-        v-if="loaded"
+        v-show="loaded"
         ref="Page"
         class="page"/>
-    </transition>
+    <!-- </transition> -->
     <TheFooter
       v-if="loaded && social"
       :social="social"

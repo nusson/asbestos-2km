@@ -24,6 +24,12 @@ export default {
       type: Boolean,
       default: false,
     },
+    navigation: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
   },
   data() {
     return {
@@ -44,7 +50,7 @@ export default {
     ...mapState('Menu', {
       mobileMenuIsOpen: ({ mobileMenuIsOpen }) => mobileMenuIsOpen,
       collectionMenuIsOpen: ({ collectionMenuIsOpen }) => collectionMenuIsOpen,
-      navigation: ({ navigation }) => navigation,
+      // navigation: ({ navigation }) => navigation,
     }),
     ...mapState('I18n', {
       locale: ({ locale }) => locale,
@@ -133,7 +139,7 @@ export default {
               href="/"
               class="logo"
               @click.prevent="scrollTo('hero')"
-              v-text="'Asbestos 2.0'"/>
+              v-text="'Slackfest Asbestos 2.0'"/>
           </li>
           <li
             v-for="{slug, label} in menu.right"
@@ -165,7 +171,7 @@ export default {
           :to="{name: `home.${locale}`}"
           class="logo"
           @click.native.prevent="scrollTo('hero')"
-          v-text="'Asbestos 2.0'" />
+          v-text="'Slackfest Asbestos 2.0'" />
         <span class="nothing-for-flex"/>
       </div>
       <nav

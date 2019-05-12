@@ -70,7 +70,6 @@ textarea,
         border-width 2px
         transform scale(1.2) translate(-50%, -50%)
 
-
 .cta
   position relative
   display inline-block
@@ -101,3 +100,71 @@ textarea,
     //   color $c-accent
     //   &:after
     //     border-color $c-accent
+
+  /**
+   * =LAYOUT
+   * =DEBUG
+   */
+
+/* ===LAYOUT=== */
+#App
+  position relative
+  width 100%
+  responsive-prop(height, 100% auto)
+  // responsive-prop(padding-top, $h-header)
+  .app_content
+    flexbox(column)
+    size 100%
+    // overflow hidden
+    overflow auto
+    +not-desktop()
+      overflow auto
+    > .page
+      width 100%
+      flex-grow 1
+
+  &[data-debug-mode="true"]
+    // height 3000px
+    // absolute 0
+    // background url('../assets/images/debug/1440px.jpg') no-repeat center top
+    // background-size 1440px
+
+
+.lightbox
+  .body
+    size 100% 100vh// 80vh
+  .video
+    // ratio-box(16/9)
+    // width 100%
+    absolute 0
+    // width 100%
+    // size 100vw 100vh
+    // position relative
+
+.parallax
+  height 100vh
+  overflow hidden
+  .about
+    min-height 120%
+    position relative
+    top -50%
+  .hero
+    height 100%
+    top 0%
+
+.-about
+  +mobile()
+    height auto
+    overflow visible
+
+.section
+  position relative
+  &.-hero
+  &.-about
+    y-padding(0px)
+  &.-contact
+    responsive-prop(margin-top, 60px 40px)
+    +below($kff-mq-tablet-portrait - 1)
+      margin-top 0
+  &.-activities
+    // background-color $c-light
