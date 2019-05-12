@@ -89,7 +89,7 @@ export default {
       // load locale messages
       dispatch('LOAD_LOCALE_MESSAGES', locale);
       // and load globals
-      this.dispatch('Global/LOAD', this.locale);
+      // this.dispatch('Global/LOAD', this.locale);
       commit('SET_LOCALE', locale);
     },
 

@@ -27,7 +27,7 @@ $navigation = file_get_contents(get_stylesheet_directory() . '/datas/navigation.
 	<meta property="og:url" content="https://lesfunambulesmodernes.com" />
 	<meta property="og:title"  content="Slackfest Asbestos 2Km" />
 	<meta property="og:description" content="Le plus grand événement de Highline au Canada. La deuxième édition prendra place du 25 au 27 Juillet 2019 aux abords du puits minier Jeffrey à Asbestos." />
-	<meta property="og:image" content="http://lesfunambulesmodernes.com/wp-content/uploads/static/section-hero.jpg" />
+	<meta property="og:image" content="http://lesfunambulesmodernes.com/wp-content/uploads/static/facebook.jpg" />
 </head>
 <body <?php body_class(); ?>>
   <?php /* wp_body_open(); */ ?>
