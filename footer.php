@@ -27,7 +27,6 @@ $social = file_get_contents(get_stylesheet_directory() . '/datas/social.json');
       </component>
 
     </div><!-- App -->
-    <?php wp_footer(); ?>
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139982006-1"></script>
@@ -38,5 +37,27 @@ $social = file_get_contents(get_stylesheet_directory() . '/datas/social.json');
 
       gtag('config', 'UA-139982006-1');
     </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '302301660682184'); 
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" 
+      src="https://www.facebook.com/tr?id=302301660682184&ev=PageView
+      &noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    
+    <?php wp_footer(); ?>
   </body>
 </html>

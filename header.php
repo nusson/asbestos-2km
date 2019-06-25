@@ -19,6 +19,7 @@ $navigation = file_get_contents(get_stylesheet_directory() . '/datas/navigation.
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
+	<meta name="fragment" content="!">
 	<?php wp_head(); ?>
 	<title>Slackfest Asbestos 2Km</title>
 	<meta name="description" content="Le plus grand événement de Highline au Canada. La deuxième édition prendra place du 25 au 27 Juillet 2019 aux abords du puits minier Jeffrey à Asbestos." />
