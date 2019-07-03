@@ -123,7 +123,7 @@ export default {
   .list.partners
     responsive-prop(margin-top, 60px 40px 10px)
     flexbox(row, $justify:flex-start)
-    max-width $kff-w-max
+    // max-width $kff-w-max
     x-margin(auto)
     >>>.item
       flex 0 0 200px
