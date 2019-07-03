@@ -27,6 +27,12 @@ export default {
       type: String,
       default: null,
     },
+    cta: {
+      type: Object,
+      default() {
+        return null;
+      },
+    },
     items: {
       type: Array,
       default() {
@@ -54,6 +60,7 @@ export default {
     <SectionHeader
       :title="title"
       :description="description"
+      :cta="cta"
       class="header"/>
     <component
       v-if="items.length"

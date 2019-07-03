@@ -113,16 +113,15 @@ export default {
   //  ===LAYOUT===
   .SectionPartnersSmall
     color $c-white
-    background-color $c-black
-    y-padding(3em)
 
   .header
-    flexbox(row, $justify:center)
+    flexbox(row, $justify:flex-start)
+    safe-content()
     >.title
-      f-style(title, h3, $align:center)
+      f-style(title, h1)
 
   .list.partners
-    margin-top 40px
+    responsive-prop(margin-top, 60px 40px 10px)
     flexbox(row, $justify:flex-start)
     max-width $kff-w-max
     x-margin(auto)
@@ -132,7 +131,7 @@ export default {
       max-width 250px
       +below($mq-mobile)
         flex-basis 80%
-        x-margin(5%)
+        x-margin(15%)
 
   .partner
     flexbox(column)

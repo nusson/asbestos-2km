@@ -8,7 +8,6 @@ $crew = file_get_contents(get_stylesheet_directory() . '/datas/crew.json');
 $event = file_get_contents(get_stylesheet_directory() . '/datas/event.json');
 $hero = file_get_contents(get_stylesheet_directory() . '/datas/hero.json');
 $partners = file_get_contents(get_stylesheet_directory() . '/datas/partners.json');
-$partners_small = file_get_contents(get_stylesheet_directory() . '/datas/partners-bottom.json');
 $whenAndWhere = file_get_contents(get_stylesheet_directory() . '/datas/whenAndWhere.json');
 
 get_header();
@@ -79,11 +78,6 @@ get_header();
       data-anchor="contact"
       class="section -contact">
     </section-contact>
-
-    <section-partners-small
-      v-bind='<?php echo $partners_small; ?>'
-      class="section -partners-small">
-    </section-partners-small>
 
     <ui-lightbox
       class="lightbox"

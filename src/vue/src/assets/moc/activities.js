@@ -4,26 +4,33 @@ export default {
   title: 'Des activités<br>pour tous',
   description: `
     <p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>
-    <p><strong>Programmation complète à venir</strong></p>
   `,
+  cta: {
+    label: 'Voir le programme complet',
+    href:
+      '/wp-content/uploads/static/asbestos-slackfest-2.0.pdf',
+  },
   items: [
     {
       title: 'La traversée de 2km',
-      description: 'Tout au long de la fin de semaine, une quinzaine d’athlètes monteront tour à tour sur la Highline la plus longue jamais traversée afin de tenter de battre un nouveau record du monde!',
+      description:
+        'Tout au long de la fin de semaine, une quinzaine d’athlètes monteront tour à tour sur la Highline la plus longue jamais traversée afin de tenter de battre un nouveau record du monde!',
       image: {
         src: '/wp-content/uploads/static/activities/traversee-2km.jpg',
       },
     },
     {
       title: 'La 1ere compétition de Highline Freestyle au Canada',
-      description: 'Venez encourager les athlètes lors de cette compétition de calibre international.<br>Attendez-vous à un spectacle impressionnant avec des mouvements uniques requérant le plus haut niveau d’équilibre!',
+      description:
+        'Venez encourager les athlètes lors de cette compétition de calibre international.<br>Attendez-vous à un spectacle impressionnant avec des mouvements uniques requérant le plus haut niveau d’équilibre!',
       image: {
         src: '/wp-content/uploads/static/activities/highline-freestyle.jpg',
       },
     },
     {
       title: 'Initiations',
-      description: 'Tout ceux qui le souhaitent auront la chance de se faire initier à ce sport d’équilibre dans un environnement sécuritaire adapté à tous les niveaux et accompagné de Slackliners accomplis.',
+      description:
+        'Tout ceux qui le souhaitent auront la chance de se faire initier à ce sport d’équilibre dans un environnement sécuritaire adapté à tous les niveaux et accompagné de Slackliners accomplis.',
       image: {
         src: '/wp-content/uploads/static/activities/innitiations.jpg',
       },
@@ -40,21 +47,24 @@ export default {
     },
     {
       title: 'Activités familiales',
-      description: 'Des activités pour tous les goûts. Du Yoga jusqu’aux séances de maquillages pour les touts petits, tout le monde sera diverti!',
+      description:
+        'Des activités pour tous les goûts. Du Yoga jusqu’aux séances de maquillages pour les touts petits, tout le monde sera diverti!',
       image: {
         src: '/wp-content/uploads/static/activities/activites-familiales.jpg',
       },
     },
     {
       title: 'Soirées-Spectacles',
-      description: 'Les soirées se poursuivent dans une ambiance festive grâce aux musiciens spécialement sélectionnés pour s’assurer de terminer la journée en beauté.',
+      description:
+        'Les soirées se poursuivent dans une ambiance festive grâce aux musiciens spécialement sélectionnés pour s’assurer de terminer la journée en beauté.',
       image: {
         src: '/wp-content/uploads/static/activities/soirees-spectacles.jpg',
       },
     },
     {
       title: 'Nourriture et Rafraîchissements',
-      description: 'Pour tous les appétits et pour toutes les soifs, chacun y trouvera son compte avec la présence de Foodtrucks diversifiés et de bières locales sur place.',
+      description:
+        'Pour tous les appétits et pour toutes les soifs, chacun y trouvera son compte avec la présence de Foodtrucks diversifiés et de bières locales sur place.',
       image: {
         src: '/wp-content/uploads/static/activities/nourriture-et-alcool.jpg',
       },

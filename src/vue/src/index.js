@@ -46,7 +46,7 @@ import SectionCrew from 'components/sections/Crew';
 import SectionGuests from 'components/sections/Guests';
 import SectionContact from 'components/sections/Contact';
 import SectionWhenAndWhere from 'components/sections/WhenAndWhere';
-import SectionPartnersSmall from 'components/sections/PartnersSmall';
+// import SectionPartnersSmall from 'components/sections/PartnersSmall';
 import UiVideo from 'components/ui/Video';
 import UiLightbox from 'components/ui/Lightbox';
 
@@ -82,7 +82,7 @@ Vue.component('section-crew', SectionCrew);
 Vue.component('section-guests', SectionGuests);
 Vue.component('section-contact', SectionContact);
 Vue.component('section-when-and-where', SectionWhenAndWhere);
-Vue.component('section-partners-small', SectionPartnersSmall);
+// Vue.component('section-partners-small', SectionPartnersSmall);
 Vue.component('ui-video', UiVideo);
 Vue.component('ui-lightbox', UiLightbox);
 

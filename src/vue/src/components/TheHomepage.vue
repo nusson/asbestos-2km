@@ -12,7 +12,6 @@ import { Scene } from 'scrollmagic';
 import { Linear } from 'gsap';
 import SectionHero from 'components/sections/Hero';
 import SectionPartners from 'components/sections/Partners';
-import SectionPartnersSmall from 'components/sections/PartnersSmall';
 import SectionAbout from 'components/sections/About';
 import SectionEvent from 'components/sections/Event';
 import SectionActivities from 'components/sections/Activities';
@@ -28,7 +27,6 @@ export default {
   components: {
     SectionHero,
     SectionPartners,
-    SectionPartnersSmall,
     SectionAbout,
     SectionEvent,
     SectionActivities,
@@ -44,7 +42,6 @@ export default {
       hero: 'Global/hero',
       activities: 'Global/activities',
       partners: 'Global/partners',
-      partnersBottom: 'Global/partnersBottom',
       about: 'Global/about',
       event: 'Global/event',
       crew: 'Global/crew',
@@ -192,11 +189,13 @@ export default {
     <SectionContact
       v-bind="contact"
       data-anchor="contact"
-      class="section -contact" />
-
-    <SectionPartnersSmall
-      v-bind="partnersBottom"
-      class="section -partners-small" />
+      class="section -contact">
+      <!-- <template v-slot:partners>
+        <SectionPartnersSmall
+          v-bind="partnersBottom"
+          class="section -partners-small" />
+      </template> -->
+    </SectionContact>
 
 
     <UiLightbox

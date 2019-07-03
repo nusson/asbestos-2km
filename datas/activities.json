@@ -1,6 +1,10 @@
 {
 	"title": "Des activités<br>pour tous",
-	"description": "\n    <p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>\n    <p><strong>Programmation complète à venir</strong></p>\n  ",
+	"description": "<p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>",
+  "cta": {
+    "label": "Voir le programme complet",
+    "href": "/wp-content/uploads/static/asbestos-slackfest-2.0.pdf"
+	},
 	"items": [{
 		"title": "La traversée de 2km",
 		"description": "Tout au long de la fin de semaine, une quinzaine d’athlètes monteront tour à tour sur la Highline la plus longue jamais traversée afin de tenter de battre un nouveau record du monde!",

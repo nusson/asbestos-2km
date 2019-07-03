@@ -3,6 +3,10 @@
 # SectionContact
 > Contact section with form (the last one)
 
++ contact form
++ partners
++ become partner
+
 @author Nicolas Husson <hello@nusson.ninja>
 </docs>
 <!-- eslint-enable -->
@@ -10,10 +14,11 @@
 <script>
 import SectionHeader from 'components/misc/SectionHeader';
 import ContactForm from 'components/forms/Contact';
+import SectionPartners from './Partners';
 
 export default {
   name: 'SectionContact',
-  components: { SectionHeader, ContactForm },
+  components: { SectionHeader, SectionPartners, ContactForm },
   props: {
     title: {
       type: String,
@@ -27,10 +32,12 @@ export default {
       type: Object,
       default() {
         return null;
-        // return {
-        //   title: null,
-        //   description: null,
-        // };
+      },
+    },
+    become_partner: {
+      type: Object,
+      default() {
+        return null;
       },
     },
   },
@@ -52,22 +59,31 @@ export default {
       <ContactForm class="form -contact" />
     </div>
 
-    <section
+    <SectionPartners
       v-if="partners"
-      class="partners">
-      <h3
-        class="title"
-        v-html="partners.title"/>
-      <p
-        class="description"
-        v-html="partners.description"/>
-      <a
-        v-if="partners.cta"
-        :title="partners.cta.label"
-        :href="partners.cta.href"
-        class="cta -white"
-        download
-        v-text="partners.cta.label" />
+      v-bind="partners"
+      class="partners" />
+
+    <section
+      v-if="become_partner"
+      class="become-partners">
+      <header class="header">
+        <h3
+          class="title"
+          v-html="become_partner.title"/>
+        <p
+          class="description"
+          v-html="become_partner.description"/>
+        <a
+          v-if="become_partner.cta"
+          :title="become_partner.cta.label"
+          :href="become_partner.cta.href"
+          class="cta -white"
+          download
+          v-text="become_partner.cta.label" />
+      </header>
+
+
     </section>
 
   </section>
@@ -108,7 +124,10 @@ export default {
           max-width 400px
 
     .partners
-      responsive-prop(margin-top, 80px 40px)
+      responsive-prop(margin-top, 120px 80px 60px)
+
+    .become-partners
+      responsive-prop(margin-top, 80px 50px 20px)
       safe-content()
       .title
         f-style(title, h3)
