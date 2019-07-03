@@ -7,7 +7,7 @@
 import { get, each, set } from 'lodash';
 import ApiHelper from 'utils/helpers/Api';
 
-const debug = true;// process.env.NODE_ENV === 'development'; // && false;
+const debug = process.env.NODE_ENV === 'development'; // && false;
 
 export default {
   namespaced: true,
@@ -36,6 +36,10 @@ export default {
           items: [],
         },
         partners: {
+          title: '',
+          items: [],
+        },
+        partnersBottom: {
           title: '',
           items: [],
         },
@@ -156,6 +160,7 @@ export default {
     hero: ({ data }) => get(data, 'hero'),
     activities: ({ data }) => get(data, 'activities'),
     partners: ({ data }) => get(data, 'partners'),
+    partnersBottom: ({ data }) => get(data, 'partnersBottom'),
     about: ({ data }) => get(data, 'about'),
     event: ({ data }) => get(data, 'event'),
     crew: ({ data }) => get(data, 'crew'),
