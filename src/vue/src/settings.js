@@ -31,7 +31,7 @@ const settings = {
   /** @argument {String} API_PREFIX - to construct API_URL */
   API_PREFIX: 'api',
 
-  /** @argument {String} GOOGLE_MAP_KEY - google map api */
+  /** @argument {String} GOOGLE_MAP_KEY - google map api - @WARNING this is a bad one, please do not erase the good one on the server (same file) */
   GOOGLE_MAP_KEY: 'AIzaSyBtNid05UlKS4tqTcJTJ6pHoSCEB2IG2OQ',
 
   /** @argument {String} API_URL - if null, create it below : `${BASE_URL}/${API_PREFIX}` */
