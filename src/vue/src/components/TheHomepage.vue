@@ -19,6 +19,7 @@ import SectionCrew from 'components/sections/Crew';
 import SectionGuests from 'components/sections/Guests';
 import SectionContact from 'components/sections/Contact';
 import SectionWhenAndWhere from 'components/sections/WhenAndWhere';
+import NewsletterPoppin from 'components/sections/Newsletter/Popin';
 import UiVideo from 'components/ui/Video';
 import UiLightbox from 'components/ui/Lightbox';
 
@@ -34,6 +35,7 @@ export default {
     SectionGuests,
     SectionContact,
     SectionWhenAndWhere,
+    NewsletterPoppin,
     UiVideo,
     UiLightbox,
   },
@@ -211,6 +213,8 @@ export default {
         cover="contain"
         class="video"/>
     </UiLightbox>
+    
+    <NewsletterPoppin />
   </div>
 </template>
 
