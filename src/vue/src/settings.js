@@ -43,7 +43,8 @@ const settings = {
 
   /** @argument {Array} cookies - list of cookies names, please keep locale */
   cookies: {
-    locale: 'htdocs_locale', // not sure about this?
+    locale: 'asbestos_locale', // not sure about this?
+    newsletter: 'asbestos_newsletter', // not sure about this?
   },
 
   /** @argument {Object} axios - axios config on create */
