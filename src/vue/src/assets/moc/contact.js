@@ -12,6 +12,13 @@ export default {
           src: '/uploads/partners-bottom/04-slacktivity.png',
           // src: '/wp-content/uploads/static/partners-bottom/xxxxxxx.png',
         },
+      },
+      {
+        name: 'Desjardins',
+        url: 'https://www.desjardins.com',
+        image: {
+          src: '/uploads/partners-bottom/06-desjardins.png',
+        },
       }, {
         name: 'Slackline Mtl',
         url: 'http://slacklinemtl.com',

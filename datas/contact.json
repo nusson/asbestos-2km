@@ -10,6 +10,13 @@
 					"src": "/wp-content/uploads/static/partners-bottom/04-slacktivity.png"
 				}
 			},
+      {
+        "name": "Desjardins",
+        "url": "https://www.desjardins.com",
+        "image": {
+          "src": "/wp-content/uploads/static/partners-bottom/06-desjardins.png",
+        }
+      },
 			{
 				"name": "Slackline Mtl",
 				"url": "http://slacklinemtl.com",

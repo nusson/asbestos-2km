@@ -31,6 +31,12 @@ export default {
       image: {
         src: '/wp-content/uploads/static/partners/englobe.png',
       },
+    }, {
+      name: 'MRC des sources',
+      url: 'http://www.mrcdessources.com',
+      image: {
+        src: '/wp-content/uploads/static/partners/mrcdessources.png',
+      },
     },
   ],
 };
