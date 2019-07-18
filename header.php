@@ -22,6 +22,7 @@ $navigation = file_get_contents(get_stylesheet_directory() . '/datas/navigation.
 	<meta name="fragment" content="!">
 	<?php wp_head(); ?>
 	<title>Slackfest Asbestos 2Km</title>
+	<meta name="keywords" content="Slackfest, highline, slackline, record, 2km, asbestos, quebec, montreal, canada, funambules, funambules modernes, mine, juillet, 2019, 2.0" />
 	<meta name="description" content="Le plus grand événement de Highline au Canada. La deuxième édition prendra place du 25 au 27 Juillet 2019 aux abords du puits minier Jeffrey à Asbestos." />
 	<meta property="fb:app_id" content="416724898878853" />
 	<meta property="og:type" content="website" />
