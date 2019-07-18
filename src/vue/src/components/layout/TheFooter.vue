@@ -8,11 +8,13 @@
 <script>
 import { mapGetters } from 'vuex';
 import UiIconsSocial from 'components/ui/Icons/Social';
+// import NewsletterForm from 'components/sections/Newsletter/Form';
 
 export default {
   name: 'TheFooter',
   components: {
     UiIconsSocial,
+    // NewsletterForm,
   },
   props: {
     social: {
@@ -35,8 +37,14 @@ export default {
 
 <template>
   <footer class="TheFooter">
+    <!-- <NewsletterForm class="NewsletterForm" /> -->
     <nav class="navigation -social">
       <ul class="list">
+        <li class="item -btn">
+          <button
+            class="no_btn newsletter-btn"
+            @click.prevent="$root.$emit('open-newsletter')">Infolettre</button>
+        </li>
         <li
           v-for="({href, label, platform}, index) in social"
           :key="`footer-cocial-${index}`"
@@ -87,4 +95,19 @@ export default {
     >.item
       &:not(:first-child)
         margin-left 20px
+
+  .newsletter-btn
+    background none
+    border none
+    color $c-white
+    display inline-block
+    padding-right 10px
+    cursor pointer
+    // border-bottom 1px solid $c-white
+    .no-touchevents &:hover
+      color $c-accent
+
+  .form
+    float left
+    color $c-white
 </style>

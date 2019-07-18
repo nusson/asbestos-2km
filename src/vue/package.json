@@ -53,6 +53,7 @@
     "@storybook/vue": "^4.1.13",
     "autoprefixer": "^9.1.5",
     "autoprefixer-loader": "^3.2.0",
+    "axios-jsonp": "^1.0.2",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-file-loader": "^1.1.0",
