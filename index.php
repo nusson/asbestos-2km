@@ -91,6 +91,8 @@ get_header();
         cover="contain"
         class="video"/>
     </ui-lightbox>
+    
+    <newsletter-poppin></newsletter-poppin>
   </div>
 
 <?php
