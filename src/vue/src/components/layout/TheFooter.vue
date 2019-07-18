@@ -43,7 +43,7 @@ export default {
         <li class="item -btn">
           <button
             class="no_btn newsletter-btn"
-            @click.prevent="$root.$emit('open-newsletter')">Infolettre</button>
+            @click.prevent="$root.$emit('open-newsletter')">Inscription à l'Infolettre</button>
         </li>
         <li
           v-for="({href, label, platform}, index) in social"
