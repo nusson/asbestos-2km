@@ -11,94 +11,94 @@
 import { mapGetters } from 'vuex';
 import Cookies from 'js-cookie';
 import settings from 'src/settings';
-import IconMailbox from "assets/svg/mailbox.svg?vue";
+import IconMailbox from 'assets/svg/mailbox.svg?vue';
 import IconClose from 'assets/svg/close.svg?vue';
+import NewsletterForm from './Form';
 
 const debug = process.env.NODE_ENV === 'development'; // && false;
 
 export default {
-  name: "NewsletterPopin",
-  components: { IconMailbox, IconClose },
+  name: 'NewsletterPopin',
+  components: { IconMailbox, IconClose, NewsletterForm },
   props: {
     title: {
       type: String,
-      default: "Ne manquez rien !"
+      default: 'Ne manquez rien !',
     },
     description: {
       type: String,
-      default: "Inscrivez vous a notre infolettre pour rester au courant de l'événement"
-    }
+      default: "Inscrivez vous a notre infolettre pour rester au courant de l'événement",
+    },
   },
   data() {
     return {
       show: false,
-      delay: debug? 2000 : 20000, // 20 secondes
-      email: null
+      delay: debug ? 2000 : 20000, // 20 secondes
     };
   },
-  computed:{
+  computed: {
     ...mapGetters({
       isMobile: 'Interface/isMobile',
     }),
-    wasAlreadyClosed(){
-      if(debug){
-        return false
+    wasAlreadyClosed() {
+      if (debug) {
+        return false;
       }
       return Cookies.get(settings.cookies.newsletter) === 'true';
-    }
+    },
   },
   mounted() {
-    this.autoShow()
+    this.autoShow();
+    this.$root.$on('open-newsletter', () => {
+      this.show = true;
+    });
   },
   methods: {
-    autoShow(){
-      if(this.wasAlreadyClosed){
-        return
+    autoShow() {
+      if (this.wasAlreadyClosed) {
+        return;
       }
-      setTimeout(()=>{
-        this.show = true
-      }, this.delay)
+      setTimeout(() => {
+        this.show = true;
+      }, this.delay);
     },
-    close(){
+    close() {
       Cookies.set(settings.cookies.newsletter, true);
-      this.show = false
+      this.show = false;
     },
-    onenter(el, done){
-      const props = (()=>{
-        if(this.isMobile){
+    onenter(el, done) {
+      const props = (() => {
+        if (this.isMobile) {
           return {
-            from:{ y:'110%' },
-            to:{ y:'0%' }
-          }
+            from: { y: '110%' },
+            to: { y: '0%' },
+          };
         }
         return {
-          from:{ x:'110%' },
-          to:{ x:'0%' }
-        }
-      })()
+          from: { x: '110%' },
+          to: { x: '0%' },
+        };
+      })();
       return TweenMax.fromTo(el, 0.6, props.from, {
-        ...props.to, 
+        ...props.to,
         onComplete: done,
-        ease: Power4.easeOut
-      })
+        ease: Power4.easeOut,
+      });
     },
-    onleave(el, done){
-      const props = (()=>{
-        if(this.isMobile){
-          return { y:'110%' }
+    onleave(el, done) {
+      const props = (() => {
+        if (this.isMobile) {
+          return { y: '110%' };
         }
-        return {x:'110%' }
-      })()
+        return { x: '110%' };
+      })();
       return TweenMax.to(el, 0.4, {
-        ...props, 
+        ...props,
         onComplete: done,
-        ease: Back.easeIn
-      })
+        ease: Back.easeIn,
+      });
     },
-    onsubmit(){
-      console.log('@todo submit newsletter');
-    }
-  }
+  },
 };
 </script>
 
@@ -107,25 +107,25 @@ export default {
     appear
     @enter="onenter"
     @leave="onleave">
-    <div class="NewsletterPopin" v-if="show">
+    <div
+      v-if="show"
+      class="NewsletterPopin">
       <IconMailbox class="icon -mail"/>
       <div class="content">
-        <button class="_no-btn close"
+        <button
+          class="_no-btn close"
           @click.prevent="close">
           <IconClose class="icon" />
         </button>
-        <h4 class="title" v-text="title"/>
-        <p class="description" v-html="description"/>
-        <form action="" class="form" @submit.prevent="onsubmit">
-          <div class="form-content">
-            <div class="field -email">
-              <input class="input -email" type="email" v-model="email" placeholder="Votre courriel"/>
-            </div>
-            <div class="field -submit">
-              <button type="submit" class="_no-btn cta">S'inscrire</button>
-            </div>
-          </div>
-        </form>
+        <h4
+          class="title"
+          v-text="title"/>
+        <p
+          class="description"
+          v-html="description"/>
+        <NewsletterForm
+          :on-close="close"
+          class="form"/>
       </div>
     </div>
   </transition>
@@ -170,10 +170,10 @@ export default {
     .no-touchevents &:hover
     &.active
       fill $c-accent
-  
+
   >.content
     position relative
-  
+
   .title
     f-style(title, h3)
   .description
@@ -187,27 +187,29 @@ export default {
     // .no-touchevents &:hover
     // &.active
     //   fill $c-accent
-  
-  .form
-    margin-top 20px
 
-  .form-content
-    flexbox(row, $align:stretch)
-  
-  .field
-    flex 0 0 auto
-    &.-email
-      flex 1 1 100%
-  .input
-    size 100%
-    &.-email
-      border none
-      background none
-      border 1px solid
-      border-right none
-      x-padding(0.4em)
 
-  .cta
-    margin 0
   //  ===DEBUG===
+  // #mc_embed_signup form
+  //   padding 0
+  //   margin-top 20px
+  //   .cta
+  //     margin 0
+  //     border-radius 0
+  //   .input
+  //     border-radius 0
+  //     border-right 0
+  //     padding 0 0.4em
+
+  //   #mce-responses
+  //     padding 0
+  //     margin 0
+  //     #mce-error-response
+  //     #mce-success-response
+  //       padding 0
+  //       margin 1em 0 0
+  //     #mce-success-response
+  //       color $c-success
+  //     #mce-error-response
+  //       color $c-error
 </style>
