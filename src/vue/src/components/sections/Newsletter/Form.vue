@@ -62,7 +62,7 @@ export default {
         this.success = true;
         setTimeout(() => {
           this.onClose();
-        }, 4000);
+        }, 2800);
       })
       .catch(({ message }) => {
         this.error = message;

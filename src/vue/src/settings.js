@@ -35,7 +35,7 @@ const settings = {
    * copy good one before build
    * https://console.cloud.google.com/apis/credentials/key/ce38b3dc-666c-4894-9930-b419f62e842f?project=friendly-gamma-240317
    */
-  GOOGLE_MAP_KEY: 'BIzaSyA0T-AIzaSyCBHzs06cj_zX4I73r8DAELIcW-v_3RZLE',
+  GOOGLE_MAP_KEY: 'BAD_ONE',
 
   /** @argument {String} API_URL - if null, create it below : `${BASE_URL}/${API_PREFIX}` */
   API_URL: null,
