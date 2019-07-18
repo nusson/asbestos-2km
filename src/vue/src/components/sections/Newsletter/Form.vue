@@ -20,7 +20,6 @@ export default {
     onClose: {
       type: Function,
       default() {
-        console.log('default close, set cookie');
         Cookies.set(settings.cookies.newsletter, true);
       },
     },
@@ -61,7 +60,9 @@ export default {
           throw new Error(data.msg);
         }
         this.success = true;
-        this.onClose();
+        setTimeout(() => {
+          this.onClose();
+        }, 4000);
       })
       .catch(({ message }) => {
         this.error = message;
