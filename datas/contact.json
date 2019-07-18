@@ -65,6 +65,20 @@
 				"image": {
 					"src": "/wp-content/uploads/static/partners-bottom/18-securite-landry.png"
 				}
+			},
+			{
+				"name": "Coop Metro Asbestos",
+				"url": "https://www.metro.ca/trouver-une-epicerie/163",
+				"image": {
+					"src": "/wp-content/uploads/static/partners-bottom/19-coop-metro.png"
+				}
+			},
+			{
+				"name": "Organic Matters",
+				"url": "https://www.omfoods.com",
+				"image": {
+					"src": "/wp-content/uploads/static/partners-bottom/20-om-food.png"
+				}
 			}
 		]
 	},
