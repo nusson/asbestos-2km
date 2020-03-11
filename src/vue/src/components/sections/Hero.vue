@@ -40,6 +40,15 @@ export default {
       type: String,
       default: null,
     },
+    video_cta: {
+      type: Object,
+      default() {
+        return {
+          label: 'Voir la vidéo',
+          enabled: true,
+        };
+      },
+    },
     bg_image: {
       type: String,
       default: null,
@@ -99,11 +108,12 @@ export default {
           v-text="subtitle" /> -->
 
         <button
+          v-if="video_cta.enabled"
           class="_no-btn cta"
           @click.prevent="play">
           <span
             class="text"
-            v-text="$t('play')"/>
+            v-text="video_cta.label"/>
         </button>
       </div>
       <UiButtonScrollDown class="flex-spacer scroll" />
@@ -118,7 +128,7 @@ export default {
     <UiVideo
       v-else-if="videos.background"
       ref="VideoBg"
-      v-bind='videos.background'
+      v-bind="videos.background"
       :autoplay="true"
       :preload="'metadata'"
       :loop="true"

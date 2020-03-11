@@ -100,7 +100,7 @@ export default {
 
   //  ===LAYOUT===
   .SectionContact
-    background black url('/wp-content/uploads/static/section-contact.jpg') 60% 80% no-repeat
+    background black url('http://asbestos.int/wp-content/uploads/static/section-contact.jpg') 60% 80% no-repeat
     background-size cover
     background-attachment fixed
     color $c-white

@@ -49,7 +49,7 @@ export default {
         class="description _wysiwyg"
         v-html="description"/>
       <a
-        v-if="cta"
+        v-if="cta && ! cta.enabled === false"
         :href="cta.href"
         class="cta"
         target="_blank"

@@ -1,28 +1,41 @@
 {
 	"title": "Présenté par",
-	"items": [{
-		"name": "Moulin 7",
-		"url": "http://moulin7.com",
-		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/partners/moulin7.jpg"
-		}
-	}, {
+	"primary": [{
 		"name": "Ville Asbestos",
 		"url": "https://ville.asbestos.qc.ca",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/partners/asbestos.svg"
+			"src": "http://asbestos.int/wp-content/uploads/partners/asbestos.svg"
+		}
+	}, {
+    "name": "MRC des sources",
+		"url": "http://www.mrcdessources.com",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/partners/mrcdessources.png"
+		}
+	}],
+	"secondary": [{
+    "name": "Moulin 7",
+		"url": "http://moulin7.com",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/partners/moulin7.jpg"
 		}
 	}, {
 		"name": "Englobe",
 		"url": "https://englobecorp.com",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/partners/englobe.png"
+			"src": "http://asbestos.int/wp-content/uploads/partners/englobe.png"
 		}
 	}, {
-		"name": "MRC des sources",
-		"url": "http://www.mrcdessources.com",
+		"name": "Desjardin",
+		"url": "https://www.desjardins.com",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/partners/mrcdessources.png"
+			"src": "http://asbestos.int/wp-content/uploads/partners/desjardin.png"
+		}
+	}, {
+		"name": "SADC",
+		"url": "https://www.sadc-cae.ca",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/partners/sadc.png"
 		}
 	}]
 }

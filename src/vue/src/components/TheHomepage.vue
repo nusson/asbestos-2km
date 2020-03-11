@@ -116,7 +116,7 @@ export default {
         }
         return list;
       })();
-      each(sections, (options) => {
+      each(sections, (options, index) => {
         const slide = options.triggerElement.querySelector('.slide-effect');
 
         const scene = new Scene({
@@ -124,7 +124,7 @@ export default {
           triggerHook: 'onEnter',
           ...options,
         })
-          .setTween(slide, { y: '50%', ease: Linear.easeNone });
+          .setTween(slide, { y: `${index === 0 ? 50 : 75}%`, ease: Linear.easeNone });
         this.$store.dispatch('ScrollMagic/ADD_SCENE', {
           scene,
           indicators: false,
@@ -213,7 +213,7 @@ export default {
         cover="contain"
         class="video"/>
     </UiLightbox>
-    
+
     <NewsletterPoppin />
   </div>
 </template>

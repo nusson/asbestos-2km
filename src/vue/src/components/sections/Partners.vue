@@ -20,7 +20,13 @@ export default {
       type: String,
       default: 'Asbestos 2.0',
     },
-    items: {
+    primary: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+    secondary: {
       type: Array,
       default() {
         return [];
@@ -45,10 +51,16 @@ export default {
       };
       const tl = new TimelineMax()
         .fromTo(this.$refs.Title, 0.4, from, to, 0.2)
-        .staggerFromTo(this.$refs.Partner, 0.4, from, {
+        .staggerFromTo(this.$refs.PartnerPrimary, 0.4, from, {
           ...to,
           cycle: {
-            delay: i => Math.abs(Math.floor(this.$refs.Partner.length / 2) - i) * 0.05,
+            delay: i => Math.abs(Math.floor(this.$refs.PartnerPrimary.length / 2) - i) * 0.05,
+          },
+        }, 0, 0.3)
+        .staggerFromTo(this.$refs.PartnerSecondary, 0.4, from, {
+          ...to,
+          cycle: {
+            delay: i => Math.abs(Math.floor(this.$refs.PartnerSecondary.length / 2) - i) * 0.05,
           },
         }, 0, 0.3);
 
@@ -69,7 +81,7 @@ export default {
 
 <template>
   <section
-    v-if="items.length"
+    v-if="primary.length"
     class="SectionPartners">
     <header class="header">
       <h1
@@ -77,20 +89,43 @@ export default {
         class="title"
         v-text="title"/>
     </header>
-    <ol class="partners list">
+    <ol class="partners list -primary">
       <li
-        v-for="(partner, index) in items"
+        v-for="(partner, index) in primary"
         :key="`partner-${index}`"
         class="item">
         <figure
-          ref="Partner"
+          ref="PartnerPrimary"
           class="partner">
           <a
             :href="partner.url"
             target="_blank"
             class="partner link">
             <UiPicture
-              v-bind='partner.image'
+              v-bind="partner.image"
+              class="logo"
+              cover="contain"/>
+          </a>
+          <figcaption
+            class="caption"
+            v-text="partner.name"/>
+        </figure>
+      </li>
+    </ol>
+    <ol class="partners list -secondary">
+      <li
+        v-for="(partner, index) in secondary"
+        :key="`partner-${index}`"
+        class="item">
+        <figure
+          ref="PartnerSecondary"
+          class="partner">
+          <a
+            :href="partner.url"
+            target="_blank"
+            class="partner link">
+            <UiPicture
+              v-bind="partner.image"
               class="logo"
               cover="contain"/>
           </a>
@@ -138,6 +173,9 @@ export default {
       // x-margin(40px)
       flex-basis 25%
       max-width 200px
+      .-primary&
+        max-width 300px
+        flex-basis 40%
       // +.item
       //   margin-left 10%
 

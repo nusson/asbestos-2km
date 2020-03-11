@@ -37,7 +37,8 @@ export default {
         },
         partners: {
           title: '',
-          items: [],
+          primary: [],
+          secondary: [],
         },
         partnersBottom: {
           title: '',

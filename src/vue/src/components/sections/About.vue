@@ -99,7 +99,7 @@ export default {
 
   .SectionAbout
     position relative
-    background black url('/wp-content/uploads/static/section-hero.jpg') center 100% no-repeat
+    background black url('http://asbestos.int/wp-content/uploads/section-hero.jpg') center 100% no-repeat
     // background black url('/wp-content/uploads/static/Photo en haut de la page complètement.jpg') center center no-repeat
     background-size cover
     &:after
@@ -113,7 +113,7 @@ export default {
       width 100%
       safe-content()
       // padding-top 10vh
-      responsive-prop(padding-top, 30vh 20vh 0px)
+      responsive-prop(padding-top, 15vh 12vh 0px)
 
   .title
     f-style(title, h1, $color: $c-white)
@@ -125,6 +125,7 @@ export default {
     responsive-prop(max-width, 800px 700px 500px)
     +not-mobile()
       column-count 2
+      column-gap 60px
 
   //  ===DEBUG===
 </style>

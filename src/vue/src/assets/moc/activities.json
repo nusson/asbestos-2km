@@ -1,9 +1,10 @@
 {
 	"title": "Des activités<br>pour tous",
-	"description": "<p>Les meilleurs highliners freestyle en compétition, 3 soirs de musique en plein air, cours de Yoga, Workshops, initiation à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place.</p>",
+	"description": "<p>Venez observer la traversée impressionnante et souvent émouvante de la highline de 2,000 mètres. Trois soirs de musique en plein air, des compétitions de highline, des spectacles acrobatiques, cours de yoga, workshops, initiations à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place !</p><p>Le programme complet est à venir ! Reste à l’affut !</p>",
   "cta": {
     "label": "Voir le programme complet",
-    "href": "http://asbestos.int/wp-content/uploads/static/asbestos-slackfest-2.0.pdf"
+		"href": "http://asbestos.int/wp-content/uploads/static/asbestos-slackfest-2.0.pdf",
+		"enabled": false
 	},
 	"items": [{
 		"title": "La traversée de 2km",
