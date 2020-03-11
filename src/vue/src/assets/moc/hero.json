@@ -1,0 +1,28 @@
+{
+	"title_image": "http://asbestos.int/wp-content/uploads/static/hero/title-fr.svg",
+	"bg_image": "http://asbestos.int/wp-content/uploads/static/hero/poster-mobile.jpg",
+	"videos": {
+		"main": {
+			"poster": null,
+			"sources": {
+				"640": {
+					"webm": "http://asbestos.int/wp-content/uploads/static/hero/main-1280.webm",
+					"mp4": "http://asbestos.int/wp-content/uploads/static/hero/main-640.mp4"
+				},
+				"1280": {
+					"webm": "http://asbestos.int/wp-content/uploads/static/hero/main-1280.webm",
+					"mp4": "http://asbestos.int/wp-content/uploads/static/hero/main-1280.mp4"
+				}
+			}
+		},
+		"background": {
+			"poster": null,
+			"sources": {
+				"1024": {
+					"webm": "http://asbestos.int/wp-content/uploads/static/hero/background-1024.webm",
+					"mp4": "http://asbestos.int/wp-content/uploads/static/hero/background-640.mp4"
+				}
+			}
+		}
+	}
+}

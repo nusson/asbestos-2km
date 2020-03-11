@@ -10,7 +10,7 @@
 				"debug": true
 			},
 			"big": {
-				"src": "/wp-content/uploads/static/athletes/Mia-Noblet.jpg"
+				"src": "http://asbestos.int/wp-content/uploads/static/athletes/Mia-Noblet.jpg"
 			}
 		}
 	}, {
@@ -23,7 +23,7 @@
 				"debug": true
 			},
 			"big": {
-				"src": "/wp-content/uploads/static/athletes/Ari-DeLashmutt---Slackline.jpg"
+				"src": "http://asbestos.int/wp-content/uploads/static/athletes/Ari-DeLashmutt---Slackline.jpg"
 			}
 		}
 	}, {
@@ -35,7 +35,7 @@
 				"debug": true
 			},
 			"big": {
-				"src": "/wp-content/uploads/static/athletes/Anthony-Boulay.jpg"
+				"src": "http://asbestos.int/wp-content/uploads/static/athletes/Anthony-Boulay.jpg"
 			}
 		}
 	}, {
@@ -48,7 +48,7 @@
 				"debug": true
 			},
 			"big": {
-				"src": "/wp-content/uploads/static/athletes/Spenser-Seabrooke---Slackliner.jpg"
+				"src": "http://asbestos.int/wp-content/uploads/static/athletes/Spenser-Seabrooke---Slackliner.jpg"
 			}
 		}
 	}, {
@@ -61,7 +61,7 @@
 				"debug": true
 			},
 			"big": {
-				"src": "/wp-content/uploads/static/athletes/Copie-de-Asbestos-1.9km-_C7A5210.jpg"
+				"src": "http://asbestos.int/wp-content/uploads/static/athletes/Copie-de-Asbestos-1.9km-_C7A5210.jpg"
 			}
 		}
 	}, {
@@ -74,7 +74,7 @@
 				"debug": true
 			},
 			"big": {
-				"src": "/wp-content/uploads/static/athletes/Lukas-Irmler---Slackliner.jpg"
+				"src": "http://asbestos.int/wp-content/uploads/static/athletes/Lukas-Irmler---Slackliner.jpg"
 			}
 		}
 	}, {
@@ -87,7 +87,7 @@
 				"debug": true
 			},
 			"big": {
-				"src": "/wp-content/uploads/static/athletes/Liz-Thomas.jpg"
+				"src": "http://asbestos.int/wp-content/uploads/static/athletes/Liz-Thomas.jpg"
 			}
 		}
 	}, {
@@ -100,7 +100,7 @@
 				"debug": true
 			},
 			"big": {
-				"src": "/wp-content/uploads/static/athletes/Michael-Madsen.jpg"
+				"src": "http://asbestos.int/wp-content/uploads/static/athletes/Michael-Madsen.jpg"
 			}
 		}
 	}]

@@ -4,25 +4,25 @@
 		"name": "Moulin 7",
 		"url": "http://moulin7.com",
 		"image": {
-			"src": "/wp-content/uploads/static/partners/moulin7.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/static/partners/moulin7.jpg"
 		}
 	}, {
 		"name": "Ville Asbestos",
 		"url": "https://ville.asbestos.qc.ca",
 		"image": {
-			"src": "/wp-content/uploads/static/partners/asbestos.svg"
+			"src": "http://asbestos.int/wp-content/uploads/static/partners/asbestos.svg"
 		}
 	}, {
 		"name": "Englobe",
 		"url": "https://englobecorp.com",
 		"image": {
-			"src": "/wp-content/uploads/static/partners/englobe.png"
+			"src": "http://asbestos.int/wp-content/uploads/static/partners/englobe.png"
 		}
 	}, {
 		"name": "MRC des sources",
 		"url": "http://www.mrcdessources.com",
 		"image": {
-			"src": "/wp-content/uploads/static/partners/mrcdessources.png"
+			"src": "http://asbestos.int/wp-content/uploads/static/partners/mrcdessources.png"
 		}
 	}]
 }

@@ -92,6 +92,7 @@ export default {
   },
   mutations: {
     STORE_DATA(state, data) {
+      console.debug('SET_GLOBALS', data);
       state.data = data;
       state.loaded = true;
     },

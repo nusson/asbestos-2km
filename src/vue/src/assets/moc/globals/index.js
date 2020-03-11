@@ -1,6 +1,6 @@
-import navigation from 'assets/moc/navigation';
-import activities from 'assets/moc/activities';
-import hero from 'assets/moc/hero';
+import navigation from '../navigation';
+import activities from '../activities';
+import hero from '../hero.json';
 import partners from '../partners';
 import partnersBottom from '../partners-bottom';
 import about from '../about';
@@ -9,6 +9,7 @@ import crew from '../crew';
 import athletes from '../athletes';
 import whenAndWhere from '../whenAndWhere';
 import contact from '../contact';
+import social from '../social';
 
 export default {
   partnersBottom,
@@ -22,16 +23,5 @@ export default {
   athletes,
   whenAndWhere,
   contact,
-  social: [
-    {
-      label: 'instagram',
-      href: '#instagram',
-      platform: 'instagram',
-    },
-    {
-      label: 'Facebook',
-      href: '#facebook',
-      platform: 'facebook',
-    },
-  ],
+  social,
 };
