@@ -3,50 +3,56 @@
 	"description": "<p>Venez observer la traversée impressionnante et souvent émouvante de la highline de 2,000 mètres. Trois soirs de musique en plein air, des compétitions de highline, des spectacles acrobatiques, cours de yoga, workshops, initiations à la slackline, activités participatives pour tous les âges, nourriture et bière locale sur place !</p><p>Le programme complet est à venir ! Reste à l’affut !</p>",
   "cta": {
     "label": "Voir le programme complet",
-		"href": "http://asbestos.int/wp-content/uploads/static/asbestos-slackfest-2.0.pdf",
+		"href": "http://asbestos.int/wp-content/uploads/asbestos-slackfest-2.0.pdf",
 		"enabled": false
 	},
 	"items": [{
 		"title": "La traversée de 2km",
-		"description": "Tout au long de la fin de semaine, une quinzaine d’athlètes monteront tour à tour sur la Highline la plus longue jamais traversée afin de tenter de battre un nouveau record du monde!",
+		"description": "Tout au long de la fin de semaine, une quinzaine d’athlètes monteront tour à tour sur la plus longue highline au monde et termineront au-dessus de toi. Un spectacle inspirant et improbable.",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/activities/traversee-2km.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/activities/traversee-2km.jpg"
 		}
 	}, {
-		"title": "La 1ere compétition de Highline Freestyle au Canada",
-		"description": "Venez encourager les athlètes lors de cette compétition de calibre international.<br>Attendez-vous à un spectacle impressionnant avec des mouvements uniques requérant le plus haut niveau d’équilibre!<br><br><a href=\"https://www.instagram.com/p/Bp-5dv6Fu2h/?utm_source=ig_web_copy_link\" target=\"_blank\" title=\"Démonstration de highline freestyle\" style=\"text-decoration:underline;\">Qu`est-ce que la highline freestyle?</a>",
-		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/activities/highline-freestyle.jpg"
+		"title": "Compétitions de highline",
+    "description": "Viens encourager les athlètes lors de cette compétition de calibre international. Attends-toi à un spectacle impressionnant avec deux concours : style libre et rapidité.<br>Le tout premier concours de rapidité sur highline au Canada te donnera envie de tester tes capacités dans la zone de Slackline Caisse Desjardins des Sources directement après ! <br><br><a href=\"https://www.instagram.com/p/Bp-5dv6Fu2h/?utm_source=ig_web_copy_link\" target=\"_blank\" title=\"Démonstration de highline freestyle\" style=\"text-decoration:underline;\">Qu`est-ce que la highline freestyle?</a>",
+    "image": {
+			"src": "http://asbestos.int/wp-content/uploads/activities/highline-freestyle.jpg"
 		}
 	}, {
-		"title": "Initiations",
-		"description": "Tout ceux qui le souhaitent auront la chance de se faire initier à ce sport d’équilibre dans un environnement sécuritaire adapté à tous les niveaux et accompagné de Slackliners accomplis.",
+		"title": "Spectacles acrobatiques",
+		"description": "Des spectacles inédits t’en mettront plein les yeux ! Avec le groupe de funambules sur place, tu n’es pas prêt pour voir ce qu’ils te réservent ! Le niveau de talent au mètre carré fait peur pendant le Slackfest !",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/activities/innitiations.jpg"
-		}
-	}, {
-		"title": "Démonstrations",
-		"description": "\n          À tout moment, devant vos yeux, notre brochette d’athlètes vous feront la démonstration d’une multitudes de mouvements inédits, inventés ou simplement improbables.\n<br>Préparez-vous à être surpris devant nos performances enflammées!\n        ",
-		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/activities/demonstrations.jpg"
-		}
-	}, {
-		"title": "Activités familiales",
-		"description": "Des activités pour tous les goûts. Du Yoga jusqu’aux séances de maquillages pour les touts petits, tout le monde sera diverti!",
-		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/activities/activites-familiales.jpg"
-		}
-	}, {
-		"title": "Soirées-Spectacles",
-		"description": "Les soirées se poursuivent dans une ambiance festive grâce aux musiciens spécialement sélectionnés pour s’assurer de terminer la journée en beauté.",
-		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/activities/soirees-spectacles.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/activities/spectacles-acrobatiques.jpg"
 		}
 	}, {
 		"title": "Nourriture et Rafraîchissements",
 		"description": "Pour tous les appétits et pour toutes les soifs, chacun y trouvera son compte avec la présence de Foodtrucks diversifiés et de bières locales sur place.",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/activities/nourriture-et-alcool.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/activities/nourriture-et-rafraîchissements.jpg"
 		}
-	}]
+	}, {
+		"title": "Concerts musicaux",
+		"description": "Si tu as fait partie de l’aventure les années précédentes, tu sais comment les concerts du Slackfest nous rendent heureux. Encore une fois cette année, on invite des artistes d’ici qu’on aime énormément. Ils sauront vous mettre la larme à l’oeil au coucher du soleil, et vous faire danser jusqu’à user vos semelles de botines.<br><br><a href=\"https://www.facebook.com/lesfunambulesmodernes\" target=\"_blank\" title=\"Page Facebook des funambules modernes\">La programmation musicale sera dévoilée sur notre page Facebook !! Restes à l’affût !</a>",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/activities/concerts-musicaux.jpg"
+		}
+	}, {
+		"title": "Initiations",
+		"description": "Tout ceux qui le souhaitent auront la chance de se faire initier à ce sport d’équilibre dans un environnement sécuritaire adapté à tous les niveaux et accompagné de Slackliners accomplis.",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/activities/initiations.jpg"
+		}
+	}, {
+		"title": "Démonstrations",
+		"description": "À tout moment, devant vos yeux, notre brochette d’athlètes vous feront la démonstration d’une multitudes de mouvements inédits, inventés ou simplement improbables !",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/activities/demonstrations.jpg"
+		}
+  }, {
+		"title": "Activités familiales",
+		"description": "Des activités pour tous les goûts. Du Yoga jusqu’aux séances de maquillages pour les touts petits, tout le monde sera diverti!",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/activities/activites-familiales.jpg"
+		}
+  }]
 }

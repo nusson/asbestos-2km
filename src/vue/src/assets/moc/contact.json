@@ -3,84 +3,70 @@
 	"partners": {
 		"title": "Nos partenaires",
 		"items": [
-			{
-				"name": "Slacktivity",
-				"url": "https://www.slacktivity.com",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/04-slacktivity.png"
-				}
-			},
       {
-        "name": "Desjardins",
-        "url": "https://www.desjardins.com",
+        "name": "Palco",
+        "url": "https://palco-palette.com",
         "image": {
-          "src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/06-desjardins.png"
+          "src": "/uploads/partners-bottom/21-palco.png"
         }
       },
-			{
-				"name": "Slackline Mtl",
-				"url": "http://slacklinemtl.com",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/07-slackline-mtl.png"
-				}
-			},
-			{
-				"name": "Slackline Qc",
-				"url": "https://www.facebook.com/slacklineqc",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/08-slackline-qc.png"
-				}
-			},
-			{
-				"name": "Guru",
-				"url": "https://www.guruenergy.com",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/09-guru-red.png"
-				}
-			},
-			{
-				"name": "CanpPev",
-				"url": "https://canprev.ca",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/10-canprev.png"
-				}
-			},
-			{
-				"name": "Keen",
-				"url": "https://www.keenfootwear.com",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/16-keen.png"
-				}
-			},
-			{
-				"name": "Rise Kombucha",
-				"url": "https://risekombucha.com",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/17-rise.png"
-				}
-			},
-			{
-				"name": "Securité Landry",
-				"url": "https://www.securitelandry.com",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/18-securite-landry.png"
-				}
-			},
-			{
-				"name": "Coop Metro Asbestos",
-				"url": "https://www.metro.ca/trouver-une-epicerie/163",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/19-coop-metro.png"
-				}
-			},
-			{
-				"name": "Organic Matters",
-				"url": "https://www.omfoods.com",
-				"image": {
-					"src": "http://asbestos.int/wp-content/uploads/static/partners-bottom/20-om-food.png"
-				}
-			}
-		]
+      {
+        "name": "Événements Lodge",
+        "url": "https://www.evenementslodge.com",
+        "image": {
+          "src": "/uploads/partners-bottom/22-evenements-lodge.png"
+        }
+      },
+      {
+        "name": "Slacktivity",
+        "url": "https://www.slacktivity.com",
+        "image": {
+          "src": "/uploads/partners-bottom/04-slacktivity.png"
+        }
+      },
+      {
+        "name": "Slackline Mtl",
+        "url": "http://slacklinemtl.com",
+        "image": {
+          "src": "/uploads/partners-bottom/07-slackline-mtl.png"
+        }
+      },
+      {
+        "name": "Slackline Qc",
+        "url": "https://www.facebook.com/slacklineqc",
+        "image": {
+          "src": "/uploads/partners-bottom/08-slackline-qc.png"
+        }
+      },
+      {
+        "name": "Securité Landry",
+        "url": "https://www.securitelandry.com",
+        "image": {
+          "src": "/uploads/partners-bottom/18-securite-landry.png"
+        }
+      },
+      {
+        "name": "Guru",
+        "url": "https://www.guruenergy.com",
+        "image": {
+          "src": "/uploads/partners-bottom/09-guru-red.png"
+        }
+      },
+      {
+        "name": "J.M. Chaperon",
+        "url": "https://fr-ca.facebook.com/pages/category/Local-Service/J-M-Chaperon-Inc-304130403018361",
+        "image": {
+          "src": "/uploads/partners-bottom/13-chaperon.png"
+        }
+      },
+      {
+        "name": "Pneu Goulet",
+        "url": "https://pneusgoulet.com",
+        "image": {
+          "src": "/uploads/partners-bottom/14-pneu-goulet.png"
+        }
+      }
+    ]
 	},
 	"become_partner": {
 		"title": "Devenir partenaire",

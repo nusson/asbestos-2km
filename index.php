@@ -66,7 +66,7 @@ get_header();
       data-anchor="crew"
       class="section -crew">
     </section-crew>
-
+    
     <section-guests
       v-bind='<?php echo $athletes; ?>'
       data-anchor="athletes"

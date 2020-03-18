@@ -39,7 +39,7 @@ export default {
 </script>
 
 <template>
-  <section class="SectionGuests section">
+  <section v-if="items.length" class="SectionGuests section">
     <SectionHeader
       :title="title"
       :description="description"

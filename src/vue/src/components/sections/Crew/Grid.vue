@@ -43,7 +43,7 @@ export default {
         @click="toggle(index)">
         <div class="background">
           <UiPicture
-            v-bind='item.image'
+            v-bind="item.image"
             :full="true"
             class="picture"
             cover="cover" />
@@ -94,11 +94,13 @@ export default {
   .figure
     // absolute 0
     // flexbox(column)
+    >>>.image
+      object-position center top
   .background
     // absolute 0
     width 100%
     // flex 1 1 100%
-    ratio-box(4/3)
+    ratio-box(1)
 
   .caption
     display block

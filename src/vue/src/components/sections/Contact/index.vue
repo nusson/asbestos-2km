@@ -65,7 +65,7 @@ export default {
       class="partners" />
 
     <section
-      v-if="become_partner"
+      v-if="become_partner && become_partner.display"
       class="become-partners">
       <header class="header">
         <h3
@@ -100,7 +100,9 @@ export default {
 
   //  ===LAYOUT===
   .SectionContact
-    background black url('http://asbestos.int/wp-content/uploads/static/section-contact.jpg') 60% 80% no-repeat
+    background black url('http://asbestos.int/wp-content/uploads/section-contact.jpg') 20% bottom no-repeat
+    +mobile()
+      background-position-x 40%
     background-size cover
     background-attachment fixed
     color $c-white

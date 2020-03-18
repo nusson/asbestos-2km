@@ -1,64 +1,64 @@
 {
 	"title": "Les personnes<br>derrière ce projet",
 	"items": [{
-		"name": "Dany",
-		"place": "Coordonnateur du projet",
+		"name": "Danny",
+		"place": "Coordonnateur du Slackfest",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/Dany.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/team/danny.jpg"
+		}
+  }, {
+		"name": "Isabelle",
+		"place": "Coordonnatrice du Slackfest",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/team/isabelle.jpg"
+		}
+	}, {
+		"name": "Danick",
+		"place": "Directeur à la production des concerts",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/team/danick.jpg"
 		}
 	}, {
 		"name": "Mathieu",
 		"place": "Responsable des installations de slackline",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/Mathieu.jpg"
-		}
-	}, {
-		"name": "Danick",
-		"place": "Responsable site et événement",
-		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/danick.jpg"
-		}
-	}, {
-		"name": "Camille",
-		"place": "Responsable du campement",
-		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/Camille.jpg"
-		}
-	}, {
-		"name": "Félix",
-		"place": "Responsable du campement",
-		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/Felix.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/team/mathieu.jpg"
 		}
 	}, {
 		"name": "Nicolas",
-		"place": "Programmation Web",
+		"place": "Programmeur web",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/Nico.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/team/nicolas.jpg"
 		}
 	}, {
 		"name": "Cinthia",
-		"place": "Marketing",
+		"place": "Responsable des communications et marketing",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/Cinthia.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/team/cinthia.jpg"
+		}
+	}, {
+		"name": "Caël",
+		"place": "Responsable des installations de slackline",
+		"image": {
+			"src": "http://asbestos.int/wp-content/uploads/team/cael.jpg"
 		}
 	}, {
 		"name": "Karine",
-		"place": "Animations",
+		"place": "Formatrice et pro de Slackline",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/Karine.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/team/karine.jpg"
 		}
 	}, {
 		"name": "Renaud",
-		"place": "Installations slackline",
+		"place": "Responsable des installations de slackline",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/Renaud.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/team/renaud.jpg"
 		}
 	}, {
-		"name": "Dominic",
-		"place": "Commanditaires",
+		"name": "Thomas",
+		"place": "Photographe",
 		"image": {
-			"src": "http://asbestos.int/wp-content/uploads/static/team/Dominic.jpg"
+			"src": "http://asbestos.int/wp-content/uploads/team/thomas.jpg"
 		}
 	}]
 }
