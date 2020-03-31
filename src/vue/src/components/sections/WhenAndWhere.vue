@@ -55,9 +55,9 @@ export default {
     // },
   },
   mounted() {
-    if (process.env.NODE_ENV !== 'development') {
+    // if (process.env.NODE_ENV !== 'development') {
       GoogleMaps.KEY = settings.GOOGLE_MAP_KEY; // this.map.gmap.key;
-    }
+    // }
     GoogleMaps.load(this.onGoogleLoaded.bind(this));
     // this.onGoogleLoaded(window.google);
   },

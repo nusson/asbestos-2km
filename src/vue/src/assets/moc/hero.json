@@ -1,5 +1,5 @@
 {
-	"title_image": "http://asbestos.int/wp-content/uploads/hero/title-fr.svg",
+	"title_image": "http://asbestos.int/wp-content/uploads/hero/logo.png",
   "bg_image": "http://asbestos.int/wp-content/uploads/hero/poster-mobile.jpg",
   "video_cta": {
     "label": "Voir la vidéo",
@@ -23,7 +23,7 @@
 			"poster": null,
 			"sources": {
 				"1024": {
-					"webm": "http://asbestos.int/wp-content/uploads/hero/background-1024.webm",
+					"webm": "http://asbestos.int/wp-content/uploads/hero/background-1920.webm",
 					"mp4": "http://asbestos.int/wp-content/uploads/hero/background-640.mp4"
 				}
 			}
